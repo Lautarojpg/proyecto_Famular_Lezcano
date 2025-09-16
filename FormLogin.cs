@@ -35,6 +35,10 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
