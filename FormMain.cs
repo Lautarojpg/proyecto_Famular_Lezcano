@@ -46,5 +46,10 @@ namespace proyecto_Famular_Lezcano
         {
             AbrirUserControl(new UCInformes());
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

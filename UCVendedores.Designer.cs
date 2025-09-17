@@ -43,70 +43,92 @@
             // LTitulo
             // 
             LTitulo.AutoSize = true;
-            LTitulo.Location = new Point(14, 31);
+            LTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            LTitulo.ForeColor = Color.Maroon;
+            LTitulo.Location = new Point(16, 41);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(146, 15);
+            LTitulo.Size = new Size(318, 32);
             LTitulo.TabIndex = 0;
             LTitulo.Text = "GESTION DE VENDEDORES";
             // 
             // BAgregar
             // 
-            BAgregar.Location = new Point(480, 31);
+            BAgregar.BackColor = Color.FromArgb(128, 64, 0);
+            BAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BAgregar.ForeColor = Color.White;
+            BAgregar.Location = new Point(475, 44);
+            BAgregar.Margin = new Padding(3, 4, 3, 4);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(152, 23);
+            BAgregar.Size = new Size(174, 31);
             BAgregar.TabIndex = 1;
             BAgregar.Text = "Agregar Vendedor";
-            BAgregar.UseVisualStyleBackColor = true;
+            BAgregar.UseVisualStyleBackColor = false;
             BAgregar.Click += BAgregar_Click;
             // 
             // dgvVendedores
             // 
             dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVendedores.Columns.AddRange(new DataGridViewColumn[] { nombre_vendedor, apellido_vendedor, acronimo_vendedor, email_vendedor, estado_vendedor, acciones });
-            dgvVendedores.Location = new Point(3, 100);
+            dgvVendedores.Location = new Point(-50, 115);
+            dgvVendedores.Margin = new Padding(3, 4, 3, 4);
             dgvVendedores.Name = "dgvVendedores";
-            dgvVendedores.Size = new Size(629, 164);
+            dgvVendedores.RowHeadersWidth = 51;
+            dgvVendedores.Size = new Size(754, 270);
             dgvVendedores.TabIndex = 2;
             // 
             // nombre_vendedor
             // 
             nombre_vendedor.HeaderText = "Nombre";
+            nombre_vendedor.MinimumWidth = 6;
             nombre_vendedor.Name = "nombre_vendedor";
+            nombre_vendedor.Width = 125;
             // 
             // apellido_vendedor
             // 
             apellido_vendedor.HeaderText = "Apellido";
+            apellido_vendedor.MinimumWidth = 6;
             apellido_vendedor.Name = "apellido_vendedor";
+            apellido_vendedor.Width = 125;
             // 
             // acronimo_vendedor
             // 
             acronimo_vendedor.HeaderText = "Acronimo";
+            acronimo_vendedor.MinimumWidth = 6;
             acronimo_vendedor.Name = "acronimo_vendedor";
+            acronimo_vendedor.Width = 125;
             // 
             // email_vendedor
             // 
             email_vendedor.HeaderText = "Email";
+            email_vendedor.MinimumWidth = 6;
             email_vendedor.Name = "email_vendedor";
+            email_vendedor.Width = 125;
             // 
             // estado_vendedor
             // 
             estado_vendedor.HeaderText = "Estado";
+            estado_vendedor.MinimumWidth = 6;
             estado_vendedor.Name = "estado_vendedor";
+            estado_vendedor.Width = 125;
             // 
             // acciones
             // 
             acciones.HeaderText = "Acciones";
+            acciones.MinimumWidth = 6;
             acciones.Name = "acciones";
+            acciones.Width = 125;
             // 
             // UCVendedores
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 224, 192);
             Controls.Add(dgvVendedores);
             Controls.Add(BAgregar);
             Controls.Add(LTitulo);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UCVendedores";
-            Size = new Size(635, 490);
+            Size = new Size(726, 653);
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).EndInit();
             ResumeLayout(false);
             PerformLayout();

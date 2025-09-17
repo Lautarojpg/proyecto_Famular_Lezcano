@@ -62,10 +62,10 @@
             dgvUsuarios.BackgroundColor = Color.FromArgb(255, 224, 192);
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
-            dgvUsuarios.Location = new Point(30, 70);
+            dgvUsuarios.Location = new Point(-40, 81);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new Size(850, 300);
+            dgvUsuarios.Size = new Size(877, 289);
             dgvUsuarios.TabIndex = 1;
             dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
@@ -123,7 +123,7 @@
             btnAgregarUsuario.BackColor = Color.FromArgb(128, 64, 0);
             btnAgregarUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAgregarUsuario.ForeColor = Color.White;
-            btnAgregarUsuario.Location = new Point(700, 20);
+            btnAgregarUsuario.Location = new Point(594, 21);
             btnAgregarUsuario.Name = "btnAgregarUsuario";
             btnAgregarUsuario.Size = new Size(170, 35);
             btnAgregarUsuario.TabIndex = 2;
@@ -144,7 +144,7 @@
             // 
             btnSiguiente.BackColor = Color.Maroon;
             btnSiguiente.ForeColor = Color.White;
-            btnSiguiente.Location = new Point(770, 400);
+            btnSiguiente.Location = new Point(684, 400);
             btnSiguiente.Name = "btnSiguiente";
             btnSiguiente.Size = new Size(100, 30);
             btnSiguiente.TabIndex = 4;
@@ -164,6 +164,7 @@
             Controls.Add(btnSiguiente);
             Name = "UCClientes";
             Size = new Size(900, 500);
+            Load += UCClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
             PerformLayout();

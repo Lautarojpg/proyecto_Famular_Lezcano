@@ -72,17 +72,18 @@
             ClientesPanel.BackColor = Color.AntiqueWhite;
             ClientesPanel.BorderStyle = BorderStyle.FixedSingle;
             ClientesPanel.Controls.Add(LClientes);
-            ClientesPanel.Location = new Point(320, 80);
+            ClientesPanel.Location = new Point(285, 80);
             ClientesPanel.Name = "ClientesPanel";
             ClientesPanel.Size = new Size(250, 100);
             ClientesPanel.TabIndex = 2;
+            ClientesPanel.Paint += ClientesPanel_Paint;
             // 
             // LClientes
             // 
             LClientes.AutoSize = true;
             LClientes.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             LClientes.ForeColor = Color.Maroon;
-            LClientes.Location = new Point(20, 30);
+            LClientes.Location = new Point(27, 30);
             LClientes.Name = "LClientes";
             LClientes.Size = new Size(201, 46);
             LClientes.TabIndex = 0;
@@ -93,7 +94,7 @@
             VentasPanel.BackColor = Color.AntiqueWhite;
             VentasPanel.BorderStyle = BorderStyle.FixedSingle;
             VentasPanel.Controls.Add(LVentas);
-            VentasPanel.Location = new Point(620, 80);
+            VentasPanel.Location = new Point(556, 80);
             VentasPanel.Name = "VentasPanel";
             VentasPanel.Size = new Size(250, 100);
             VentasPanel.TabIndex = 3;
@@ -116,7 +117,7 @@
             MasVendidasPanel.Controls.Add(LMasVendidas);
             MasVendidasPanel.Location = new Point(20, 220);
             MasVendidasPanel.Name = "MasVendidasPanel";
-            MasVendidasPanel.Size = new Size(400, 200);
+            MasVendidasPanel.Size = new Size(385, 191);
             MasVendidasPanel.TabIndex = 4;
             // 
             // LMasVendidas
@@ -135,9 +136,9 @@
             ActividadPanel.BackColor = Color.AntiqueWhite;
             ActividadPanel.BorderStyle = BorderStyle.FixedSingle;
             ActividadPanel.Controls.Add(LActividad);
-            ActividadPanel.Location = new Point(470, 220);
+            ActividadPanel.Location = new Point(439, 220);
             ActividadPanel.Name = "ActividadPanel";
-            ActividadPanel.Size = new Size(400, 200);
+            ActividadPanel.Size = new Size(367, 191);
             ActividadPanel.TabIndex = 5;
             // 
             // LActividad
@@ -174,7 +175,7 @@
             Controls.Add(MasVendidasPanel);
             Controls.Add(ActividadPanel);
             Name = "UCInformes";
-            Size = new Size(900, 600);
+            Size = new Size(931, 600);
             PeliculasPanel.ResumeLayout(false);
             PeliculasPanel.PerformLayout();
             ClientesPanel.ResumeLayout(false);

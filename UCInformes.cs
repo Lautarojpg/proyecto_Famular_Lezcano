@@ -16,5 +16,10 @@ namespace proyecto_Famular_Lezcano
         {
             InitializeComponent();
         }
+
+        private void ClientesPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

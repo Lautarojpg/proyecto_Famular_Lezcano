@@ -21,5 +21,10 @@ namespace proyecto_Famular_Lezcano
         {
 
         }
+
+        private void UCClientes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
