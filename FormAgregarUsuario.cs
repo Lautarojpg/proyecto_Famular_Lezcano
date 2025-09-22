@@ -11,6 +11,7 @@ namespace proyecto_Famular_Lezcano
         public Usuario? NuevoUsuario { get; private set; }
         private bool _esEdicion = false;
         private string? _passwordActual; // 👈 guardamos la pass hash si no se cambia
+        private string rol;
 
         public FormAgregarUsuario()
         {
@@ -69,7 +70,7 @@ namespace proyecto_Famular_Lezcano
                 NuevoUsuario.NombreUsuario = TNomUsuario.Text;
                 NuevoUsuario.Contrasena = hashedPassword;
                 NuevoUsuario.Email = TEmail.Text;
-                NuevoUsuario.Rol = "Vendedor"; // o permitir editar el rol si querés
+                NuevoUsuario.Rol = rol; // o permitir editar el rol si querés
             }
             else
             {
@@ -83,7 +84,7 @@ namespace proyecto_Famular_Lezcano
                     NombreUsuario = TNomUsuario.Text,
                     Contrasena = hashedPassword,
                     Email = TEmail.Text,
-                    Rol = "Vendedor",
+                    Rol = rol,
                 };
             }
 
@@ -106,5 +107,19 @@ namespace proyecto_Famular_Lezcano
             Close();
         }
 
+        private void rbVendedor_CheckedChanged(object sender, EventArgs e)
+        {
+            rol = "Vendedor";
+        }
+
+        private void rbGerente_CheckedChanged(object sender, EventArgs e)
+        {
+            rol = "Gerente";
+        }
+
+        private void rbAdministrador_CheckedChanged(object sender, EventArgs e)
+        {
+            rol = "Administrador";
+        }
     }
 }

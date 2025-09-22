@@ -69,11 +69,12 @@
             // 
             dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVendedores.Columns.AddRange(new DataGridViewColumn[] { nombre_vendedor, apellido_vendedor, acronimo_vendedor, email_vendedor, estado_vendedor, acciones });
-            dgvVendedores.Location = new Point(-50, 115);
+            dgvVendedores.Location = new Point(16, 140);
             dgvVendedores.Margin = new Padding(3, 4, 3, 4);
             dgvVendedores.Name = "dgvVendedores";
             dgvVendedores.RowHeadersWidth = 51;
-            dgvVendedores.Size = new Size(754, 270);
+            dgvVendedores.ScrollBars = ScrollBars.Vertical;
+            dgvVendedores.Size = new Size(679, 270);
             dgvVendedores.TabIndex = 2;
             // 
             // nombre_vendedor
