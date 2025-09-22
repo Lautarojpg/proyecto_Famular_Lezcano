@@ -1,7 +1,8 @@
-﻿using System;
+﻿using proyecto_Famular_Lezcano.Models; // para acceder al DbContext y Usuario
+using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using proyecto_Famular_Lezcano.Models; // 👈 para acceder al DbContext y Usuario
 
 namespace proyecto_Famular_Lezcano
 {
@@ -12,6 +13,12 @@ namespace proyecto_Famular_Lezcano
         public UCVendedores()
         {
             InitializeComponent();
+
+            // Justo después de InitializeComponent()
+            dgvVendedores.AutoGenerateColumns = false;
+            dgvVendedores.AllowUserToOrderColumns = false;
+            dgvVendedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVendedores.MultiSelect = false;
 
             _context = new ProyectoFamularLezcanoContext();
 
@@ -32,12 +39,12 @@ namespace proyecto_Famular_Lezcano
             dgvVendedores.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Usuario",
-                DataPropertyName = "NombreUsuario"   // 👈 propiedad real
+                DataPropertyName = "NombreUsuario"   //  propiedad real
             });
             dgvVendedores.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Password (Hash)",
-                DataPropertyName = "Contrasena"      // 👈 guardamos hash
+                DataPropertyName = "Contrasena"      //  guardamos hash
             });
             dgvVendedores.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -91,12 +98,17 @@ namespace proyecto_Famular_Lezcano
             {
                 if (form.ShowDialog() == DialogResult.OK && form.NuevoUsuario != null)
                 {
+
+                    form.NuevoUsuario.IdUsuario = 0; // dejar que SQL genere el ID
+
                     _context.Usuarios.Add(form.NuevoUsuario);
                     _context.SaveChanges();
-                    CargarUsuarios(); // refrescar el grid
+                    CargarUsuarios();
                 }
             }
         }
+
+
 
         // 🔹 Evento para botones en el DataGridView
         private void dgvVendedores_CellClick(object sender, DataGridViewCellEventArgs e)

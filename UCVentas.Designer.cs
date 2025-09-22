@@ -60,9 +60,10 @@
             pnlNuevaFactura.Controls.Add(lblIVA);
             pnlNuevaFactura.Controls.Add(lblTotal);
             pnlNuevaFactura.Controls.Add(btnGenerar);
-            pnlNuevaFactura.Location = new Point(20, 40);
+            pnlNuevaFactura.Location = new Point(3, 30);
+            pnlNuevaFactura.Margin = new Padding(3, 2, 3, 2);
             pnlNuevaFactura.Name = "pnlNuevaFactura";
-            pnlNuevaFactura.Size = new Size(388, 500);
+            pnlNuevaFactura.Size = new Size(340, 376);
             pnlNuevaFactura.TabIndex = 0;
             // 
             // lblTitulo1
@@ -70,51 +71,54 @@
             lblTitulo1.AutoSize = true;
             lblTitulo1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTitulo1.ForeColor = Color.Maroon;
-            lblTitulo1.Location = new Point(20, 20);
+            lblTitulo1.Location = new Point(18, 15);
             lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(182, 28);
+            lblTitulo1.Size = new Size(144, 21);
             lblTitulo1.TabIndex = 0;
             lblTitulo1.Text = "📄 Nueva Factura";
             // 
             // cbCliente
             // 
             cbCliente.Items.AddRange(new object[] { "María González", "Carlos Rodríguez", "Ana Martínez" });
-            cbCliente.Location = new Point(20, 70);
+            cbCliente.Location = new Point(18, 52);
+            cbCliente.Margin = new Padding(3, 2, 3, 2);
             cbCliente.Name = "cbCliente";
-            cbCliente.Size = new Size(350, 28);
+            cbCliente.Size = new Size(307, 23);
             cbCliente.TabIndex = 1;
             // 
             // cbPelicula
             // 
             cbPelicula.Items.AddRange(new object[] { "Casablanca (1942)", "El Padrino (1972)", "Vértigo (1958)" });
-            cbPelicula.Location = new Point(20, 120);
+            cbPelicula.Location = new Point(18, 90);
+            cbPelicula.Margin = new Padding(3, 2, 3, 2);
             cbPelicula.Name = "cbPelicula";
-            cbPelicula.Size = new Size(350, 28);
+            cbPelicula.Size = new Size(307, 23);
             cbPelicula.TabIndex = 2;
             // 
             // nudCantidad
             // 
-            nudCantidad.Location = new Point(20, 170);
+            nudCantidad.Location = new Point(18, 128);
+            nudCantidad.Margin = new Padding(3, 2, 3, 2);
             nudCantidad.Name = "nudCantidad";
-            nudCantidad.Size = new Size(100, 27);
+            nudCantidad.Size = new Size(88, 23);
             nudCantidad.TabIndex = 3;
             nudCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lblSubtotal
             // 
             lblSubtotal.AutoSize = true;
-            lblSubtotal.Location = new Point(20, 230);
+            lblSubtotal.Location = new Point(18, 172);
             lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(107, 20);
+            lblSubtotal.Size = new Size(84, 15);
             lblSubtotal.TabIndex = 4;
             lblSubtotal.Text = "Subtotal: $0.00";
             // 
             // lblIVA
             // 
             lblIVA.AutoSize = true;
-            lblIVA.Location = new Point(20, 260);
+            lblIVA.Location = new Point(18, 195);
             lblIVA.Name = "lblIVA";
-            lblIVA.Size = new Size(115, 20);
+            lblIVA.Size = new Size(90, 15);
             lblIVA.TabIndex = 5;
             lblIVA.Text = "IVA (21%): $0.00";
             // 
@@ -123,9 +127,9 @@
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblTotal.ForeColor = Color.Maroon;
-            lblTotal.Location = new Point(20, 290);
+            lblTotal.Location = new Point(18, 218);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(104, 23);
+            lblTotal.Size = new Size(86, 19);
             lblTotal.TabIndex = 6;
             lblTotal.Text = "Total: $0.00";
             // 
@@ -134,9 +138,10 @@
             btnGenerar.BackColor = Color.Maroon;
             btnGenerar.FlatStyle = FlatStyle.Flat;
             btnGenerar.ForeColor = Color.White;
-            btnGenerar.Location = new Point(20, 340);
+            btnGenerar.Location = new Point(18, 255);
+            btnGenerar.Margin = new Padding(3, 2, 3, 2);
             btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(350, 40);
+            btnGenerar.Size = new Size(306, 30);
             btnGenerar.TabIndex = 7;
             btnGenerar.Text = "\U0001f9fe Generar Factura";
             btnGenerar.UseVisualStyleBackColor = false;
@@ -150,9 +155,10 @@
             pnlFacturas.Controls.Add(factura2);
             pnlFacturas.Controls.Add(factura3);
             pnlFacturas.Controls.Add(btnVerTodas);
-            pnlFacturas.Location = new Point(450, 40);
+            pnlFacturas.Location = new Point(358, 30);
+            pnlFacturas.Margin = new Padding(3, 2, 3, 2);
             pnlFacturas.Name = "pnlFacturas";
-            pnlFacturas.Size = new Size(354, 500);
+            pnlFacturas.Size = new Size(310, 376);
             pnlFacturas.TabIndex = 1;
             // 
             // lblTitulo2
@@ -160,36 +166,36 @@
             lblTitulo2.AutoSize = true;
             lblTitulo2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTitulo2.ForeColor = Color.Maroon;
-            lblTitulo2.Location = new Point(20, 20);
+            lblTitulo2.Location = new Point(18, 15);
             lblTitulo2.Name = "lblTitulo2";
-            lblTitulo2.Size = new Size(221, 28);
+            lblTitulo2.Size = new Size(176, 21);
             lblTitulo2.TabIndex = 0;
             lblTitulo2.Text = "📑 Facturas Recientes";
             // 
             // factura1
             // 
             factura1.AutoSize = true;
-            factura1.Location = new Point(20, 70);
+            factura1.Location = new Point(18, 52);
             factura1.Name = "factura1";
-            factura1.Size = new Size(291, 20);
+            factura1.Size = new Size(227, 15);
             factura1.TabIndex = 1;
             factura1.Text = "Factura #001234 - María González - $24.19";
             // 
             // factura2
             // 
             factura2.AutoSize = true;
-            factura2.Location = new Point(20, 100);
+            factura2.Location = new Point(18, 75);
             factura2.Name = "factura2";
-            factura2.Size = new Size(301, 20);
+            factura2.Size = new Size(236, 15);
             factura2.TabIndex = 2;
             factura2.Text = "Factura #001233 - Carlos Rodríguez - $30.24";
             // 
             // factura3
             // 
             factura3.AutoSize = true;
-            factura3.Location = new Point(20, 130);
+            factura3.Location = new Point(18, 98);
             factura3.Name = "factura3";
-            factura3.Size = new Size(276, 20);
+            factura3.Size = new Size(217, 15);
             factura3.TabIndex = 3;
             factura3.Text = "Factura #001232 - Ana Martínez - $55.78";
             // 
@@ -198,22 +204,24 @@
             btnVerTodas.BackColor = Color.Maroon;
             btnVerTodas.FlatStyle = FlatStyle.Flat;
             btnVerTodas.ForeColor = Color.White;
-            btnVerTodas.Location = new Point(151, 416);
+            btnVerTodas.Location = new Point(132, 312);
+            btnVerTodas.Margin = new Padding(3, 2, 3, 2);
             btnVerTodas.Name = "btnVerTodas";
-            btnVerTodas.Size = new Size(200, 40);
+            btnVerTodas.Size = new Size(175, 30);
             btnVerTodas.TabIndex = 4;
             btnVerTodas.Text = "📂 Ver Todas las Facturas";
             btnVerTodas.UseVisualStyleBackColor = false;
             // 
             // UCVentas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             Controls.Add(pnlNuevaFactura);
             Controls.Add(pnlFacturas);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UCVentas";
-            Size = new Size(900, 600);
+            Size = new Size(691, 450);
             pnlNuevaFactura.ResumeLayout(false);
             pnlNuevaFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();

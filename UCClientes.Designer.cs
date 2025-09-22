@@ -51,21 +51,22 @@
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             labelTitulo.ForeColor = Color.Maroon;
-            labelTitulo.Location = new Point(20, 20);
+            labelTitulo.Location = new Point(18, 15);
             labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new Size(242, 32);
+            labelTitulo.Size = new Size(181, 25);
             labelTitulo.TabIndex = 0;
-            labelTitulo.Text = "Gestión de Usuarios";
+            labelTitulo.Text = "Gestión de Clientes";
             // 
             // dgvUsuarios
             // 
             dgvUsuarios.BackgroundColor = Color.FromArgb(255, 224, 192);
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
-            dgvUsuarios.Location = new Point(-40, 81);
+            dgvUsuarios.Location = new Point(-35, 61);
+            dgvUsuarios.Margin = new Padding(3, 2, 3, 2);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new Size(877, 289);
+            dgvUsuarios.Size = new Size(767, 217);
             dgvUsuarios.TabIndex = 1;
             dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
@@ -123,19 +124,21 @@
             btnAgregarUsuario.BackColor = Color.FromArgb(128, 64, 0);
             btnAgregarUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAgregarUsuario.ForeColor = Color.White;
-            btnAgregarUsuario.Location = new Point(594, 21);
+            btnAgregarUsuario.Location = new Point(520, 16);
+            btnAgregarUsuario.Margin = new Padding(3, 2, 3, 2);
             btnAgregarUsuario.Name = "btnAgregarUsuario";
-            btnAgregarUsuario.Size = new Size(170, 35);
+            btnAgregarUsuario.Size = new Size(149, 41);
             btnAgregarUsuario.TabIndex = 2;
-            btnAgregarUsuario.Text = "+ Agregar Usuario";
+            btnAgregarUsuario.Text = "+ Agregar Cliente";
             btnAgregarUsuario.UseVisualStyleBackColor = false;
             // 
             // btnAnterior
             // 
             btnAnterior.BackColor = Color.LightGray;
-            btnAnterior.Location = new Point(20, 400);
+            btnAnterior.Location = new Point(18, 300);
+            btnAnterior.Margin = new Padding(3, 2, 3, 2);
             btnAnterior.Name = "btnAnterior";
-            btnAnterior.Size = new Size(100, 30);
+            btnAnterior.Size = new Size(88, 22);
             btnAnterior.TabIndex = 3;
             btnAnterior.Text = "← Anterior";
             btnAnterior.UseVisualStyleBackColor = false;
@@ -144,16 +147,17 @@
             // 
             btnSiguiente.BackColor = Color.Maroon;
             btnSiguiente.ForeColor = Color.White;
-            btnSiguiente.Location = new Point(684, 400);
+            btnSiguiente.Location = new Point(598, 300);
+            btnSiguiente.Margin = new Padding(3, 2, 3, 2);
             btnSiguiente.Name = "btnSiguiente";
-            btnSiguiente.Size = new Size(100, 30);
+            btnSiguiente.Size = new Size(88, 22);
             btnSiguiente.TabIndex = 4;
             btnSiguiente.Text = "Siguiente →";
             btnSiguiente.UseVisualStyleBackColor = false;
             // 
             // UCClientes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             BorderStyle = BorderStyle.FixedSingle;
@@ -162,8 +166,9 @@
             Controls.Add(btnAgregarUsuario);
             Controls.Add(btnAnterior);
             Controls.Add(btnSiguiente);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UCClientes";
-            Size = new Size(900, 500);
+            Size = new Size(788, 375);
             Load += UCClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);

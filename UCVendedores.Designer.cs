@@ -45,23 +45,22 @@
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             LTitulo.ForeColor = Color.Maroon;
-            LTitulo.Location = new Point(16, 41);
+            LTitulo.Location = new Point(14, 52);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(318, 32);
+            LTitulo.Size = new Size(222, 25);
             LTitulo.TabIndex = 0;
-            LTitulo.Text = "GESTION DE VENDEDORES";
+            LTitulo.Text = "GESTION DE USUARIOS";
             // 
             // BAgregar
             // 
             BAgregar.BackColor = Color.FromArgb(128, 64, 0);
             BAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BAgregar.ForeColor = Color.White;
-            BAgregar.Location = new Point(475, 44);
-            BAgregar.Margin = new Padding(3, 4, 3, 4);
+            BAgregar.Location = new Point(505, 46);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(174, 31);
+            BAgregar.Size = new Size(152, 40);
             BAgregar.TabIndex = 1;
-            BAgregar.Text = "Agregar Vendedor";
+            BAgregar.Text = "Agregar Usuarios";
             BAgregar.UseVisualStyleBackColor = false;
             BAgregar.Click += BAgregar_Click;
             // 
@@ -69,12 +68,10 @@
             // 
             dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVendedores.Columns.AddRange(new DataGridViewColumn[] { nombre_vendedor, apellido_vendedor, acronimo_vendedor, email_vendedor, estado_vendedor, acciones });
-            dgvVendedores.Location = new Point(16, 140);
-            dgvVendedores.Margin = new Padding(3, 4, 3, 4);
+            dgvVendedores.Location = new Point(3, 173);
             dgvVendedores.Name = "dgvVendedores";
             dgvVendedores.RowHeadersWidth = 51;
-            dgvVendedores.ScrollBars = ScrollBars.Vertical;
-            dgvVendedores.Size = new Size(679, 270);
+            dgvVendedores.Size = new Size(654, 202);
             dgvVendedores.TabIndex = 2;
             // 
             // nombre_vendedor
@@ -121,15 +118,14 @@
             // 
             // UCVendedores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             Controls.Add(dgvVendedores);
             Controls.Add(BAgregar);
             Controls.Add(LTitulo);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "UCVendedores";
-            Size = new Size(726, 653);
+            Size = new Size(660, 490);
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).EndInit();
             ResumeLayout(false);
             PerformLayout();

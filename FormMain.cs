@@ -1,4 +1,4 @@
-namespace proyecto_Famular_Lezcano
+﻿namespace proyecto_Famular_Lezcano
 {
     public partial class FormMain : Form
     {
@@ -6,19 +6,13 @@ namespace proyecto_Famular_Lezcano
         public FormMain(string rol)
         {
             InitializeComponent();
-
             rolUsuario = rol;
         }
 
         private void AbrirUserControl(UserControl uc)
         {
-            // Limpia el panel derecho antes de cargar otro
             PanelContent.Controls.Clear();
-
-            // Configura el UserControl para que ocupe todo el panel
             uc.Dock = DockStyle.Fill;
-
-            // Agrega el nuevo UserControl
             PanelContent.Controls.Add(uc);
         }
 
@@ -49,7 +43,51 @@ namespace proyecto_Famular_Lezcano
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            // Primero deshabilitamos todo
+            DeshabilitarBoton(BClientes);
+            DeshabilitarBoton(BProductos);
+            DeshabilitarBoton(BVentas);
+            DeshabilitarBoton(BVendedores);
+            DeshabilitarBoton(BInformes);
 
+            // Luego habilitamos según el rol
+            switch (rolUsuario)
+            {
+                case "Administrador":
+                    HabilitarBoton(BClientes);
+                    HabilitarBoton(BProductos);
+                    HabilitarBoton(BVentas);
+                    HabilitarBoton(BVendedores);
+                    HabilitarBoton(BInformes);
+                    break;
+
+                case "Gerente":
+                    HabilitarBoton(BProductos);
+                    HabilitarBoton(BVendedores);
+                    HabilitarBoton(BInformes);
+                    break;
+
+                case "Vendedor":
+                    HabilitarBoton(BVentas);
+                    HabilitarBoton(BClientes);
+                    break;
+            }
         }
+
+        private void HabilitarBoton(Button btn)
+        {
+            btn.Enabled = true;
+            btn.BackColor = Color.Maroon; // 👈 tu color normal (rojo oscuro)
+            btn.ForeColor = Color.White;  // texto blanco
+        }
+
+        private void DeshabilitarBoton(Button btn)
+        {
+            btn.Enabled = false;
+            btn.BackColor = Color.Gray;   // 👈 color grisado para deshabilitado
+            btn.ForeColor = Color.DarkGray;
+        }
+
     }
 }
+

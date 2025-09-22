@@ -51,41 +51,44 @@
             // PanelContent
             // 
             PanelContent.BackColor = Color.Bisque;
-            PanelContent.Location = new Point(381, 13);
-            PanelContent.Margin = new Padding(3, 4, 3, 4);
+            PanelContent.Location = new Point(202, 3);
             PanelContent.Name = "PanelContent";
-            PanelContent.Size = new Size(414, 622);
+            PanelContent.Size = new Size(692, 497);
             PanelContent.TabIndex = 1;
             // 
             // pictureBox5
             // 
             pictureBox5.Location = new Point(0, 0);
+            pictureBox5.Margin = new Padding(3, 2, 3, 2);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(100, 50);
+            pictureBox5.Size = new Size(88, 38);
             pictureBox5.TabIndex = 8;
             pictureBox5.TabStop = false;
             // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.Size = new Size(88, 38);
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.Size = new Size(88, 38);
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             pictureBox3.Location = new Point(0, 0);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(100, 50);
+            pictureBox3.Size = new Size(88, 38);
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
             // 
@@ -102,10 +105,9 @@
             PanelMenu.Controls.Add(pictureBox2);
             PanelMenu.Controls.Add(pictureBox1);
             PanelMenu.Controls.Add(pictureBox5);
-            PanelMenu.Location = new Point(0, 4);
-            PanelMenu.Margin = new Padding(3, 4, 3, 4);
+            PanelMenu.Location = new Point(0, 3);
             PanelMenu.Name = "PanelMenu";
-            PanelMenu.Size = new Size(224, 663);
+            PanelMenu.Size = new Size(196, 497);
             PanelMenu.TabIndex = 0;
             // 
             // BVendedores
@@ -115,11 +117,12 @@
             BVendedores.FlatStyle = FlatStyle.Flat;
             BVendedores.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BVendedores.ForeColor = Color.White;
-            BVendedores.Location = new Point(20, 426);
+            BVendedores.Location = new Point(18, 320);
+            BVendedores.Margin = new Padding(3, 2, 3, 2);
             BVendedores.Name = "BVendedores";
-            BVendedores.Size = new Size(130, 40);
+            BVendedores.Size = new Size(114, 30);
             BVendedores.TabIndex = 1;
-            BVendedores.Text = "\U0001f9d1‍💼 Vendedor";
+            BVendedores.Text = "\U0001f9d1‍ Usuarios";
             BVendedores.UseVisualStyleBackColor = false;
             BVendedores.Click += BVendedores_Click;
             // 
@@ -130,9 +133,10 @@
             BProductos.FlatStyle = FlatStyle.Flat;
             BProductos.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BProductos.ForeColor = Color.White;
-            BProductos.Location = new Point(20, 158);
+            BProductos.Location = new Point(18, 118);
+            BProductos.Margin = new Padding(3, 2, 3, 2);
             BProductos.Name = "BProductos";
-            BProductos.Size = new Size(130, 40);
+            BProductos.Size = new Size(114, 30);
             BProductos.TabIndex = 3;
             BProductos.Text = "📦 Productos";
             BProductos.UseVisualStyleBackColor = false;
@@ -145,9 +149,10 @@
             BInformes.FlatStyle = FlatStyle.Flat;
             BInformes.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BInformes.ForeColor = Color.White;
-            BInformes.Location = new Point(20, 580);
+            BInformes.Location = new Point(18, 435);
+            BInformes.Margin = new Padding(3, 2, 3, 2);
             BInformes.Name = "BInformes";
-            BInformes.Size = new Size(130, 40);
+            BInformes.Size = new Size(114, 30);
             BInformes.TabIndex = 0;
             BInformes.Text = "📊 Informes";
             BInformes.UseVisualStyleBackColor = false;
@@ -160,9 +165,10 @@
             BVentas.FlatStyle = FlatStyle.Flat;
             BVentas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BVentas.ForeColor = Color.White;
-            BVentas.Location = new Point(20, 293);
+            BVentas.Location = new Point(18, 220);
+            BVentas.Margin = new Padding(3, 2, 3, 2);
             BVentas.Name = "BVentas";
-            BVentas.Size = new Size(130, 40);
+            BVentas.Size = new Size(114, 30);
             BVentas.TabIndex = 2;
             BVentas.Text = "💵 Ventas";
             BVentas.UseVisualStyleBackColor = false;
@@ -175,9 +181,10 @@
             BClientes.FlatStyle = FlatStyle.Flat;
             BClientes.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BClientes.ForeColor = Color.White;
-            BClientes.Location = new Point(12, 34);
+            BClientes.Location = new Point(10, 26);
+            BClientes.Margin = new Padding(3, 2, 3, 2);
             BClientes.Name = "BClientes";
-            BClientes.Size = new Size(130, 40);
+            BClientes.Size = new Size(114, 30);
             BClientes.TabIndex = 0;
             BClientes.Text = "👥 Clientes";
             BClientes.UseVisualStyleBackColor = false;
@@ -186,20 +193,20 @@
             // pictureBox4
             // 
             pictureBox4.Location = new Point(0, 0);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(100, 50);
+            pictureBox4.Size = new Size(88, 38);
             pictureBox4.TabIndex = 4;
             pictureBox4.TabStop = false;
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
-            ClientSize = new Size(1035, 682);
+            ClientSize = new Size(906, 512);
             Controls.Add(PanelContent);
             Controls.Add(PanelMenu);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormMain";
             Text = "Cine Vintage - Menú";
             Load += FormMain_Load;

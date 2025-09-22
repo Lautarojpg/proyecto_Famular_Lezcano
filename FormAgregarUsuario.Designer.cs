@@ -43,119 +43,122 @@
             rbVendedor = new RadioButton();
             rbGerente = new RadioButton();
             rbAdministrador = new RadioButton();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // TNombre
             // 
-            TNombre.Location = new Point(161, 75);
-            TNombre.Margin = new Padding(3, 4, 3, 4);
+            TNombre.Location = new Point(126, 20);
             TNombre.Name = "TNombre";
-            TNombre.Size = new Size(285, 27);
+            TNombre.Size = new Size(250, 23);
             TNombre.TabIndex = 0;
             // 
             // TApellido
             // 
-            TApellido.Location = new Point(161, 129);
-            TApellido.Margin = new Padding(3, 4, 3, 4);
+            TApellido.Location = new Point(126, 56);
             TApellido.Name = "TApellido";
-            TApellido.Size = new Size(285, 27);
+            TApellido.Size = new Size(250, 23);
             TApellido.TabIndex = 1;
             // 
             // TNomUsuario
             // 
-            TNomUsuario.Location = new Point(161, 224);
-            TNomUsuario.Margin = new Padding(3, 4, 3, 4);
+            TNomUsuario.Location = new Point(126, 132);
             TNomUsuario.Name = "TNomUsuario";
-            TNomUsuario.Size = new Size(285, 27);
+            TNomUsuario.Size = new Size(250, 23);
             TNomUsuario.TabIndex = 2;
             // 
             // TEmail
             // 
-            TEmail.Location = new Point(161, 273);
-            TEmail.Margin = new Padding(3, 4, 3, 4);
+            TEmail.Location = new Point(126, 166);
             TEmail.Name = "TEmail";
-            TEmail.Size = new Size(285, 27);
+            TEmail.Size = new Size(250, 23);
             TEmail.TabIndex = 3;
             // 
             // LNombre
             // 
             LNombre.AutoSize = true;
-            LNombre.Location = new Point(14, 79);
+            LNombre.Location = new Point(10, 23);
             LNombre.Name = "LNombre";
-            LNombre.Size = new Size(67, 20);
+            LNombre.Size = new Size(54, 15);
             LNombre.TabIndex = 4;
             LNombre.Text = "Nombre:";
             // 
             // LApellido
             // 
             LApellido.AutoSize = true;
-            LApellido.Location = new Point(14, 133);
+            LApellido.Location = new Point(10, 64);
             LApellido.Name = "LApellido";
-            LApellido.Size = new Size(66, 20);
+            LApellido.Size = new Size(51, 15);
             LApellido.TabIndex = 5;
             LApellido.Text = "Apellido";
             // 
             // LNombreUsuario
             // 
             LNombreUsuario.AutoSize = true;
-            LNombreUsuario.Location = new Point(14, 231);
+            LNombreUsuario.Location = new Point(10, 135);
             LNombreUsuario.Name = "LNombreUsuario";
-            LNombreUsuario.Size = new Size(142, 20);
+            LNombreUsuario.Size = new Size(113, 15);
             LNombreUsuario.TabIndex = 6;
             LNombreUsuario.Text = "Nombre de Usuario:";
             // 
             // LEmail
             // 
             LEmail.AutoSize = true;
-            LEmail.Location = new Point(14, 277);
+            LEmail.Location = new Point(10, 169);
             LEmail.Name = "LEmail";
-            LEmail.Size = new Size(49, 20);
+            LEmail.Size = new Size(39, 15);
             LEmail.TabIndex = 7;
             LEmail.Text = "Email:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(161, 24);
+            label1.BackColor = Color.Maroon;
+            label1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Bisque;
+            label1.Location = new Point(138, 9);
             label1.Name = "label1";
-            label1.Size = new Size(131, 20);
+            label1.Size = new Size(137, 21);
             label1.TabIndex = 8;
             label1.Text = "Agregar Vendedor";
             // 
             // BAgregar
             // 
-            BAgregar.Location = new Point(172, 389);
-            BAgregar.Margin = new Padding(3, 4, 3, 4);
+            BAgregar.BackColor = Color.Maroon;
+            BAgregar.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BAgregar.ForeColor = Color.Bisque;
+            BAgregar.Location = new Point(159, 290);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(86, 31);
+            BAgregar.Size = new Size(103, 36);
             BAgregar.TabIndex = 9;
             BAgregar.Text = "Agregar";
-            BAgregar.UseVisualStyleBackColor = true;
+            BAgregar.UseVisualStyleBackColor = false;
             BAgregar.Click += BAgregar_Click;
             // 
             // LContraseña
             // 
             LContraseña.AutoSize = true;
-            LContraseña.Location = new Point(14, 189);
+            LContraseña.Location = new Point(10, 106);
             LContraseña.Name = "LContraseña";
-            LContraseña.Size = new Size(86, 20);
+            LContraseña.Size = new Size(70, 15);
             LContraseña.TabIndex = 11;
             LContraseña.Text = "Contraseña:";
             // 
             // TContraseña
             // 
-            TContraseña.Location = new Point(161, 179);
-            TContraseña.Margin = new Padding(3, 4, 3, 4);
+            TContraseña.Location = new Point(126, 98);
             TContraseña.Name = "TContraseña";
-            TContraseña.Size = new Size(285, 27);
+            TContraseña.Size = new Size(250, 23);
             TContraseña.TabIndex = 10;
             // 
             // rbVendedor
             // 
             rbVendedor.AutoSize = true;
-            rbVendedor.Location = new Point(14, 332);
+            rbVendedor.Location = new Point(10, 213);
+            rbVendedor.Margin = new Padding(3, 2, 3, 2);
             rbVendedor.Name = "rbVendedor";
-            rbVendedor.Size = new Size(94, 24);
+            rbVendedor.Size = new Size(75, 19);
             rbVendedor.TabIndex = 12;
             rbVendedor.TabStop = true;
             rbVendedor.Text = "Vendedor";
@@ -165,9 +168,10 @@
             // rbGerente
             // 
             rbGerente.AutoSize = true;
-            rbGerente.Location = new Point(172, 332);
+            rbGerente.Location = new Point(147, 213);
+            rbGerente.Margin = new Padding(3, 2, 3, 2);
             rbGerente.Name = "rbGerente";
-            rbGerente.Size = new Size(82, 24);
+            rbGerente.Size = new Size(66, 19);
             rbGerente.TabIndex = 13;
             rbGerente.TabStop = true;
             rbGerente.Text = "Gerente";
@@ -177,38 +181,50 @@
             // rbAdministrador
             // 
             rbAdministrador.AutoSize = true;
-            rbAdministrador.Location = new Point(322, 332);
+            rbAdministrador.Location = new Point(262, 213);
+            rbAdministrador.Margin = new Padding(3, 2, 3, 2);
             rbAdministrador.Name = "rbAdministrador";
-            rbAdministrador.Size = new Size(125, 24);
+            rbAdministrador.Size = new Size(101, 19);
             rbAdministrador.TabIndex = 14;
             rbAdministrador.TabStop = true;
             rbAdministrador.Text = "Administrador";
             rbAdministrador.UseVisualStyleBackColor = true;
             rbAdministrador.CheckedChanged += rbAdministrador_CheckedChanged;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(TContraseña);
+            panel1.Controls.Add(rbAdministrador);
+            panel1.Controls.Add(TEmail);
+            panel1.Controls.Add(LNombre);
+            panel1.Controls.Add(TNombre);
+            panel1.Controls.Add(TApellido);
+            panel1.Controls.Add(rbGerente);
+            panel1.Controls.Add(LApellido);
+            panel1.Controls.Add(TNomUsuario);
+            panel1.Controls.Add(rbVendedor);
+            panel1.Controls.Add(LContraseña);
+            panel1.Controls.Add(LNombreUsuario);
+            panel1.Controls.Add(LEmail);
+            panel1.Location = new Point(12, 33);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(388, 251);
+            panel1.TabIndex = 15;
+            // 
             // FormAgregarUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(459, 433);
-            Controls.Add(rbAdministrador);
-            Controls.Add(rbGerente);
-            Controls.Add(rbVendedor);
-            Controls.Add(LContraseña);
-            Controls.Add(TContraseña);
+            BackColor = SystemColors.Info;
+            ClientSize = new Size(402, 325);
             Controls.Add(BAgregar);
             Controls.Add(label1);
-            Controls.Add(LEmail);
-            Controls.Add(LNombreUsuario);
-            Controls.Add(LApellido);
-            Controls.Add(LNombre);
-            Controls.Add(TEmail);
-            Controls.Add(TNomUsuario);
-            Controls.Add(TApellido);
-            Controls.Add(TNombre);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(panel1);
             Name = "FormAgregarUsuario";
             Text = "Agregar Vendedor";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,5 +246,6 @@
         private RadioButton rbVendedor;
         private RadioButton rbGerente;
         private RadioButton rbAdministrador;
+        private Panel panel1;
     }
 }
