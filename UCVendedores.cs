@@ -104,8 +104,6 @@ namespace proyecto_Famular_Lezcano
 
                     form.NuevoUsuario.IdUsuario = 0; // dejar que SQL genere el ID
 
-                    _context.Usuarios.Add(form.NuevoUsuario);
-                    _context.SaveChanges();
                     CargarUsuarios();
                 }
             }
@@ -139,8 +137,6 @@ namespace proyecto_Famular_Lezcano
                             usuario.Rol = form.NuevoUsuario.Rol;
                             usuario.Estado = 0;
 
-                            _context.Usuarios.Update(usuario);
-                            _context.SaveChanges();
                             CargarUsuarios();
                         }
                     }
