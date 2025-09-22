@@ -12,6 +12,6 @@ namespace proyecto_Famular_Lezcano
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FormLogin());
-        }
+        } 
     }
 }
