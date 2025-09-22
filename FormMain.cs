@@ -88,6 +88,20 @@
             btn.ForeColor = Color.DarkGray;
         }
 
+        private void lblBienvenida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BProductos_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PanelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
