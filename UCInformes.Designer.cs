@@ -51,9 +51,10 @@
             PeliculasPanel.BackColor = Color.AntiqueWhite;
             PeliculasPanel.BorderStyle = BorderStyle.FixedSingle;
             PeliculasPanel.Controls.Add(LPeliculas);
-            PeliculasPanel.Location = new Point(20, 80);
+            PeliculasPanel.Location = new Point(3, 60);
+            PeliculasPanel.Margin = new Padding(3, 2, 3, 2);
             PeliculasPanel.Name = "PeliculasPanel";
-            PeliculasPanel.Size = new Size(250, 100);
+            PeliculasPanel.Size = new Size(219, 76);
             PeliculasPanel.TabIndex = 1;
             // 
             // LPeliculas
@@ -61,9 +62,9 @@
             LPeliculas.AutoSize = true;
             LPeliculas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             LPeliculas.ForeColor = Color.Maroon;
-            LPeliculas.Location = new Point(20, 30);
+            LPeliculas.Location = new Point(18, 22);
             LPeliculas.Name = "LPeliculas";
-            LPeliculas.Size = new Size(185, 46);
+            LPeliculas.Size = new Size(157, 38);
             LPeliculas.TabIndex = 0;
             LPeliculas.Text = "🎬 Películas Cargadas\n247 (+12 este mes)";
             // 
@@ -72,9 +73,10 @@
             ClientesPanel.BackColor = Color.AntiqueWhite;
             ClientesPanel.BorderStyle = BorderStyle.FixedSingle;
             ClientesPanel.Controls.Add(LClientes);
-            ClientesPanel.Location = new Point(285, 80);
+            ClientesPanel.Location = new Point(228, 60);
+            ClientesPanel.Margin = new Padding(3, 2, 3, 2);
             ClientesPanel.Name = "ClientesPanel";
-            ClientesPanel.Size = new Size(250, 100);
+            ClientesPanel.Size = new Size(210, 76);
             ClientesPanel.TabIndex = 2;
             ClientesPanel.Paint += ClientesPanel_Paint;
             // 
@@ -83,9 +85,9 @@
             LClientes.AutoSize = true;
             LClientes.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             LClientes.ForeColor = Color.Maroon;
-            LClientes.Location = new Point(27, 30);
+            LClientes.Location = new Point(24, 22);
             LClientes.Name = "LClientes";
-            LClientes.Size = new Size(201, 46);
+            LClientes.Size = new Size(168, 38);
             LClientes.TabIndex = 0;
             LClientes.Text = "👥 Clientes Registrados\n1834 (+89 este mes)";
             // 
@@ -94,9 +96,10 @@
             VentasPanel.BackColor = Color.AntiqueWhite;
             VentasPanel.BorderStyle = BorderStyle.FixedSingle;
             VentasPanel.Controls.Add(LVentas);
-            VentasPanel.Location = new Point(556, 80);
+            VentasPanel.Location = new Point(456, 60);
+            VentasPanel.Margin = new Padding(3, 2, 3, 2);
             VentasPanel.Name = "VentasPanel";
-            VentasPanel.Size = new Size(250, 100);
+            VentasPanel.Size = new Size(219, 76);
             VentasPanel.TabIndex = 3;
             // 
             // LVentas
@@ -104,9 +107,9 @@
             LVentas.AutoSize = true;
             LVentas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             LVentas.ForeColor = Color.Maroon;
-            LVentas.Location = new Point(20, 30);
+            LVentas.Location = new Point(18, 22);
             LVentas.Name = "LVentas";
-            LVentas.Size = new Size(179, 46);
+            LVentas.Size = new Size(151, 38);
             LVentas.TabIndex = 0;
             LVentas.Text = "💵 Ventas Realizadas\n$45,672 (+15%)";
             // 
@@ -115,9 +118,10 @@
             MasVendidasPanel.BackColor = Color.AntiqueWhite;
             MasVendidasPanel.BorderStyle = BorderStyle.FixedSingle;
             MasVendidasPanel.Controls.Add(LMasVendidas);
-            MasVendidasPanel.Location = new Point(20, 220);
+            MasVendidasPanel.Location = new Point(3, 165);
+            MasVendidasPanel.Margin = new Padding(3, 2, 3, 2);
             MasVendidasPanel.Name = "MasVendidasPanel";
-            MasVendidasPanel.Size = new Size(385, 191);
+            MasVendidasPanel.Size = new Size(337, 144);
             MasVendidasPanel.TabIndex = 4;
             // 
             // LMasVendidas
@@ -125,9 +129,9 @@
             LMasVendidas.AutoSize = true;
             LMasVendidas.Font = new Font("Segoe UI", 10F);
             LMasVendidas.ForeColor = Color.SaddleBrown;
-            LMasVendidas.Location = new Point(34, 43);
+            LMasVendidas.Location = new Point(28, 34);
             LMasVendidas.Name = "LMasVendidas";
-            LMasVendidas.Size = new Size(296, 115);
+            LMasVendidas.Size = new Size(243, 95);
             LMasVendidas.TabIndex = 0;
             LMasVendidas.Text = "🏆 Películas Más Vendidas\n\n- Casablanca (1942) → 156 ventas\n- El Padrino (1972) → 134 ventas\n- Ciudadano Kane (1941) → 98 ventas";
             // 
@@ -136,9 +140,10 @@
             ActividadPanel.BackColor = Color.AntiqueWhite;
             ActividadPanel.BorderStyle = BorderStyle.FixedSingle;
             ActividadPanel.Controls.Add(LActividad);
-            ActividadPanel.Location = new Point(439, 220);
+            ActividadPanel.Location = new Point(354, 165);
+            ActividadPanel.Margin = new Padding(3, 2, 3, 2);
             ActividadPanel.Name = "ActividadPanel";
-            ActividadPanel.Size = new Size(367, 191);
+            ActividadPanel.Size = new Size(321, 144);
             ActividadPanel.TabIndex = 5;
             // 
             // LActividad
@@ -146,9 +151,9 @@
             LActividad.AutoSize = true;
             LActividad.Font = new Font("Segoe UI", 10F);
             LActividad.ForeColor = Color.SaddleBrown;
-            LActividad.Location = new Point(20, 20);
+            LActividad.Location = new Point(18, 15);
             LActividad.Name = "LActividad";
-            LActividad.Size = new Size(326, 138);
+            LActividad.Size = new Size(263, 114);
             LActividad.TabIndex = 0;
             LActividad.Text = "📌 Actividad Reciente\n\n- Nueva película agregada: Vértigo (1958)\n- Cliente registrado: María González\n- Venta realizada: $24.99\n- Usuario creado: operador_02";
             // 
@@ -157,15 +162,15 @@
             LHeader.AutoSize = true;
             LHeader.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             LHeader.ForeColor = Color.SaddleBrown;
-            LHeader.Location = new Point(20, 20);
+            LHeader.Location = new Point(18, 15);
             LHeader.Name = "LHeader";
-            LHeader.Size = new Size(402, 37);
+            LHeader.Size = new Size(322, 30);
             LHeader.TabIndex = 0;
             LHeader.Text = "📊 Dashboard Administrativo";
             // 
             // UCInformes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             Controls.Add(LHeader);
@@ -174,8 +179,9 @@
             Controls.Add(VentasPanel);
             Controls.Add(MasVendidasPanel);
             Controls.Add(ActividadPanel);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UCInformes";
-            Size = new Size(931, 600);
+            Size = new Size(683, 450);
             PeliculasPanel.ResumeLayout(false);
             PeliculasPanel.PerformLayout();
             ClientesPanel.ResumeLayout(false);

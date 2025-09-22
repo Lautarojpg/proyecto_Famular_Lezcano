@@ -1,4 +1,5 @@
-﻿using proyecto_Famular_Lezcano.Models; // para acceder al DbContext y Usuario
+﻿using Microsoft.EntityFrameworkCore;
+using proyecto_Famular_Lezcano.Models; // para acceder al DbContext y Usuario
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace proyecto_Famular_Lezcano
                 DataPropertyName = "Estado"
             });
 
-            // 🔹 Botón Modificar
+            // Botón Modificar
             var btnModificar = new DataGridViewButtonColumn
             {
                 HeaderText = "Acciones",
@@ -72,7 +73,7 @@ namespace proyecto_Famular_Lezcano
             };
             dgvVendedores.Columns.Add(btnModificar);
 
-            // 🔹 Botón Eliminar
+            // Botón Eliminar
             var btnEliminar = new DataGridViewButtonColumn
             {
                 HeaderText = "",
@@ -83,6 +84,8 @@ namespace proyecto_Famular_Lezcano
             dgvVendedores.Columns.Add(btnEliminar);
 
             dgvVendedores.CellClick += dgvVendedores_CellClick;
+            dgvVendedores.CellFormatting += dgvVendedores_CellFormatting;
+
 
             CargarUsuarios();
         }
@@ -157,5 +160,48 @@ namespace proyecto_Famular_Lezcano
                 }
             }
         }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            string textoBusqueda = txtBuscar.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(textoBusqueda))
+            {
+                MessageBox.Show("Ingrese un nombre de usuario para buscar.", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var db = new ProyectoFamularLezcanoContext())
+            {
+                // 🔎 Busca coincidencias parciales con LIKE
+                var resultados = db.Usuarios
+                    .Where(u => EF.Functions.Like(u.NombreUsuario, $"%{textoBusqueda}%"))
+                    .ToList();
+
+                if (resultados.Any())
+                {
+                    dgvVendedores.DataSource = resultados;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron usuarios con ese nombre.", "Sin resultados",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvVendedores.DataSource = null; // opcional, limpia la grilla
+                }
+            }
+        }
+
+        private void dgvVendedores_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvVendedores.Columns[e.ColumnIndex].DataPropertyName == "Estado" && e.Value != null)
+            {
+                int estado = Convert.ToInt32(e.Value);
+                e.Value = (estado == 1) ? "Sí" : "No"; // 1 = Eliminado, 0 = Activo
+                e.FormattingApplied = true;
+            }
+        }
+
+
     }
 }

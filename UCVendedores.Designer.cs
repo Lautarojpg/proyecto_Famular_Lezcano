@@ -37,7 +37,11 @@
             email_vendedor = new DataGridViewTextBoxColumn();
             estado_vendedor = new DataGridViewTextBoxColumn();
             acciones = new DataGridViewTextBoxColumn();
+            BtnBuscar = new Button();
+            txtBuscar = new TextBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // LTitulo
@@ -56,7 +60,7 @@
             BAgregar.BackColor = Color.FromArgb(128, 64, 0);
             BAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BAgregar.ForeColor = Color.White;
-            BAgregar.Location = new Point(505, 46);
+            BAgregar.Location = new Point(491, 6);
             BAgregar.Name = "BAgregar";
             BAgregar.Size = new Size(152, 40);
             BAgregar.TabIndex = 1;
@@ -68,7 +72,7 @@
             // 
             dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVendedores.Columns.AddRange(new DataGridViewColumn[] { nombre_vendedor, apellido_vendedor, acronimo_vendedor, email_vendedor, estado_vendedor, acciones });
-            dgvVendedores.Location = new Point(3, 173);
+            dgvVendedores.Location = new Point(3, 195);
             dgvVendedores.Name = "dgvVendedores";
             dgvVendedores.RowHeadersWidth = 51;
             dgvVendedores.Size = new Size(654, 202);
@@ -116,17 +120,49 @@
             acciones.Name = "acciones";
             acciones.Width = 125;
             // 
+            // BtnBuscar
+            // 
+            BtnBuscar.BackColor = Color.FromArgb(128, 64, 0);
+            BtnBuscar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnBuscar.ForeColor = Color.White;
+            BtnBuscar.Location = new Point(488, 52);
+            BtnBuscar.Name = "BtnBuscar";
+            BtnBuscar.Size = new Size(152, 40);
+            BtnBuscar.TabIndex = 3;
+            BtnBuscar.Text = "Buscar Usuario";
+            BtnBuscar.UseVisualStyleBackColor = false;
+            BtnBuscar.Click += BtnBuscar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(14, 106);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(307, 23);
+            txtBuscar.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(255, 192, 128);
+            panel1.Controls.Add(BAgregar);
+            panel1.Controls.Add(BtnBuscar);
+            panel1.Location = new Point(3, 46);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(654, 100);
+            panel1.TabIndex = 5;
+            // 
             // UCVendedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
+            Controls.Add(txtBuscar);
             Controls.Add(dgvVendedores);
-            Controls.Add(BAgregar);
             Controls.Add(LTitulo);
+            Controls.Add(panel1);
             Name = "UCVendedores";
             Size = new Size(660, 490);
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +178,8 @@
         private DataGridViewTextBoxColumn email_vendedor;
         private DataGridViewTextBoxColumn estado_vendedor;
         private DataGridViewTextBoxColumn acciones;
+        private Button BtnBuscar;
+        private TextBox txtBuscar;
+        private Panel panel1;
     }
 }
