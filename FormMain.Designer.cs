@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             PanelContent = new Panel();
-            lblEmojiCine = new Label();
             lblInstrucciones = new Label();
             lblBienvenida = new Label();
             pictureBox5 = new PictureBox();
@@ -43,6 +42,7 @@
             BVentas = new Button();
             BClientes = new Button();
             pictureBox4 = new PictureBox();
+            pictureBox6 = new PictureBox();
             PanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -50,12 +50,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             PanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // PanelContent
             // 
             PanelContent.BackColor = Color.Bisque;
-            PanelContent.Controls.Add(lblEmojiCine);
+            PanelContent.Controls.Add(pictureBox6);
             PanelContent.Controls.Add(lblInstrucciones);
             PanelContent.Controls.Add(lblBienvenida);
             PanelContent.Location = new Point(231, 4);
@@ -64,24 +65,13 @@
             PanelContent.Size = new Size(791, 663);
             PanelContent.TabIndex = 1;
             // 
-            // lblEmojiCine
-            // 
-            lblEmojiCine.AutoSize = true;
-            lblEmojiCine.Font = new Font("Segoe UI Emoji", 72F, FontStyle.Bold);
-            lblEmojiCine.ForeColor = Color.Maroon;
-            lblEmojiCine.Location = new Point(57, 387);
-            lblEmojiCine.Name = "lblEmojiCine";
-            lblEmojiCine.Size = new Size(230, 159);
-            lblEmojiCine.TabIndex = 2;
-            lblEmojiCine.Text = "🎥";
-            // 
             // lblInstrucciones
             // 
             lblInstrucciones.AutoSize = true;
             lblInstrucciones.BackColor = Color.Maroon;
             lblInstrucciones.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblInstrucciones.ForeColor = Color.White;
-            lblInstrucciones.Location = new Point(299, 221);
+            lblInstrucciones.Location = new Point(299, 193);
             lblInstrucciones.Name = "lblInstrucciones";
             lblInstrucciones.Size = new Size(471, 112);
             lblInstrucciones.TabIndex = 1;
@@ -228,6 +218,16 @@
             pictureBox4.TabIndex = 4;
             pictureBox4.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.logo;
+            pictureBox6.Location = new Point(41, 362);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(225, 145);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 6;
+            pictureBox6.TabStop = false;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -248,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             PanelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -266,7 +267,7 @@
         private Button BClientes;
         private Label lblBienvenida;
         private Label lblInstrucciones;
-        private Label lblEmojiCine;
+        private PictureBox pictureBox6;
     }
 }
 
