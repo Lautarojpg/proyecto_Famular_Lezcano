@@ -135,7 +135,7 @@ namespace proyecto_Famular_Lezcano
                             usuario.Contrasena = form.NuevoUsuario.Contrasena;
                             usuario.Email = form.NuevoUsuario.Email;
                             usuario.Rol = form.NuevoUsuario.Rol;
-                            usuario.Estado = 0;
+                            usuario.Estado = true;
 
                             CargarUsuarios();
                         }
@@ -149,7 +149,7 @@ namespace proyecto_Famular_Lezcano
                                                  MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        usuario.Estado = 1;
+                        usuario.Estado = false;
                         _context.SaveChanges();
                         CargarUsuarios();
                     }

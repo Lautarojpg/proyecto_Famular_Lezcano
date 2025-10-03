@@ -17,11 +17,9 @@ public partial class Pelicula
 
     public int Stock { get; set; }
 
-    public int? IdCategoria { get; set; }
+    public int IdCategoria { get; set; }
 
-    public virtual Categorium? IdCategoriaNavigation { get; set; }
-
-    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+    public virtual Categorium IdCategoriaNavigation { get; set; } = null!;
 
     public virtual ICollection<VentaDetalle> VentaDetalles { get; set; } = new List<VentaDetalle>();
 }

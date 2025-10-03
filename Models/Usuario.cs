@@ -17,11 +17,9 @@ public partial class Usuario
 
     public string Contrasena { get; set; } = null!;
 
+    public bool Estado { get; set; }
+
     public string Rol { get; set; } = null!;
 
-    public int? IdPelicula { get; set; }
-
-    public int? Estado { get; set; }
-
-    public virtual Pelicula? IdPeliculaNavigation { get; set; }
+    public virtual ICollection<VentaDetalle> VentaDetalles { get; set; } = new List<VentaDetalle>();
 }

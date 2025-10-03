@@ -35,9 +35,11 @@ public partial class ProyectoFamularLezcanoContext : DbContext
     {
         modelBuilder.Entity<Categorium>(entity =>
         {
-            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__CD54BC5AE4290693");
+            entity.HasKey(e => e.IdCategoria).HasName("pk_categoria");
 
-            entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
+            entity.Property(e => e.IdCategoria)
+                .ValueGeneratedNever()
+                .HasColumnName("id_categoria");
             entity.Property(e => e.Activo)
                 .HasDefaultValue(true)
                 .HasColumnName("activo");
@@ -49,13 +51,15 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.IdCliente).HasName("PK__Cliente__677F38F5C9E854EE");
+            entity.HasKey(e => e.IdCliente).HasName("pk_cliente");
 
             entity.ToTable("Cliente");
 
-            entity.HasIndex(e => e.Email, "UQ__Cliente__AB6E6164F300D7FC").IsUnique();
+            entity.HasIndex(e => e.Email, "uq_email").IsUnique();
 
-            entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
+            entity.Property(e => e.IdCliente)
+                .ValueGeneratedNever()
+                .HasColumnName("id_cliente");
             entity.Property(e => e.ApellidoCliente)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -80,14 +84,16 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<Pelicula>(entity =>
         {
-            entity.HasKey(e => e.IdPelicula).HasName("PK__Pelicula__B5017F4D14874CAA");
+            entity.HasKey(e => e.IdPelicula).HasName("pk_pelicula");
 
             entity.ToTable("Pelicula");
 
-            entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
+            entity.Property(e => e.IdPelicula)
+                .ValueGeneratedNever()
+                .HasColumnName("id_pelicula");
             entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
             entity.Property(e => e.Imagen)
-                .HasMaxLength(255)
+                .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("imagen");
             entity.Property(e => e.NombrePelicula)
@@ -98,26 +104,29 @@ public partial class ProyectoFamularLezcanoContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("precio");
             entity.Property(e => e.Sinopsis)
-                .IsUnicode(false)
+                .HasColumnType("text")
                 .HasColumnName("sinopsis");
             entity.Property(e => e.Stock).HasColumnName("stock");
 
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Peliculas)
                 .HasForeignKey(d => d.IdCategoria)
-                .HasConstraintName("FK__Pelicula__id_cat__4D94879B");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_categoria");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__4E3E04ADBC66B89D");
+            entity.HasKey(e => e.IdUsuario).HasName("pk_usuario");
 
             entity.ToTable("Usuario");
 
-            entity.HasIndex(e => e.Email, "UQ__Usuario__AB6E6164B65454C8").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Usuario__AB6E616422F44CAA").IsUnique();
 
-            entity.HasIndex(e => e.NombreUsuario, "UQ__Usuario__D4D22D7485F816E1").IsUnique();
+            entity.HasIndex(e => e.NombreUsuario, "UQ__Usuario__D4D22D74788D54C1").IsUnique();
 
-            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
+            entity.Property(e => e.IdUsuario)
+                .ValueGeneratedNever()
+                .HasColumnName("id_usuario");
             entity.Property(e => e.Apellido)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -130,34 +139,36 @@ public partial class ProyectoFamularLezcanoContext : DbContext
                 .HasMaxLength(150)
                 .IsUnicode(false)
                 .HasColumnName("email");
-            entity.Property(e => e.Estado).HasColumnName("estado");
-            entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
+            entity.Property(e => e.Estado)
+                .HasDefaultValue(true)
+                .HasColumnName("estado");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
             entity.Property(e => e.NombreUsuario)
-                .HasMaxLength(100)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre_usuario");
             entity.Property(e => e.Rol)
-                .HasMaxLength(50)
+                .HasMaxLength(10)
                 .IsUnicode(false)
                 .HasColumnName("rol");
-
-            entity.HasOne(d => d.IdPeliculaNavigation).WithMany(p => p.Usuarios)
-                .HasForeignKey(d => d.IdPelicula)
-                .HasConstraintName("FK__Usuario__id_peli__52593CB8");
         });
 
         modelBuilder.Entity<VentaCabecera>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("PK__Venta_Ca__459533BF475B4888");
+            entity.HasKey(e => e.IdVenta).HasName("pk_venta");
 
             entity.ToTable("Venta_Cabecera");
 
-            entity.Property(e => e.IdVenta).HasColumnName("id_venta");
-            entity.Property(e => e.FechaCompra).HasColumnName("fecha_compra");
+            entity.Property(e => e.IdVenta)
+                .ValueGeneratedNever()
+                .HasColumnName("id_venta");
+            entity.Property(e => e.FechaCompra)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("fecha_compra");
             entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
             entity.Property(e => e.TotalVenta)
                 .HasColumnType("decimal(10, 2)")
@@ -165,27 +176,38 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.VentaCabeceras)
                 .HasForeignKey(d => d.IdCliente)
-                .HasConstraintName("FK__Venta_Cab__id_cl__5812160E");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_cliente");
         });
 
         modelBuilder.Entity<VentaDetalle>(entity =>
         {
-            entity.HasKey(e => e.IdDetalle).HasName("PK__Venta_De__4F1332DE13EB56D5");
+            entity.HasKey(e => e.IdDetalle).HasName("pk_detalle");
 
             entity.ToTable("Venta_Detalle");
 
-            entity.Property(e => e.IdDetalle).HasColumnName("id_detalle");
+            entity.Property(e => e.IdDetalle)
+                .ValueGeneratedNever()
+                .HasColumnName("id_detalle");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
             entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
+            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
 
             entity.HasOne(d => d.IdPeliculaNavigation).WithMany(p => p.VentaDetalles)
                 .HasForeignKey(d => d.IdPelicula)
-                .HasConstraintName("FK__Venta_Det__id_pe__5AEE82B9");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_pelicula");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.VentaDetalles)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_vendedor");
 
             entity.HasOne(d => d.IdVentaNavigation).WithMany(p => p.VentaDetalles)
                 .HasForeignKey(d => d.IdVenta)
-                .HasConstraintName("FK__Venta_Det__id_ve__5BE2A6F2");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_venta");
         });
 
         OnModelCreatingPartial(modelBuilder);

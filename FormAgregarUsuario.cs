@@ -113,7 +113,7 @@ namespace proyecto_Famular_Lezcano
                     Contrasena = hashedPassword,
                     Email = TEmail.Text,
                     Rol = rol,
-                    Estado = 0
+                    Estado = true
                 };
             }
 
