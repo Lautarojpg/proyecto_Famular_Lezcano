@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LTitulo = new Label();
-            BAgregar = new Button();
             dgvVendedores = new DataGridView();
             nombre_vendedor = new DataGridViewTextBoxColumn();
             apellido_vendedor = new DataGridViewTextBoxColumn();
@@ -38,35 +36,13 @@
             estado_vendedor = new DataGridViewTextBoxColumn();
             acciones = new DataGridViewTextBoxColumn();
             BtnBuscar = new Button();
-            txtBuscar = new TextBox();
+            BAgregar = new Button();
             panel1 = new Panel();
+            LTitulo = new Label();
+            txtBuscar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // LTitulo
-            // 
-            LTitulo.AutoSize = true;
-            LTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            LTitulo.ForeColor = Color.Maroon;
-            LTitulo.Location = new Point(14, 52);
-            LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(222, 25);
-            LTitulo.TabIndex = 0;
-            LTitulo.Text = "GESTION DE USUARIOS";
-            // 
-            // BAgregar
-            // 
-            BAgregar.BackColor = Color.FromArgb(128, 64, 0);
-            BAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            BAgregar.ForeColor = Color.White;
-            BAgregar.Location = new Point(491, 6);
-            BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(152, 40);
-            BAgregar.TabIndex = 1;
-            BAgregar.Text = "Agregar Usuarios";
-            BAgregar.UseVisualStyleBackColor = false;
-            BAgregar.Click += BAgregar_Click;
             // 
             // dgvVendedores
             // 
@@ -133,12 +109,18 @@
             BtnBuscar.UseVisualStyleBackColor = false;
             BtnBuscar.Click += BtnBuscar_Click;
             // 
-            // txtBuscar
+            // BAgregar
             // 
-            txtBuscar.Location = new Point(14, 106);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(307, 23);
-            txtBuscar.TabIndex = 4;
+            BAgregar.BackColor = Color.FromArgb(128, 64, 0);
+            BAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BAgregar.ForeColor = Color.White;
+            BAgregar.Location = new Point(491, 6);
+            BAgregar.Name = "BAgregar";
+            BAgregar.Size = new Size(152, 40);
+            BAgregar.TabIndex = 1;
+            BAgregar.Text = "Agregar Usuarios";
+            BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
             // panel1
             // 
@@ -149,6 +131,24 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(654, 100);
             panel1.TabIndex = 5;
+            // 
+            // LTitulo
+            // 
+            LTitulo.AutoSize = true;
+            LTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            LTitulo.ForeColor = Color.Maroon;
+            LTitulo.Location = new Point(14, 52);
+            LTitulo.Name = "LTitulo";
+            LTitulo.Size = new Size(222, 25);
+            LTitulo.TabIndex = 0;
+            LTitulo.Text = "GESTION DE USUARIOS";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(14, 106);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(307, 23);
+            txtBuscar.TabIndex = 4;
             // 
             // UCVendedores
             // 
@@ -168,9 +168,6 @@
         }
 
         #endregion
-
-        private Label LTitulo;
-        private Button BAgregar;
         private DataGridView dgvVendedores;
         private DataGridViewTextBoxColumn nombre_vendedor;
         private DataGridViewTextBoxColumn apellido_vendedor;
@@ -179,7 +176,9 @@
         private DataGridViewTextBoxColumn estado_vendedor;
         private DataGridViewTextBoxColumn acciones;
         private Button BtnBuscar;
-        private TextBox txtBuscar;
+        private Button BAgregar;
         private Panel panel1;
+        private Label LTitulo;
+        private TextBox txtBuscar;
     }
 }

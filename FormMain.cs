@@ -23,7 +23,7 @@
 
         private void BProductos_Click(object sender, EventArgs e)
         {
-            AbrirUserControl(new UCProductos());
+            AbrirUserControl(new UCPeliculas());
         }
 
         private void BVentas_Click(object sender, EventArgs e)
