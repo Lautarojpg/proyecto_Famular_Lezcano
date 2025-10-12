@@ -21,6 +21,8 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
     public virtual DbSet<Pelicula> Peliculas { get; set; }
 
+    public virtual DbSet<Rol> Rols { get; set; }
+
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     public virtual DbSet<VentaCabecera> VentaCabeceras { get; set; }
@@ -35,136 +37,121 @@ public partial class ProyectoFamularLezcanoContext : DbContext
     {
         modelBuilder.Entity<Categorium>(entity =>
         {
-            entity.HasKey(e => e.IdCategoria).HasName("pk_categoria");
+            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__CD54BC5AB99DD2F6");
 
-            entity.Property(e => e.IdCategoria)
-                .ValueGeneratedNever()
-                .HasColumnName("id_categoria");
+            entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
             entity.Property(e => e.Activo)
                 .HasDefaultValue(true)
                 .HasColumnName("activo");
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(100)
-                .IsUnicode(false)
                 .HasColumnName("descripcion");
         });
 
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.IdCliente).HasName("pk_cliente");
+            entity.HasKey(e => e.IdCliente).HasName("PK__Cliente__677F38F50C3E868F");
 
             entity.ToTable("Cliente");
 
-            entity.HasIndex(e => e.Email, "uq_email").IsUnique();
-
-            entity.Property(e => e.IdCliente)
-                .ValueGeneratedNever()
-                .HasColumnName("id_cliente");
+            entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
             entity.Property(e => e.ApellidoCliente)
-                .HasMaxLength(100)
-                .IsUnicode(false)
+                .HasMaxLength(50)
                 .HasColumnName("apellido_cliente");
             entity.Property(e => e.Direccion)
-                .HasMaxLength(200)
-                .IsUnicode(false)
+                .HasMaxLength(150)
                 .HasColumnName("direccion");
             entity.Property(e => e.Email)
-                .HasMaxLength(150)
-                .IsUnicode(false)
+                .HasMaxLength(100)
                 .HasColumnName("email");
             entity.Property(e => e.NombreCliente)
-                .HasMaxLength(100)
-                .IsUnicode(false)
+                .HasMaxLength(50)
                 .HasColumnName("nombre_cliente");
             entity.Property(e => e.Telefono)
                 .HasMaxLength(20)
-                .IsUnicode(false)
                 .HasColumnName("telefono");
         });
 
         modelBuilder.Entity<Pelicula>(entity =>
         {
-            entity.HasKey(e => e.IdPelicula).HasName("pk_pelicula");
+            entity.HasKey(e => e.IdPelicula).HasName("PK__Pelicula__B5017F4D231CBF57");
 
             entity.ToTable("Pelicula");
 
-            entity.Property(e => e.IdPelicula)
-                .ValueGeneratedNever()
-                .HasColumnName("id_pelicula");
+            entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
             entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
-            entity.Property(e => e.Imagen)
-                .HasMaxLength(200)
-                .IsUnicode(false)
-                .HasColumnName("imagen");
+            entity.Property(e => e.Imagen).HasColumnName("imagen");
             entity.Property(e => e.NombrePelicula)
-                .HasMaxLength(150)
-                .IsUnicode(false)
+                .HasMaxLength(100)
                 .HasColumnName("nombre_pelicula");
             entity.Property(e => e.Precio)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("precio");
             entity.Property(e => e.Sinopsis)
-                .HasColumnType("text")
+                .HasMaxLength(500)
                 .HasColumnName("sinopsis");
             entity.Property(e => e.Stock).HasColumnName("stock");
 
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Peliculas)
                 .HasForeignKey(d => d.IdCategoria)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_categoria");
+                .HasConstraintName("fk_pelicula_categoria");
+        });
+
+        modelBuilder.Entity<Rol>(entity =>
+        {
+            entity.HasKey(e => e.IdRol).HasName("PK__Rol__6ABCB5E0BFC40892");
+
+            entity.ToTable("Rol");
+
+            entity.Property(e => e.IdRol).HasColumnName("id_rol");
+            entity.Property(e => e.NombreRol)
+                .HasMaxLength(50)
+                .HasColumnName("nombre_rol");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("pk_usuario");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__4E3E04ADAB270E08");
 
             entity.ToTable("Usuario");
 
-            entity.HasIndex(e => e.Email, "UQ__Usuario__AB6E616422F44CAA").IsUnique();
+            entity.HasIndex(e => e.NombreUsuario, "UQ__Usuario__D4D22D745C1F5FB6").IsUnique();
 
-            entity.HasIndex(e => e.NombreUsuario, "UQ__Usuario__D4D22D74788D54C1").IsUnique();
-
-            entity.Property(e => e.IdUsuario)
-                .ValueGeneratedNever()
-                .HasColumnName("id_usuario");
+            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.Apellido)
-                .HasMaxLength(100)
-                .IsUnicode(false)
+                .HasMaxLength(50)
                 .HasColumnName("apellido");
             entity.Property(e => e.Contrasena)
                 .HasMaxLength(255)
-                .IsUnicode(false)
                 .HasColumnName("contrasena");
             entity.Property(e => e.Email)
-                .HasMaxLength(150)
-                .IsUnicode(false)
+                .HasMaxLength(100)
                 .HasColumnName("email");
             entity.Property(e => e.Estado)
                 .HasDefaultValue(true)
                 .HasColumnName("estado");
+            entity.Property(e => e.IdRol).HasColumnName("id_rol");
             entity.Property(e => e.Nombre)
-                .HasMaxLength(100)
-                .IsUnicode(false)
+                .HasMaxLength(50)
                 .HasColumnName("nombre");
             entity.Property(e => e.NombreUsuario)
                 .HasMaxLength(50)
-                .IsUnicode(false)
                 .HasColumnName("nombre_usuario");
-            entity.Property(e => e.Rol)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("rol");
+
+            entity.HasOne(d => d.IdRolNavigation).WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.IdRol)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_usuario_rol");
         });
 
         modelBuilder.Entity<VentaCabecera>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("pk_venta");
+            entity.HasKey(e => e.IdVenta).HasName("PK__Venta_Ca__459533BF51984D09");
 
             entity.ToTable("Venta_Cabecera");
 
-            entity.Property(e => e.IdVenta)
-                .ValueGeneratedNever()
-                .HasColumnName("id_venta");
+            entity.Property(e => e.IdVenta).HasColumnName("id_venta");
             entity.Property(e => e.FechaCompra)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
@@ -177,37 +164,29 @@ public partial class ProyectoFamularLezcanoContext : DbContext
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.VentaCabeceras)
                 .HasForeignKey(d => d.IdCliente)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_cliente");
+                .HasConstraintName("fk_venta_cliente");
         });
 
         modelBuilder.Entity<VentaDetalle>(entity =>
         {
-            entity.HasKey(e => e.IdDetalle).HasName("pk_detalle");
+            entity.HasKey(e => e.IdDetalle).HasName("PK__Venta_De__4F1332DE7729987C");
 
             entity.ToTable("Venta_Detalle");
 
-            entity.Property(e => e.IdDetalle)
-                .ValueGeneratedNever()
-                .HasColumnName("id_detalle");
+            entity.Property(e => e.IdDetalle).HasColumnName("id_detalle");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
             entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
-            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
 
             entity.HasOne(d => d.IdPeliculaNavigation).WithMany(p => p.VentaDetalles)
                 .HasForeignKey(d => d.IdPelicula)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_pelicula");
-
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.VentaDetalles)
-                .HasForeignKey(d => d.IdUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_vendedor");
+                .HasConstraintName("fk_detalle_pelicula");
 
             entity.HasOne(d => d.IdVentaNavigation).WithMany(p => p.VentaDetalles)
                 .HasForeignKey(d => d.IdVenta)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_venta");
+                .HasConstraintName("fk_detalle_venta");
         });
 
         OnModelCreatingPartial(modelBuilder);

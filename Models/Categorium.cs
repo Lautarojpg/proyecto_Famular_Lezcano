@@ -9,7 +9,7 @@ public partial class Categorium
 
     public string Descripcion { get; set; } = null!;
 
-    public bool Activo { get; set; }
+    public bool? Activo { get; set; }
 
     public virtual ICollection<Pelicula> Peliculas { get; set; } = new List<Pelicula>();
 }

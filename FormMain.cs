@@ -1,12 +1,17 @@
-﻿namespace proyecto_Famular_Lezcano
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace proyecto_Famular_Lezcano
 {
     public partial class FormMain : Form
     {
-        private string rolUsuario;
-        public FormMain(string rol)
+        private string nombreRol;
+
+        public FormMain(string rolNombre)
         {
             InitializeComponent();
-            rolUsuario = rol;
+            nombreRol = rolNombre;
         }
 
         private void AbrirUserControl(UserControl uc)
@@ -43,15 +48,15 @@
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            // Primero deshabilitamos todo
+            // Deshabilitamos todos los botones al inicio
             DeshabilitarBoton(BClientes);
             DeshabilitarBoton(BProductos);
             DeshabilitarBoton(BVentas);
             DeshabilitarBoton(BVendedores);
             DeshabilitarBoton(BInformes);
 
-            // Luego habilitamos según el rol
-            switch (rolUsuario)
+            // Habilitamos según el rol obtenido de la base de datos
+            switch (nombreRol)
             {
                 case "Administrador":
                     HabilitarBoton(BClientes);
@@ -71,20 +76,24 @@
                     HabilitarBoton(BVentas);
                     HabilitarBoton(BClientes);
                     break;
+
+                default:
+                    MessageBox.Show($"Rol desconocido: {nombreRol}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
         }
 
         private void HabilitarBoton(Button btn)
         {
             btn.Enabled = true;
-            btn.BackColor = Color.Maroon; // 👈 tu color normal (rojo oscuro)
-            btn.ForeColor = Color.White;  // texto blanco
+            btn.BackColor = Color.Maroon;
+            btn.ForeColor = Color.White;
         }
 
         private void DeshabilitarBoton(Button btn)
         {
             btn.Enabled = false;
-            btn.BackColor = Color.Gray;   // 👈 color grisado para deshabilitado
+            btn.BackColor = Color.Gray;
             btn.ForeColor = Color.DarkGray;
         }
 
@@ -94,4 +103,3 @@
         }
     }
 }
-

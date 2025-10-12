@@ -13,11 +13,11 @@ namespace proyecto_Famular_Lezcano
         public Usuario? NuevoUsuario { get; private set; }
         private bool _esEdicion = false;
         private string? _passwordActual;
-        private string rol = "";
 
         public FormAgregarUsuario()
         {
             InitializeComponent();
+            CargarRoles();
         }
 
         public FormAgregarUsuario(Usuario usuarioExistente) : this()
@@ -25,6 +25,20 @@ namespace proyecto_Famular_Lezcano
             CargarUsuario(usuarioExistente);
         }
 
+        // 🔹 Carga los roles disponibles desde la BD
+        private void CargarRoles()
+        {
+            using (var db = new ProyectoFamularLezcanoContext())
+            {
+                var roles = db.Rols.ToList();
+                CbRol.DataSource = roles;
+                CbRol.DisplayMember = "NombreRol"; // nombre_rol en BD → propiedad generada: NombreRol
+                CbRol.ValueMember = "IdRol";       // id_rol en BD → propiedad generada: IdRol
+                CbRol.SelectedIndex = -1;          // sin seleccionar al principio
+            }
+        }
+
+        // 🔹 Carga los datos del usuario para editar
         public void CargarUsuario(Usuario usuario)
         {
             _esEdicion = true;
@@ -36,27 +50,21 @@ namespace proyecto_Famular_Lezcano
             TEmail.Text = usuario.Email;
             _passwordActual = usuario.Contrasena;
 
-            rol = usuario.Rol;
-            // Aquí podrías seleccionar el RadioButton correspondiente según rol
+            // selecciona el rol actual
+            CbRol.SelectedValue = usuario.IdRol;
         }
 
+        // 🔹 Botón para agregar o editar usuario
         private void BAgregar_Click(object sender, EventArgs e)
         {
             // Campos obligatorios
             if (string.IsNullOrWhiteSpace(TNombre.Text) ||
                 string.IsNullOrWhiteSpace(TApellido.Text) ||
                 string.IsNullOrWhiteSpace(TNomUsuario.Text) ||
-                string.IsNullOrWhiteSpace(TEmail.Text))
+                string.IsNullOrWhiteSpace(TEmail.Text) ||
+                CbRol.SelectedIndex == -1)
             {
-                MessageBox.Show("Todos los campos son obligatorios", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Validar rol
-            if (string.IsNullOrWhiteSpace(rol))
-            {
-                MessageBox.Show("Debe seleccionar un rol", "Error",
+                MessageBox.Show("Todos los campos son obligatorios (incluido el rol).", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -79,6 +87,8 @@ namespace proyecto_Famular_Lezcano
                 return;
             }
 
+            int idRolSeleccionado = Convert.ToInt32(CbRol.SelectedValue);
+
             // Validar contraseña solo si es nuevo usuario o se cambió la contraseña
             string hashedPassword;
             if (_esEdicion)
@@ -98,7 +108,7 @@ namespace proyecto_Famular_Lezcano
                 NuevoUsuario.NombreUsuario = TNomUsuario.Text;
                 NuevoUsuario.Contrasena = hashedPassword;
                 NuevoUsuario.Email = TEmail.Text;
-                NuevoUsuario.Rol = rol;
+                NuevoUsuario.IdRol = idRolSeleccionado;
             }
             else
             {
@@ -112,7 +122,7 @@ namespace proyecto_Famular_Lezcano
                     NombreUsuario = TNomUsuario.Text,
                     Contrasena = hashedPassword,
                     Email = TEmail.Text,
-                    Rol = rol,
+                    IdRol = idRolSeleccionado,
                     Estado = true
                 };
             }
@@ -161,6 +171,7 @@ namespace proyecto_Famular_Lezcano
             Close();
         }
 
+        // 🔹 Validación de contraseña
         private bool ValidarContraseña(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
@@ -200,9 +211,5 @@ namespace proyecto_Famular_Lezcano
 
             return true;
         }
-
-        private void rbVendedor_CheckedChanged(object sender, EventArgs e) => rol = "Vendedor";
-        private void rbGerente_CheckedChanged(object sender, EventArgs e) => rol = "Gerente";
-        private void rbAdministrador_CheckedChanged(object sender, EventArgs e) => rol = "Administrador";
     }
 }

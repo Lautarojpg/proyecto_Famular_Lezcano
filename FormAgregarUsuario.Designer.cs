@@ -40,10 +40,9 @@
             BAgregar = new Button();
             LContraseña = new Label();
             TContraseña = new TextBox();
-            rbVendedor = new RadioButton();
-            rbGerente = new RadioButton();
-            rbAdministrador = new RadioButton();
             panel1 = new Panel();
+            CbRol = new ComboBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -152,58 +151,18 @@
             TContraseña.Size = new Size(250, 23);
             TContraseña.TabIndex = 10;
             // 
-            // rbVendedor
-            // 
-            rbVendedor.AutoSize = true;
-            rbVendedor.Location = new Point(10, 213);
-            rbVendedor.Margin = new Padding(3, 2, 3, 2);
-            rbVendedor.Name = "rbVendedor";
-            rbVendedor.Size = new Size(75, 19);
-            rbVendedor.TabIndex = 12;
-            rbVendedor.TabStop = true;
-            rbVendedor.Text = "Vendedor";
-            rbVendedor.UseVisualStyleBackColor = true;
-            rbVendedor.CheckedChanged += rbVendedor_CheckedChanged;
-            // 
-            // rbGerente
-            // 
-            rbGerente.AutoSize = true;
-            rbGerente.Location = new Point(147, 213);
-            rbGerente.Margin = new Padding(3, 2, 3, 2);
-            rbGerente.Name = "rbGerente";
-            rbGerente.Size = new Size(66, 19);
-            rbGerente.TabIndex = 13;
-            rbGerente.TabStop = true;
-            rbGerente.Text = "Gerente";
-            rbGerente.UseVisualStyleBackColor = true;
-            rbGerente.CheckedChanged += rbGerente_CheckedChanged;
-            // 
-            // rbAdministrador
-            // 
-            rbAdministrador.AutoSize = true;
-            rbAdministrador.Location = new Point(262, 213);
-            rbAdministrador.Margin = new Padding(3, 2, 3, 2);
-            rbAdministrador.Name = "rbAdministrador";
-            rbAdministrador.Size = new Size(101, 19);
-            rbAdministrador.TabIndex = 14;
-            rbAdministrador.TabStop = true;
-            rbAdministrador.Text = "Administrador";
-            rbAdministrador.UseVisualStyleBackColor = true;
-            rbAdministrador.CheckedChanged += rbAdministrador_CheckedChanged;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(CbRol);
             panel1.Controls.Add(TContraseña);
-            panel1.Controls.Add(rbAdministrador);
             panel1.Controls.Add(TEmail);
             panel1.Controls.Add(LNombre);
             panel1.Controls.Add(TNombre);
             panel1.Controls.Add(TApellido);
-            panel1.Controls.Add(rbGerente);
             panel1.Controls.Add(LApellido);
             panel1.Controls.Add(TNomUsuario);
-            panel1.Controls.Add(rbVendedor);
             panel1.Controls.Add(LContraseña);
             panel1.Controls.Add(LNombreUsuario);
             panel1.Controls.Add(LEmail);
@@ -211,6 +170,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(388, 251);
             panel1.TabIndex = 15;
+            // 
+            // CbRol
+            // 
+            CbRol.FormattingEnabled = true;
+            CbRol.Location = new Point(126, 209);
+            CbRol.Name = "CbRol";
+            CbRol.Size = new Size(121, 23);
+            CbRol.TabIndex = 14;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 212);
+            label2.Name = "label2";
+            label2.Size = new Size(27, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Rol:";
             // 
             // FormAgregarUsuario
             // 
@@ -243,9 +219,8 @@
         private Button BAgregar;
         private Label LContraseña;
         private TextBox TContraseña;
-        private RadioButton rbVendedor;
-        private RadioButton rbGerente;
-        private RadioButton rbAdministrador;
         private Panel panel1;
+        private ComboBox CbRol;
+        public Label label2;
     }
 }

@@ -17,9 +17,9 @@ public partial class Usuario
 
     public string Contrasena { get; set; } = null!;
 
-    public bool Estado { get; set; }
+    public int IdRol { get; set; }
 
-    public string Rol { get; set; } = null!;
+    public bool? Estado { get; set; }
 
-    public virtual ICollection<VentaDetalle> VentaDetalles { get; set; } = new List<VentaDetalle>();
+    public virtual Rol IdRolNavigation { get; set; } = null!;
 }

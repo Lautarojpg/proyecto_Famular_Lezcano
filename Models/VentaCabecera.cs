@@ -7,9 +7,9 @@ public partial class VentaCabecera
 {
     public int IdVenta { get; set; }
 
-    public DateTime FechaCompra { get; set; }
+    public DateTime? FechaCompra { get; set; }
 
-    public decimal TotalVenta { get; set; }
+    public decimal? TotalVenta { get; set; }
 
     public int IdCliente { get; set; }
 

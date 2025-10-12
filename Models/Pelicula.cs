@@ -9,7 +9,7 @@ public partial class Pelicula
 
     public string NombrePelicula { get; set; } = null!;
 
-    public string? Imagen { get; set; }
+    public byte[]? Imagen { get; set; }
 
     public decimal Precio { get; set; }
 
