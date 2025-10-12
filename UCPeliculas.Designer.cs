@@ -110,6 +110,7 @@
             BAgregar.TabIndex = 1;
             BAgregar.Text = "Agregar Pelicula";
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
             // BtnBuscar
             // 
@@ -122,6 +123,7 @@
             BtnBuscar.TabIndex = 3;
             BtnBuscar.Text = "Buscar Pelicula";
             BtnBuscar.UseVisualStyleBackColor = false;
+            BtnBuscar.Click += BtnBuscar_Click  ;
             // 
             // UCPeliculas
             // 

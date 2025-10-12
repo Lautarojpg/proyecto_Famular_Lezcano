@@ -31,6 +31,10 @@
             BGuardar = new Button();
             label1 = new Label();
             panel1 = new Panel();
+            TxtImagen = new TextBox();
+            BtnImagen = new Button();
+            label2 = new Label();
+            CbCategoria = new ComboBox();
             TStock = new TextBox();
             LNombre = new Label();
             TNombre = new TextBox();
@@ -39,9 +43,9 @@
             TSinopsis = new TextBox();
             LStock = new Label();
             LSinopsis = new Label();
-            CbCategoria = new ComboBox();
-            label2 = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // BGuardar
@@ -55,6 +59,7 @@
             BGuardar.TabIndex = 17;
             BGuardar.Text = "Agregar";
             BGuardar.UseVisualStyleBackColor = false;
+            BGuardar.Click += BGuardar_Click;
             // 
             // label1
             // 
@@ -71,6 +76,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(TxtImagen);
+            panel1.Controls.Add(BtnImagen);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(CbCategoria);
             panel1.Controls.Add(TStock);
@@ -85,6 +92,43 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(388, 266);
             panel1.TabIndex = 18;
+            // 
+            // TxtImagen
+            // 
+            TxtImagen.Location = new Point(126, 229);
+            TxtImagen.Name = "TxtImagen";
+            TxtImagen.Size = new Size(250, 23);
+            TxtImagen.TabIndex = 22;
+            // 
+            // BtnImagen
+            // 
+            BtnImagen.BackColor = Color.Maroon;
+            BtnImagen.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnImagen.ForeColor = Color.Bisque;
+            BtnImagen.Location = new Point(11, 221);
+            BtnImagen.Name = "BtnImagen";
+            BtnImagen.Size = new Size(92, 32);
+            BtnImagen.TabIndex = 21;
+            BtnImagen.Text = "Imagen";
+            BtnImagen.UseVisualStyleBackColor = false;
+            BtnImagen.Click += BtnImagen_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(11, 189);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 15);
+            label2.TabIndex = 20;
+            label2.Text = "Categoria:";
+            // 
+            // CbCategoria
+            // 
+            CbCategoria.FormattingEnabled = true;
+            CbCategoria.Location = new Point(126, 181);
+            CbCategoria.Name = "CbCategoria";
+            CbCategoria.Size = new Size(121, 23);
+            CbCategoria.TabIndex = 19;
             // 
             // TStock
             // 
@@ -152,28 +196,23 @@
             LSinopsis.TabIndex = 6;
             LSinopsis.Text = "Sinopsis:";
             // 
-            // CbCategoria
+            // pictureBox1
             // 
-            CbCategoria.FormattingEnabled = true;
-            CbCategoria.Location = new Point(126, 181);
-            CbCategoria.Name = "CbCategoria";
-            CbCategoria.Size = new Size(121, 23);
-            CbCategoria.TabIndex = 19;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(11, 189);
-            label2.Name = "label2";
-            label2.Size = new Size(61, 15);
-            label2.TabIndex = 20;
-            label2.Text = "Categoria:";
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.InitialImage = Properties.Resources.logo;
+            pictureBox1.Location = new Point(406, 53);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(232, 222);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
             // 
             // FormAgregarPelicula
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(411, 350);
+            ClientSize = new Size(645, 350);
+            Controls.Add(pictureBox1);
             Controls.Add(BGuardar);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -181,6 +220,7 @@
             Text = "FormAgregarPelicula";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,5 +242,8 @@
         private Label label2;
         private ComboBox CbCategoria;
         private Label LEmail;
+        private Button BtnImagen;
+        private PictureBox pictureBox1;
+        private TextBox TxtImagen;
     }
 }
