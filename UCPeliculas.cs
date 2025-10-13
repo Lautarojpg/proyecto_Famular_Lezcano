@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using proyecto_Famular_Lezcano.Models;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,6 +19,7 @@ namespace proyecto_Famular_Lezcano
             dgvPeliculas.AutoGenerateColumns = false;
             dgvPeliculas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPeliculas.MultiSelect = false;
+            dgvPeliculas.RowTemplate.Height = 80; // Altura suficiente para miniaturas
 
             _context = new ProyectoFamularLezcanoContext();
 
@@ -28,26 +31,19 @@ namespace proyecto_Famular_Lezcano
         {
             dgvPeliculas.Columns.Clear();
 
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            // Columna Imagen
+            DataGridViewImageColumn colImagen = new DataGridViewImageColumn
             {
-                HeaderText = "Nombre",
-                DataPropertyName = "NombrePelicula"
-            });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Precio",
-                DataPropertyName = "Precio"
-            });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Stock",
-                DataPropertyName = "Stock"
-            });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Categoría",
-                DataPropertyName = "NombreCategoria" // Propiedad calculada
-            });
+                HeaderText = "Imagen",
+                ImageLayout = DataGridViewImageCellLayout.Zoom,
+                DataPropertyName = "Miniatura"
+            };
+            dgvPeliculas.Columns.Add(colImagen);
+
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre", DataPropertyName = "NombrePelicula" });
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Precio", DataPropertyName = "Precio" });
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Stock", DataPropertyName = "Stock" });
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Categoría", DataPropertyName = "NombreCategoria" });
 
             var btnModificar = new DataGridViewButtonColumn
             {
@@ -74,17 +70,28 @@ namespace proyecto_Famular_Lezcano
         {
             var peliculas = _context.Peliculas
                 .Include(p => p.IdCategoriaNavigation)
+                .AsEnumerable() // pasamos a memoria para usar imágenes
                 .Select(p => new
                 {
                     p.IdPelicula,
                     p.NombrePelicula,
                     p.Precio,
                     p.Stock,
-                    NombreCategoria = p.IdCategoriaNavigation.Descripcion
+                    NombreCategoria = p.IdCategoriaNavigation?.Descripcion ?? "",
+                    Miniatura = p.Imagen != null ? ByteArrayToImage(p.Imagen) : null
                 })
                 .ToList();
 
             dgvPeliculas.DataSource = peliculas;
+        }
+
+        private Image ByteArrayToImage(byte[] bytes)
+        {
+            using (var ms = new MemoryStream(bytes))
+            {
+                Image img = Image.FromStream(ms);
+                return new Bitmap(img, new Size(80, 60)); // Miniatura
+            }
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
@@ -98,38 +105,37 @@ namespace proyecto_Famular_Lezcano
 
         private void dgvPeliculas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+
+            int idPelicula = (int)dgvPeliculas.Rows[e.RowIndex].Cells["IdPelicula"].Value;
+            var pelicula = _context.Peliculas
+                .Include(p => p.IdCategoriaNavigation)
+                .FirstOrDefault(p => p.IdPelicula == idPelicula);
+
+            if (pelicula == null) return;
+
+            if (dgvPeliculas.Columns[e.ColumnIndex].Name == "btnModificar")
             {
-                int idPelicula = (int)dgvPeliculas.Rows[e.RowIndex].Cells["IdPelicula"].Value;
-                var pelicula = _context.Peliculas
-                    .Include(p => p.IdCategoriaNavigation)
-                    .FirstOrDefault(p => p.IdPelicula == idPelicula);
-
-                if (pelicula == null) return;
-
-                if (dgvPeliculas.Columns[e.ColumnIndex].Name == "btnModificar")
+                using (FormAgregarPelicula form = new FormAgregarPelicula(pelicula))
                 {
-                    using (FormAgregarPelicula form = new FormAgregarPelicula(pelicula))
-                    {
-                        if (form.ShowDialog() == DialogResult.OK)
-                            CargarPeliculas();
-                    }
-                }
-                else if (dgvPeliculas.Columns[e.ColumnIndex].Name == "btnEliminar")
-                {
-                    var confirm = MessageBox.Show(
-                        "¿Seguro que deseas eliminar esta película?",
-                        "Confirmación",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
-
-                    if (confirm == DialogResult.Yes)
-                    {
-                        _context.Peliculas.Remove(pelicula);
-                        _context.SaveChanges();
+                    if (form.ShowDialog() == DialogResult.OK)
                         CargarPeliculas();
-                    }
+                }
+            }
+            else if (dgvPeliculas.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                var confirm = MessageBox.Show(
+                    "¿Seguro que deseas eliminar esta película?",
+                    "Confirmación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.Yes)
+                {
+                    _context.Peliculas.Remove(pelicula);
+                    _context.SaveChanges();
+                    CargarPeliculas();
                 }
             }
         }
@@ -146,14 +152,16 @@ namespace proyecto_Famular_Lezcano
 
             var resultados = _context.Peliculas
                 .Include(p => p.IdCategoriaNavigation)
-                .Where(p => EF.Functions.Like(p.NombrePelicula, $"%{texto}%"))
+                .AsEnumerable()
+                .Where(p => p.NombrePelicula.Contains(texto, StringComparison.OrdinalIgnoreCase))
                 .Select(p => new
                 {
                     p.IdPelicula,
                     p.NombrePelicula,
                     p.Precio,
                     p.Stock,
-                    NombreCategoria = p.IdCategoriaNavigation.Descripcion
+                    NombreCategoria = p.IdCategoriaNavigation?.Descripcion ?? "",
+                    Miniatura = p.Imagen != null ? ByteArrayToImage(p.Imagen) : null
                 })
                 .ToList();
 

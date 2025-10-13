@@ -106,7 +106,7 @@
             BProductos.Name = "BProductos";
             BProductos.Size = new Size(114, 30);
             BProductos.TabIndex = 3;
-            BProductos.Text = "📦 Productos";
+            BProductos.Text = "📦 Peliculas";
             BProductos.UseVisualStyleBackColor = false;
             BProductos.Click += BProductos_Click;
             // 

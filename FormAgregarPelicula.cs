@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using proyecto_Famular_Lezcano.Models;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -28,7 +30,16 @@ namespace proyecto_Famular_Lezcano
             TPrecio.Text = pelicula.Precio.ToString();
             TStock.Text = pelicula.Stock.ToString();
             TSinopsis.Text = pelicula.Sinopsis;
+            CbCategoria.SelectedValue = pelicula.IdCategoria;
 
+            // Mostrar imagen si existe
+            if (pelicula.Imagen != null)
+            {
+                using (var ms = new MemoryStream(pelicula.Imagen))
+                {
+                    pictureBox1.Image = Image.FromStream(ms);
+                }
+            }
         }
 
         private void CargarCategorias()
@@ -64,6 +75,18 @@ namespace proyecto_Famular_Lezcano
                 int stock = int.Parse(TStock.Text);
                 int idCategoria = (int)CbCategoria.SelectedValue;
 
+                byte[] imagenBytes = null;
+                if (pictureBox1.Image != null)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        // Redimensionar antes de guardar
+                        Image imagenRedimensionada = RedimensionarImagen(pictureBox1.Image, 250, 200);
+                        imagenRedimensionada.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        imagenBytes = ms.ToArray();
+                    }
+                }
+
                 if (_esEdicion)
                 {
                     var pelicula = _context.Peliculas.FirstOrDefault(p => p.IdPelicula == _idPelicula);
@@ -74,9 +97,7 @@ namespace proyecto_Famular_Lezcano
                         pelicula.Stock = stock;
                         pelicula.Sinopsis = TSinopsis.Text.Trim();
                         pelicula.IdCategoria = idCategoria;
-                        pelicula.Imagen = TxtImagen.Text != string.Empty
-                            ? System.IO.File.ReadAllBytes(TxtImagen.Text)
-                            : pelicula.Imagen;
+                        if (imagenBytes != null) pelicula.Imagen = imagenBytes;
 
                         _context.SaveChanges();
                         MessageBox.Show("Película actualizada correctamente.", "Éxito",
@@ -92,9 +113,7 @@ namespace proyecto_Famular_Lezcano
                         Stock = stock,
                         Sinopsis = TSinopsis.Text.Trim(),
                         IdCategoria = idCategoria,
-                        Imagen = TxtImagen.Text != string.Empty
-                            ? System.IO.File.ReadAllBytes(TxtImagen.Text)
-                            : null
+                        Imagen = imagenBytes
                     };
 
                     _context.Peliculas.Add(nueva);
@@ -144,16 +163,29 @@ namespace proyecto_Famular_Lezcano
 
         private void BtnImagen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
 
-                TxtImagen.Text = openFileDialog.FileName;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var original = Image.FromFile(openFileDialog.FileName);
+                    var redimensionada = RedimensionarImagen(original, 250, 200);
+
+                    pictureBox1.Image = redimensionada;
+                    TxtImagen.Text = openFileDialog.FileName;
+                }
             }
+        }
+
+        private Image RedimensionarImagen(Image imagenOriginal, int ancho, int alto)
+        {
+            Bitmap nuevaImagen = new Bitmap(ancho, alto);
+            using (Graphics g = Graphics.FromImage(nuevaImagen))
+            {
+                g.DrawImage(imagenOriginal, 0, 0, ancho, alto);
+            }
+            return nuevaImagen;
         }
     }
 }
