@@ -22,4 +22,6 @@ public partial class Usuario
     public bool? Estado { get; set; }
 
     public virtual Rol IdRolNavigation { get; set; } = null!;
+
+    public virtual ICollection<VentaDetalle> VentaDetalles { get; set; } = new List<VentaDetalle>();
 }

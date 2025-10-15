@@ -37,7 +37,7 @@ public partial class ProyectoFamularLezcanoContext : DbContext
     {
         modelBuilder.Entity<Categorium>(entity =>
         {
-            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__CD54BC5AB99DD2F6");
+            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__CD54BC5A433A8B8A");
 
             entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
             entity.Property(e => e.Activo)
@@ -50,7 +50,7 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.IdCliente).HasName("PK__Cliente__677F38F50C3E868F");
+            entity.HasKey(e => e.IdCliente).HasName("PK__Cliente__677F38F50038C395");
 
             entity.ToTable("Cliente");
 
@@ -74,13 +74,16 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<Pelicula>(entity =>
         {
-            entity.HasKey(e => e.IdPelicula).HasName("PK__Pelicula__B5017F4D231CBF57");
+            entity.HasKey(e => e.IdPelicula).HasName("PK__Pelicula__B5017F4D8E9F1972");
 
             entity.ToTable("Pelicula");
 
             entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
             entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
-            entity.Property(e => e.Imagen).HasColumnName("imagen");
+            entity.Property(e => e.Imagen)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("imagen");
             entity.Property(e => e.NombrePelicula)
                 .HasMaxLength(100)
                 .HasColumnName("nombre_pelicula");
@@ -100,7 +103,7 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<Rol>(entity =>
         {
-            entity.HasKey(e => e.IdRol).HasName("PK__Rol__6ABCB5E0BFC40892");
+            entity.HasKey(e => e.IdRol).HasName("PK__Rol__6ABCB5E0C7BDEBBB");
 
             entity.ToTable("Rol");
 
@@ -112,11 +115,11 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__4E3E04ADAB270E08");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__4E3E04ADD9A6943F");
 
             entity.ToTable("Usuario");
 
-            entity.HasIndex(e => e.NombreUsuario, "UQ__Usuario__D4D22D745C1F5FB6").IsUnique();
+            entity.HasIndex(e => e.NombreUsuario, "UQ__Usuario__D4D22D746BF2061D").IsUnique();
 
             entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.Apellido)
@@ -147,7 +150,7 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<VentaCabecera>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("PK__Venta_Ca__459533BF51984D09");
+            entity.HasKey(e => e.IdVenta).HasName("PK__Venta_Ca__459533BF484F2186");
 
             entity.ToTable("Venta_Cabecera");
 
@@ -169,19 +172,25 @@ public partial class ProyectoFamularLezcanoContext : DbContext
 
         modelBuilder.Entity<VentaDetalle>(entity =>
         {
-            entity.HasKey(e => e.IdDetalle).HasName("PK__Venta_De__4F1332DE7729987C");
+            entity.HasKey(e => e.IdDetalle).HasName("PK__Venta_De__4F1332DE7354878B");
 
             entity.ToTable("Venta_Detalle");
 
             entity.Property(e => e.IdDetalle).HasColumnName("id_detalle");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
             entity.Property(e => e.IdPelicula).HasColumnName("id_pelicula");
+            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
 
             entity.HasOne(d => d.IdPeliculaNavigation).WithMany(p => p.VentaDetalles)
                 .HasForeignKey(d => d.IdPelicula)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_detalle_pelicula");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.VentaDetalles)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_usuario");
 
             entity.HasOne(d => d.IdVentaNavigation).WithMany(p => p.VentaDetalles)
                 .HasForeignKey(d => d.IdVenta)

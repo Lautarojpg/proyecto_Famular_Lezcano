@@ -19,7 +19,7 @@ namespace proyecto_Famular_Lezcano
             dgvPeliculas.AutoGenerateColumns = false;
             dgvPeliculas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPeliculas.MultiSelect = false;
-            dgvPeliculas.RowTemplate.Height = 80; // Altura suficiente para miniaturas
+            dgvPeliculas.RowTemplate.Height = 80;
 
             _context = new ProyectoFamularLezcanoContext();
 
@@ -31,7 +31,7 @@ namespace proyecto_Famular_Lezcano
         {
             dgvPeliculas.Columns.Clear();
 
-            // Columna Imagen
+            // Columna Imagen (miniatura)
             DataGridViewImageColumn colImagen = new DataGridViewImageColumn
             {
                 HeaderText = "Imagen",
@@ -40,11 +40,31 @@ namespace proyecto_Famular_Lezcano
             };
             dgvPeliculas.Columns.Add(colImagen);
 
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre", DataPropertyName = "NombrePelicula" });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Precio", DataPropertyName = "Precio" });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Stock", DataPropertyName = "Stock" });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Categoría", DataPropertyName = "NombreCategoria" });
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Nombre",
+                DataPropertyName = "NombrePelicula"
+            });
 
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Precio",
+                DataPropertyName = "Precio"
+            });
+
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Stock",
+                DataPropertyName = "Stock"
+            });
+
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Categoría",
+                DataPropertyName = "NombreCategoria"
+            });
+
+            // Botones
             var btnModificar = new DataGridViewButtonColumn
             {
                 HeaderText = "Acciones",
@@ -70,7 +90,7 @@ namespace proyecto_Famular_Lezcano
         {
             var peliculas = _context.Peliculas
                 .Include(p => p.IdCategoriaNavigation)
-                .AsEnumerable() // pasamos a memoria para usar imágenes
+                .AsEnumerable()
                 .Select(p => new
                 {
                     p.IdPelicula,
@@ -78,19 +98,28 @@ namespace proyecto_Famular_Lezcano
                     p.Precio,
                     p.Stock,
                     NombreCategoria = p.IdCategoriaNavigation?.Descripcion ?? "",
-                    Miniatura = p.Imagen != null ? ByteArrayToImage(p.Imagen) : null
+                    Miniatura = CargarMiniatura(p.Imagen)
                 })
                 .ToList();
 
             dgvPeliculas.DataSource = peliculas;
         }
 
-        private Image ByteArrayToImage(byte[] bytes)
+        private Image CargarMiniatura(string rutaImagen)
         {
-            using (var ms = new MemoryStream(bytes))
+            if (string.IsNullOrWhiteSpace(rutaImagen) || !File.Exists(rutaImagen))
+                return null;
+
+            try
             {
-                Image img = Image.FromStream(ms);
-                return new Bitmap(img, new Size(80, 60)); // Miniatura
+                using (var original = Image.FromFile(rutaImagen))
+                {
+                    return new Bitmap(original, new Size(80, 60));
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
 
@@ -161,7 +190,7 @@ namespace proyecto_Famular_Lezcano
                     p.Precio,
                     p.Stock,
                     NombreCategoria = p.IdCategoriaNavigation?.Descripcion ?? "",
-                    Miniatura = p.Imagen != null ? ByteArrayToImage(p.Imagen) : null
+                    Miniatura = CargarMiniatura(p.Imagen)
                 })
                 .ToList();
 

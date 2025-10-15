@@ -32,12 +32,19 @@ namespace proyecto_Famular_Lezcano
             TSinopsis.Text = pelicula.Sinopsis;
             CbCategoria.SelectedValue = pelicula.IdCategoria;
 
-            // Mostrar imagen si existe
-            if (pelicula.Imagen != null)
+            // Mostrar imagen si existe ruta válida
+            if (!string.IsNullOrEmpty(pelicula.Imagen) && File.Exists(pelicula.Imagen))
             {
-                using (var ms = new MemoryStream(pelicula.Imagen))
+                try
                 {
-                    pictureBox1.Image = Image.FromStream(ms);
+                    var original = Image.FromFile(pelicula.Imagen);
+                    var redimensionada = RedimensionarImagen(original, 250, 200);
+                    pictureBox1.Image = redimensionada;
+                    TxtImagen.Text = pelicula.Imagen;
+                }
+                catch
+                {
+                    pictureBox1.Image = null;
                 }
             }
         }
@@ -74,18 +81,7 @@ namespace proyecto_Famular_Lezcano
                 decimal precio = decimal.Parse(TPrecio.Text);
                 int stock = int.Parse(TStock.Text);
                 int idCategoria = (int)CbCategoria.SelectedValue;
-
-                byte[] imagenBytes = null;
-                if (pictureBox1.Image != null)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        // Redimensionar antes de guardar
-                        Image imagenRedimensionada = RedimensionarImagen(pictureBox1.Image, 250, 200);
-                        imagenRedimensionada.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        imagenBytes = ms.ToArray();
-                    }
-                }
+                string rutaImagen = TxtImagen.Text?.Trim();
 
                 if (_esEdicion)
                 {
@@ -97,7 +93,9 @@ namespace proyecto_Famular_Lezcano
                         pelicula.Stock = stock;
                         pelicula.Sinopsis = TSinopsis.Text.Trim();
                         pelicula.IdCategoria = idCategoria;
-                        if (imagenBytes != null) pelicula.Imagen = imagenBytes;
+
+                        if (!string.IsNullOrEmpty(rutaImagen))
+                            pelicula.Imagen = rutaImagen;
 
                         _context.SaveChanges();
                         MessageBox.Show("Película actualizada correctamente.", "Éxito",
@@ -113,7 +111,7 @@ namespace proyecto_Famular_Lezcano
                         Stock = stock,
                         Sinopsis = TSinopsis.Text.Trim(),
                         IdCategoria = idCategoria,
-                        Imagen = imagenBytes
+                        Imagen = string.IsNullOrEmpty(rutaImagen) ? null : rutaImagen
                     };
 
                     _context.Peliculas.Add(nueva);
@@ -169,11 +167,19 @@ namespace proyecto_Famular_Lezcano
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var original = Image.FromFile(openFileDialog.FileName);
-                    var redimensionada = RedimensionarImagen(original, 250, 200);
+                    try
+                    {
+                        var original = Image.FromFile(openFileDialog.FileName);
+                        var redimensionada = RedimensionarImagen(original, 250, 200);
 
-                    pictureBox1.Image = redimensionada;
-                    TxtImagen.Text = openFileDialog.FileName;
+                        pictureBox1.Image = redimensionada;
+                        TxtImagen.Text = openFileDialog.FileName;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al cargar la imagen: {ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -183,6 +189,7 @@ namespace proyecto_Famular_Lezcano
             Bitmap nuevaImagen = new Bitmap(ancho, alto);
             using (Graphics g = Graphics.FromImage(nuevaImagen))
             {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                 g.DrawImage(imagenOriginal, 0, 0, ancho, alto);
             }
             return nuevaImagen;
