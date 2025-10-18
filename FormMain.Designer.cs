@@ -36,6 +36,7 @@
             BInformes = new Button();
             BVentas = new Button();
             BClientes = new Button();
+            BtnBackUp = new Button();
             PanelMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             // PanelMenu
             // 
             PanelMenu.BackColor = Color.FromArgb(255, 192, 128);
+            PanelMenu.Controls.Add(BtnBackUp);
             PanelMenu.Controls.Add(BtnSalir);
             PanelMenu.Controls.Add(BVendedores);
             PanelMenu.Controls.Add(BProductos);
@@ -69,7 +71,7 @@
             BtnSalir.FlatStyle = FlatStyle.Flat;
             BtnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BtnSalir.ForeColor = Color.White;
-            BtnSalir.Location = new Point(16, 403);
+            BtnSalir.Location = new Point(16, 446);
             BtnSalir.Margin = new Padding(3, 2, 3, 2);
             BtnSalir.Name = "BtnSalir";
             BtnSalir.Size = new Size(114, 30);
@@ -158,6 +160,22 @@
             BClientes.UseVisualStyleBackColor = false;
             BClientes.Click += BClientes_Click;
             // 
+            // BtnBackUp
+            // 
+            BtnBackUp.BackColor = Color.Maroon;
+            BtnBackUp.FlatAppearance.BorderSize = 0;
+            BtnBackUp.FlatStyle = FlatStyle.Flat;
+            BtnBackUp.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnBackUp.ForeColor = Color.White;
+            BtnBackUp.Location = new Point(16, 380);
+            BtnBackUp.Margin = new Padding(3, 2, 3, 2);
+            BtnBackUp.Name = "BtnBackUp";
+            BtnBackUp.Size = new Size(114, 30);
+            BtnBackUp.TabIndex = 5;
+            BtnBackUp.Text = "BackUp";
+            BtnBackUp.UseVisualStyleBackColor = false;
+            BtnBackUp.Click += BtnBackUp_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,6 +201,7 @@
         private Button BProductos;
         private Button BClientes;
         private Button BtnSalir;
+        private Button BtnBackUp;
     }
 }
 

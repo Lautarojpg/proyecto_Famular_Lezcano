@@ -105,5 +105,50 @@ namespace proyecto_Famular_Lezcano
             Application.Exit();
         }
 
+        private void BtnBackUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Abrir diálogo para elegir dónde guardar el backup
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Archivo de Backup (*.bak)|*.bak";
+                    saveFileDialog.Title = "Guardar copia de seguridad";
+                    saveFileDialog.FileName = $"Backup_{DateTime.Now:yyyyMMdd_HHmmss}.bak";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string backupPath = saveFileDialog.FileName;
+
+                        // Conexión directa a SQL Server (ajustala según tu conexión real)
+                        string connectionString = "Server=.\\SQLEXPRESS;Database=proyecto_Famular_Lezcano;Trusted_Connection=True;TrustServerCertificate=True;";
+
+                        using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+                        {
+                            connection.Open();
+
+                            string backupQuery = $@"
+                        BACKUP DATABASE [proyecto_Famular_Lezcano]
+                        TO DISK = '{backupPath}'
+                        WITH FORMAT, INIT,
+                        NAME = 'Backup_{DateTime.Now:yyyyMMdd_HHmmss}',
+                        SKIP, NOREWIND, NOUNLOAD, STATS = 10;";
+
+                            using (var command = new Microsoft.Data.SqlClient.SqlCommand(backupQuery, connection))
+                            {
+                                command.ExecuteNonQuery();
+                            }
+                        }
+
+                        MessageBox.Show("✅ Backup realizado correctamente en:\n" + backupPath, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ Error al realizar el backup:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
