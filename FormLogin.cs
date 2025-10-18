@@ -49,6 +49,7 @@ namespace proyecto_Famular_Lezcano
                 if (BCrypt.Net.BCrypt.Verify(passIngresado, usuario.Contrasena))
                 {
                     string nombreRol = usuario.IdRolNavigation?.NombreRol ?? "Sin Rol";
+                    SesionActual.Usuario = usuario;
 
                     MessageBox.Show($"Bienvenido, {usuario.Nombre} ({nombreRol})", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -28,134 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            PeliculasPanel = new Panel();
-            LPeliculas = new Label();
-            ClientesPanel = new Panel();
-            LClientes = new Label();
-            VentasPanel = new Panel();
-            LVentas = new Label();
-            MasVendidasPanel = new Panel();
-            LMasVendidas = new Label();
-            ActividadPanel = new Panel();
-            LActividad = new Label();
             LHeader = new Label();
-            PeliculasPanel.SuspendLayout();
-            ClientesPanel.SuspendLayout();
-            VentasPanel.SuspendLayout();
-            MasVendidasPanel.SuspendLayout();
-            ActividadPanel.SuspendLayout();
+            dgvFacturas = new DataGridView();
+            DtpDesde = new DateTimePicker();
+            DtpHasta = new DateTimePicker();
+            BtnLimpiar = new Button();
+            BtnFiltrar = new Button();
+            LUsuario = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            TxtBuscarVendedor = new TextBox();
+            BtnBuscarVendedor = new Button();
+            BtnBucarCliente = new Button();
+            TxtBuscarCliente = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvFacturas).BeginInit();
             SuspendLayout();
-            // 
-            // PeliculasPanel
-            // 
-            PeliculasPanel.BackColor = Color.AntiqueWhite;
-            PeliculasPanel.BorderStyle = BorderStyle.FixedSingle;
-            PeliculasPanel.Controls.Add(LPeliculas);
-            PeliculasPanel.Location = new Point(3, 60);
-            PeliculasPanel.Margin = new Padding(3, 2, 3, 2);
-            PeliculasPanel.Name = "PeliculasPanel";
-            PeliculasPanel.Size = new Size(219, 76);
-            PeliculasPanel.TabIndex = 1;
-            // 
-            // LPeliculas
-            // 
-            LPeliculas.AutoSize = true;
-            LPeliculas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            LPeliculas.ForeColor = Color.Maroon;
-            LPeliculas.Location = new Point(18, 22);
-            LPeliculas.Name = "LPeliculas";
-            LPeliculas.Size = new Size(157, 38);
-            LPeliculas.TabIndex = 0;
-            LPeliculas.Text = "🎬 Películas Cargadas\n247 (+12 este mes)";
-            // 
-            // ClientesPanel
-            // 
-            ClientesPanel.BackColor = Color.AntiqueWhite;
-            ClientesPanel.BorderStyle = BorderStyle.FixedSingle;
-            ClientesPanel.Controls.Add(LClientes);
-            ClientesPanel.Location = new Point(228, 60);
-            ClientesPanel.Margin = new Padding(3, 2, 3, 2);
-            ClientesPanel.Name = "ClientesPanel";
-            ClientesPanel.Size = new Size(210, 76);
-            ClientesPanel.TabIndex = 2;
-            ClientesPanel.Paint += ClientesPanel_Paint;
-            // 
-            // LClientes
-            // 
-            LClientes.AutoSize = true;
-            LClientes.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            LClientes.ForeColor = Color.Maroon;
-            LClientes.Location = new Point(24, 22);
-            LClientes.Name = "LClientes";
-            LClientes.Size = new Size(168, 38);
-            LClientes.TabIndex = 0;
-            LClientes.Text = "👥 Clientes Registrados\n1834 (+89 este mes)";
-            // 
-            // VentasPanel
-            // 
-            VentasPanel.BackColor = Color.AntiqueWhite;
-            VentasPanel.BorderStyle = BorderStyle.FixedSingle;
-            VentasPanel.Controls.Add(LVentas);
-            VentasPanel.Location = new Point(456, 60);
-            VentasPanel.Margin = new Padding(3, 2, 3, 2);
-            VentasPanel.Name = "VentasPanel";
-            VentasPanel.Size = new Size(219, 76);
-            VentasPanel.TabIndex = 3;
-            // 
-            // LVentas
-            // 
-            LVentas.AutoSize = true;
-            LVentas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            LVentas.ForeColor = Color.Maroon;
-            LVentas.Location = new Point(18, 22);
-            LVentas.Name = "LVentas";
-            LVentas.Size = new Size(151, 38);
-            LVentas.TabIndex = 0;
-            LVentas.Text = "💵 Ventas Realizadas\n$45,672 (+15%)";
-            // 
-            // MasVendidasPanel
-            // 
-            MasVendidasPanel.BackColor = Color.AntiqueWhite;
-            MasVendidasPanel.BorderStyle = BorderStyle.FixedSingle;
-            MasVendidasPanel.Controls.Add(LMasVendidas);
-            MasVendidasPanel.Location = new Point(3, 165);
-            MasVendidasPanel.Margin = new Padding(3, 2, 3, 2);
-            MasVendidasPanel.Name = "MasVendidasPanel";
-            MasVendidasPanel.Size = new Size(337, 144);
-            MasVendidasPanel.TabIndex = 4;
-            // 
-            // LMasVendidas
-            // 
-            LMasVendidas.AutoSize = true;
-            LMasVendidas.Font = new Font("Segoe UI", 10F);
-            LMasVendidas.ForeColor = Color.SaddleBrown;
-            LMasVendidas.Location = new Point(28, 34);
-            LMasVendidas.Name = "LMasVendidas";
-            LMasVendidas.Size = new Size(243, 95);
-            LMasVendidas.TabIndex = 0;
-            LMasVendidas.Text = "🏆 Películas Más Vendidas\n\n- Casablanca (1942) → 156 ventas\n- El Padrino (1972) → 134 ventas\n- Ciudadano Kane (1941) → 98 ventas";
-            // 
-            // ActividadPanel
-            // 
-            ActividadPanel.BackColor = Color.AntiqueWhite;
-            ActividadPanel.BorderStyle = BorderStyle.FixedSingle;
-            ActividadPanel.Controls.Add(LActividad);
-            ActividadPanel.Location = new Point(354, 165);
-            ActividadPanel.Margin = new Padding(3, 2, 3, 2);
-            ActividadPanel.Name = "ActividadPanel";
-            ActividadPanel.Size = new Size(321, 144);
-            ActividadPanel.TabIndex = 5;
-            // 
-            // LActividad
-            // 
-            LActividad.AutoSize = true;
-            LActividad.Font = new Font("Segoe UI", 10F);
-            LActividad.ForeColor = Color.SaddleBrown;
-            LActividad.Location = new Point(18, 15);
-            LActividad.Name = "LActividad";
-            LActividad.Size = new Size(263, 114);
-            LActividad.TabIndex = 0;
-            LActividad.Text = "📌 Actividad Reciente\n\n- Nueva película agregada: Vértigo (1958)\n- Cliente registrado: María González\n- Venta realizada: $24.99\n- Usuario creado: operador_02";
             // 
             // LHeader
             // 
@@ -168,47 +55,179 @@
             LHeader.TabIndex = 0;
             LHeader.Text = "📊 Dashboard Administrativo";
             // 
+            // dgvFacturas
+            // 
+            dgvFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFacturas.Location = new Point(18, 278);
+            dgvFacturas.Name = "dgvFacturas";
+            dgvFacturas.Size = new Size(651, 156);
+            dgvFacturas.TabIndex = 1;
+            // 
+            // DtpDesde
+            // 
+            DtpDesde.Location = new Point(18, 93);
+            DtpDesde.Name = "DtpDesde";
+            DtpDesde.Size = new Size(200, 23);
+            DtpDesde.TabIndex = 2;
+            // 
+            // DtpHasta
+            // 
+            DtpHasta.Location = new Point(284, 93);
+            DtpHasta.Name = "DtpHasta";
+            DtpHasta.Size = new Size(200, 23);
+            DtpHasta.TabIndex = 3;
+            // 
+            // BtnLimpiar
+            // 
+            BtnLimpiar.BackColor = Color.Maroon;
+            BtnLimpiar.FlatAppearance.BorderSize = 0;
+            BtnLimpiar.FlatStyle = FlatStyle.Flat;
+            BtnLimpiar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnLimpiar.ForeColor = Color.White;
+            BtnLimpiar.Location = new Point(555, 208);
+            BtnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            BtnLimpiar.Name = "BtnLimpiar";
+            BtnLimpiar.Size = new Size(114, 30);
+            BtnLimpiar.TabIndex = 5;
+            BtnLimpiar.Text = "Limpiar";
+            BtnLimpiar.UseVisualStyleBackColor = false;
+            BtnLimpiar.Click += BtnLimpiar_Click;
+            // 
+            // BtnFiltrar
+            // 
+            BtnFiltrar.BackColor = Color.Maroon;
+            BtnFiltrar.FlatAppearance.BorderSize = 0;
+            BtnFiltrar.FlatStyle = FlatStyle.Flat;
+            BtnFiltrar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnFiltrar.ForeColor = Color.White;
+            BtnFiltrar.Location = new Point(555, 86);
+            BtnFiltrar.Margin = new Padding(3, 2, 3, 2);
+            BtnFiltrar.Name = "BtnFiltrar";
+            BtnFiltrar.Size = new Size(114, 30);
+            BtnFiltrar.TabIndex = 6;
+            BtnFiltrar.Text = "Filtrar";
+            BtnFiltrar.UseVisualStyleBackColor = false;
+            BtnFiltrar.Click += BtnFiltrarFecha_Click;
+            // 
+            // LUsuario
+            // 
+            LUsuario.AutoSize = true;
+            LUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            LUsuario.ForeColor = Color.SaddleBrown;
+            LUsuario.Location = new Point(79, 71);
+            LUsuario.Name = "LUsuario";
+            LUsuario.Size = new Size(50, 19);
+            LUsuario.TabIndex = 7;
+            LUsuario.Text = "Desde";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label1.ForeColor = Color.SaddleBrown;
+            label1.Location = new Point(359, 71);
+            label1.Name = "label1";
+            label1.Size = new Size(47, 19);
+            label1.TabIndex = 8;
+            label1.Text = "Hasta";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label2.ForeColor = Color.SaddleBrown;
+            label2.Location = new Point(18, 133);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 19);
+            label2.TabIndex = 9;
+            label2.Text = "Vendedor/Gerente";
+            // 
+            // TxtBuscarVendedor
+            // 
+            TxtBuscarVendedor.Location = new Point(18, 166);
+            TxtBuscarVendedor.Name = "TxtBuscarVendedor";
+            TxtBuscarVendedor.Size = new Size(322, 23);
+            TxtBuscarVendedor.TabIndex = 10;
+            // 
+            // BtnBuscarVendedor
+            // 
+            BtnBuscarVendedor.BackColor = Color.Maroon;
+            BtnBuscarVendedor.FlatAppearance.BorderSize = 0;
+            BtnBuscarVendedor.FlatStyle = FlatStyle.Flat;
+            BtnBuscarVendedor.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnBuscarVendedor.ForeColor = Color.White;
+            BtnBuscarVendedor.Location = new Point(370, 160);
+            BtnBuscarVendedor.Margin = new Padding(3, 2, 3, 2);
+            BtnBuscarVendedor.Name = "BtnBuscarVendedor";
+            BtnBuscarVendedor.Size = new Size(143, 30);
+            BtnBuscarVendedor.TabIndex = 11;
+            BtnBuscarVendedor.Text = "Buscar Vendedor";
+            BtnBuscarVendedor.UseVisualStyleBackColor = false;
+            BtnBuscarVendedor.Click += BtnBuscarVendedor_Click;
+            // 
+            // BtnBucarCliente
+            // 
+            BtnBucarCliente.BackColor = Color.Maroon;
+            BtnBucarCliente.FlatAppearance.BorderSize = 0;
+            BtnBucarCliente.FlatStyle = FlatStyle.Flat;
+            BtnBucarCliente.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnBucarCliente.ForeColor = Color.White;
+            BtnBucarCliente.Location = new Point(370, 209);
+            BtnBucarCliente.Margin = new Padding(3, 2, 3, 2);
+            BtnBucarCliente.Name = "BtnBucarCliente";
+            BtnBucarCliente.Size = new Size(143, 30);
+            BtnBucarCliente.TabIndex = 13;
+            BtnBucarCliente.Text = "Buscar Cliente";
+            BtnBucarCliente.UseVisualStyleBackColor = false;
+            BtnBucarCliente.Click += BtnBuscarCliente_Click;
+            // 
+            // TxtBuscarCliente
+            // 
+            TxtBuscarCliente.Location = new Point(18, 215);
+            TxtBuscarCliente.Name = "TxtBuscarCliente";
+            TxtBuscarCliente.Size = new Size(322, 23);
+            TxtBuscarCliente.TabIndex = 12;
+            // 
             // UCInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
+            Controls.Add(BtnBucarCliente);
+            Controls.Add(TxtBuscarCliente);
+            Controls.Add(BtnBuscarVendedor);
+            Controls.Add(TxtBuscarVendedor);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(LUsuario);
+            Controls.Add(BtnFiltrar);
+            Controls.Add(BtnLimpiar);
+            Controls.Add(DtpHasta);
+            Controls.Add(DtpDesde);
+            Controls.Add(dgvFacturas);
             Controls.Add(LHeader);
-            Controls.Add(PeliculasPanel);
-            Controls.Add(ClientesPanel);
-            Controls.Add(VentasPanel);
-            Controls.Add(MasVendidasPanel);
-            Controls.Add(ActividadPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCInformes";
             Size = new Size(683, 450);
-            PeliculasPanel.ResumeLayout(false);
-            PeliculasPanel.PerformLayout();
-            ClientesPanel.ResumeLayout(false);
-            ClientesPanel.PerformLayout();
-            VentasPanel.ResumeLayout(false);
-            VentasPanel.PerformLayout();
-            MasVendidasPanel.ResumeLayout(false);
-            MasVendidasPanel.PerformLayout();
-            ActividadPanel.ResumeLayout(false);
-            ActividadPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvFacturas).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-
-        private Panel PeliculasPanel;
-        private Label LPeliculas;
-        private Panel ClientesPanel;
-        private Label LClientes;
-        private Panel VentasPanel;
-        private Label LVentas;
-        private Panel MasVendidasPanel;
-        private Label LMasVendidas;
-        private Panel ActividadPanel;
-        private Label LActividad;
         private Label LHeader;
+        private DataGridView dgvFacturas;
+        private DateTimePicker DtpDesde;
+        private DateTimePicker DtpHasta;
+        private Button BtnLimpiar;
+        private Button BtnFiltrar;
+        private Label LUsuario;
+        private Label label1;
+        private Label label2;
+        private TextBox TxtBuscarVendedor;
+        private Button BtnBuscarVendedor;
+        public Button BtnBucarCliente;
+        public TextBox TxtBuscarCliente;
     }
 }

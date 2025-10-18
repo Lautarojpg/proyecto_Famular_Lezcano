@@ -114,11 +114,8 @@ namespace proyecto_Famular_Lezcano
         {
             using (FormAgregarUsuario form = new FormAgregarUsuario())
             {
-                if (form.ShowDialog() == DialogResult.OK && form.NuevoUsuario != null)
+                if (form.ShowDialog() == DialogResult.OK)
                 {
-                    form.NuevoUsuario.IdUsuario = 0; // el ID lo genera SQL
-                    _context.Usuarios.Add(form.NuevoUsuario);
-                    _context.SaveChanges();
                     CargarUsuarios();
                 }
             }

@@ -81,6 +81,9 @@ namespace proyecto_Famular_Lezcano
                     MessageBox.Show($"Rol desconocido: {nombreRol}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
+
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void HabilitarBoton(Button btn)
@@ -101,5 +104,6 @@ namespace proyecto_Famular_Lezcano
         {
             Application.Exit();
         }
+
     }
 }
