@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace proyecto_Famular_Lezcano
+namespace proyecto_Famular_Lezcano.Helpers
 {
     internal class SesionActual
     {

@@ -27,50 +27,69 @@ namespace proyecto_Famular_Lezcano
             CargarPeliculas();
         }
 
+        // ------------------------------------------------------------
+        // CONFIGURACIÓN DE COLUMNAS
+        // ------------------------------------------------------------
         private void ConfigurarColumnas()
         {
             dgvPeliculas.Columns.Clear();
 
-            // Columna Imagen (miniatura)
+            // 🔹 Columna oculta para el ID
+            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "ID",
+                DataPropertyName = "IdPelicula",
+                Name = "IdPelicula",
+                Visible = false
+            });
+
+            // 🔹 Imagen miniatura
             DataGridViewImageColumn colImagen = new DataGridViewImageColumn
             {
                 HeaderText = "Imagen",
                 ImageLayout = DataGridViewImageCellLayout.Zoom,
-                DataPropertyName = "Miniatura"
+                DataPropertyName = "Miniatura",
+                Width = 100
             };
             dgvPeliculas.Columns.Add(colImagen);
 
+            // 🔹 Demás columnas
             dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Nombre",
-                DataPropertyName = "NombrePelicula"
+                DataPropertyName = "NombrePelicula",
+                Width = 180
             });
 
             dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Precio",
-                DataPropertyName = "Precio"
+                DataPropertyName = "Precio",
+                Width = 90
             });
 
             dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Stock",
-                DataPropertyName = "Stock"
+                DataPropertyName = "Stock",
+                Width = 70
             });
 
             dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Categoría",
-                DataPropertyName = "NombreCategoria"
+                DataPropertyName = "NombreCategoria",
+                Width = 120
             });
 
-            // Botones
+            // 🔹 Botones de acción
             var btnModificar = new DataGridViewButtonColumn
             {
                 HeaderText = "Acciones",
                 Text = "Modificar",
                 Name = "btnModificar",
-                UseColumnTextForButtonValue = true
+                UseColumnTextForButtonValue = true,
+                Width = 90
             };
             dgvPeliculas.Columns.Add(btnModificar);
 
@@ -79,13 +98,17 @@ namespace proyecto_Famular_Lezcano
                 HeaderText = "",
                 Text = "Eliminar",
                 Name = "btnEliminar",
-                UseColumnTextForButtonValue = true
+                UseColumnTextForButtonValue = true,
+                Width = 80
             };
             dgvPeliculas.Columns.Add(btnEliminar);
 
             dgvPeliculas.CellClick += dgvPeliculas_CellClick;
         }
 
+        // ------------------------------------------------------------
+        // CARGAR PELÍCULAS
+        // ------------------------------------------------------------
         private void CargarPeliculas()
         {
             var peliculas = _context.Peliculas
@@ -123,6 +146,9 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
+        // ------------------------------------------------------------
+        // BOTÓN AGREGAR
+        // ------------------------------------------------------------
         private void BAgregar_Click(object sender, EventArgs e)
         {
             using (FormAgregarPelicula form = new FormAgregarPelicula())
@@ -132,18 +158,24 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
+        // ------------------------------------------------------------
+        // ACCIONES EN CELDAS
+        // ------------------------------------------------------------
         private void dgvPeliculas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            int idPelicula = (int)dgvPeliculas.Rows[e.RowIndex].Cells["IdPelicula"].Value;
+            // ✅ Obtenemos el ID oculto
+            int idPelicula = Convert.ToInt32(dgvPeliculas.Rows[e.RowIndex].Cells["IdPelicula"].Value);
             var pelicula = _context.Peliculas
                 .Include(p => p.IdCategoriaNavigation)
                 .FirstOrDefault(p => p.IdPelicula == idPelicula);
 
             if (pelicula == null) return;
 
-            if (dgvPeliculas.Columns[e.ColumnIndex].Name == "btnModificar")
+            string columna = dgvPeliculas.Columns[e.ColumnIndex].Name;
+
+            if (columna == "btnModificar")
             {
                 using (FormAgregarPelicula form = new FormAgregarPelicula(pelicula))
                 {
@@ -151,10 +183,10 @@ namespace proyecto_Famular_Lezcano
                         CargarPeliculas();
                 }
             }
-            else if (dgvPeliculas.Columns[e.ColumnIndex].Name == "btnEliminar")
+            else if (columna == "btnEliminar")
             {
                 var confirm = MessageBox.Show(
-                    "¿Seguro que deseas eliminar esta película?",
+                    $"¿Seguro que deseas eliminar la película '{pelicula.NombrePelicula}'?",
                     "Confirmación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -164,11 +196,15 @@ namespace proyecto_Famular_Lezcano
                 {
                     _context.Peliculas.Remove(pelicula);
                     _context.SaveChanges();
+                    MessageBox.Show("Película eliminada correctamente.");
                     CargarPeliculas();
                 }
             }
         }
 
+        // ------------------------------------------------------------
+        // BOTÓN BUSCAR
+        // ------------------------------------------------------------
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             string texto = txtBuscar.Text.Trim();

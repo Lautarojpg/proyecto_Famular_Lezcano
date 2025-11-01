@@ -9,7 +9,6 @@ public partial class ProyectoFamularLezcanoContext : DbContext
     public ProyectoFamularLezcanoContext()
     {
     }
-
     public ProyectoFamularLezcanoContext(DbContextOptions<ProyectoFamularLezcanoContext> options)
         : base(options)
     {
