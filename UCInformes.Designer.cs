@@ -41,6 +41,7 @@
             BtnBuscarVendedor = new Button();
             BtnBucarCliente = new Button();
             TxtBuscarCliente = new TextBox();
+            btnEstadisticas = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFacturas).BeginInit();
             SuspendLayout();
             // 
@@ -100,7 +101,7 @@
             BtnFiltrar.FlatStyle = FlatStyle.Flat;
             BtnFiltrar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BtnFiltrar.ForeColor = Color.White;
-            BtnFiltrar.Location = new Point(555, 86);
+            BtnFiltrar.Location = new Point(555, 159);
             BtnFiltrar.Margin = new Padding(3, 2, 3, 2);
             BtnFiltrar.Name = "BtnFiltrar";
             BtnFiltrar.Size = new Size(114, 30);
@@ -188,11 +189,28 @@
             TxtBuscarCliente.Size = new Size(322, 23);
             TxtBuscarCliente.TabIndex = 12;
             // 
+            // btnEstadisticas
+            // 
+            btnEstadisticas.BackColor = Color.Maroon;
+            btnEstadisticas.FlatAppearance.BorderSize = 0;
+            btnEstadisticas.FlatStyle = FlatStyle.Flat;
+            btnEstadisticas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEstadisticas.ForeColor = Color.White;
+            btnEstadisticas.Location = new Point(479, 32);
+            btnEstadisticas.Margin = new Padding(3, 2, 3, 2);
+            btnEstadisticas.Name = "btnEstadisticas";
+            btnEstadisticas.Size = new Size(190, 30);
+            btnEstadisticas.TabIndex = 14;
+            btnEstadisticas.Text = "Ver Estadisticas";
+            btnEstadisticas.UseVisualStyleBackColor = false;
+            btnEstadisticas.Click += btnEstadisticas_Click;
+            // 
             // UCInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
+            Controls.Add(btnEstadisticas);
             Controls.Add(BtnBucarCliente);
             Controls.Add(TxtBuscarCliente);
             Controls.Add(BtnBuscarVendedor);
@@ -229,5 +247,6 @@
         private Button BtnBuscarVendedor;
         public Button BtnBucarCliente;
         public TextBox TxtBuscarCliente;
+        private Button btnEstadisticas;
     }
 }

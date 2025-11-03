@@ -87,7 +87,7 @@ namespace proyecto_Famular_Lezcano
                     v.FechaCompra,
                     v.TotalVenta,
                     Cliente = v.IdClienteNavigation.NombreCliente + " " + v.IdClienteNavigation.ApellidoCliente,
-                    Vendedor = v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Nombre + " "+ v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Apellido
+                    Vendedor = v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Nombre + " " + v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Apellido
                 })
                 .OrderByDescending(v => v.FechaCompra)
                 .ToList();
@@ -109,7 +109,7 @@ namespace proyecto_Famular_Lezcano
             var resultados = _context.VentaCabeceras
                 .Where(v => v.VentaDetalles.Any(d =>
                     d.IdUsuarioNavigation.Nombre.ToLower().Contains(textoVendedor) ||
-                    d.IdUsuarioNavigation.Apellido.ToLower().Contains(textoVendedor))) 
+                    d.IdUsuarioNavigation.Apellido.ToLower().Contains(textoVendedor)))
                 .Select(v => new
                 {
                     v.IdVenta,
@@ -153,6 +153,12 @@ namespace proyecto_Famular_Lezcano
             DtpDesde.Value = DateTime.Today.AddDays(-7);
             DtpHasta.Value = DateTime.Today;
             CargarFacturas();
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            FormEstadisticas form = new FormEstadisticas();
+            form.ShowDialog();
         }
     }
 }

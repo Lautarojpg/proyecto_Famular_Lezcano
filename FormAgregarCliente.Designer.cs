@@ -71,7 +71,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Bisque;
+            panel1.BackColor = Color.NavajoWhite;
             panel1.Controls.Add(TDireccion);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(TEmail);
@@ -171,6 +171,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 224, 192);
             ClientSize = new Size(411, 296);
             Controls.Add(BGuardar);
             Controls.Add(label1);
