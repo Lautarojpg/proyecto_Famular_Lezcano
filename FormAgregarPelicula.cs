@@ -125,9 +125,14 @@ namespace proyecto_Famular_Lezcano
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar la película: {ex.Message}", "Error",
+                string mensajeError = ex.InnerException != null
+                    ? ex.InnerException.Message
+                    : ex.Message;
+
+                MessageBox.Show($"Error al guardar la película: {mensajeError}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private bool ValidarCampos()

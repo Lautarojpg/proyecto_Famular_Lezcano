@@ -54,6 +54,7 @@ namespace proyecto_Famular_Lezcano
             DeshabilitarBoton(BVentas);
             DeshabilitarBoton(BVendedores);
             DeshabilitarBoton(BInformes);
+            DeshabilitarBoton(BtnBackUp);
 
             // Habilitamos según el rol obtenido de la base de datos
             switch (nombreRol)
@@ -64,6 +65,7 @@ namespace proyecto_Famular_Lezcano
                     HabilitarBoton(BVentas);
                     HabilitarBoton(BVendedores);
                     HabilitarBoton(BInformes);
+                    HabilitarBoton(BtnBackUp);
                     break;
 
                 case "Gerente":

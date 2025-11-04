@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             pnlNuevaFactura = new Panel();
+            label2 = new Label();
+            label1 = new Label();
             BtnMisFacturas = new Button();
             BtnEnviarCorreo = new Button();
-            BtnExportarCSV = new Button();
             lblTotal = new Label();
             lblPeliculaSeleccionada = new Label();
             lblClienteSeleccionado = new Label();
             txtBuscarCliente = new TextBox();
-            txtBuscarPelicula = new TextBox();
             BtnBuscarPelicula = new Button();
             BtnBuscarCliente = new Button();
             BtnGuardarFactura = new Button();
@@ -53,14 +53,14 @@
             // 
             pnlNuevaFactura.BackColor = Color.AntiqueWhite;
             pnlNuevaFactura.BorderStyle = BorderStyle.FixedSingle;
+            pnlNuevaFactura.Controls.Add(label2);
+            pnlNuevaFactura.Controls.Add(label1);
             pnlNuevaFactura.Controls.Add(BtnMisFacturas);
             pnlNuevaFactura.Controls.Add(BtnEnviarCorreo);
-            pnlNuevaFactura.Controls.Add(BtnExportarCSV);
             pnlNuevaFactura.Controls.Add(lblTotal);
             pnlNuevaFactura.Controls.Add(lblPeliculaSeleccionada);
             pnlNuevaFactura.Controls.Add(lblClienteSeleccionado);
             pnlNuevaFactura.Controls.Add(txtBuscarCliente);
-            pnlNuevaFactura.Controls.Add(txtBuscarPelicula);
             pnlNuevaFactura.Controls.Add(BtnBuscarPelicula);
             pnlNuevaFactura.Controls.Add(BtnBuscarCliente);
             pnlNuevaFactura.Controls.Add(BtnGuardarFactura);
@@ -73,6 +73,24 @@
             pnlNuevaFactura.Name = "pnlNuevaFactura";
             pnlNuevaFactura.Size = new Size(685, 422);
             pnlNuevaFactura.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(11, 122);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 21;
+            label2.Text = "Cantidad:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(11, 54);
+            label1.Name = "label1";
+            label1.Size = new Size(209, 15);
+            label1.TabIndex = 20;
+            label1.Text = "Buscar cliente por email o por nombre";
             // 
             // BtnMisFacturas
             // 
@@ -102,20 +120,6 @@
             BtnEnviarCorreo.UseVisualStyleBackColor = false;
             BtnEnviarCorreo.Click += BtnEnviarCorreo_Click;
             // 
-            // BtnExportarCSV
-            // 
-            BtnExportarCSV.BackColor = Color.Maroon;
-            BtnExportarCSV.FlatStyle = FlatStyle.Flat;
-            BtnExportarCSV.ForeColor = Color.White;
-            BtnExportarCSV.Location = new Point(496, 355);
-            BtnExportarCSV.Margin = new Padding(3, 2, 3, 2);
-            BtnExportarCSV.Name = "BtnExportarCSV";
-            BtnExportarCSV.Size = new Size(169, 30);
-            BtnExportarCSV.TabIndex = 17;
-            BtnExportarCSV.Text = "Generar CSV";
-            BtnExportarCSV.UseVisualStyleBackColor = false;
-            BtnExportarCSV.Click += BtnExportarCSV_Click;
-            // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
@@ -127,39 +131,34 @@
             // lblPeliculaSeleccionada
             // 
             lblPeliculaSeleccionada.AutoSize = true;
-            lblPeliculaSeleccionada.Location = new Point(496, 98);
+            lblPeliculaSeleccionada.Location = new Point(359, 128);
             lblPeliculaSeleccionada.Name = "lblPeliculaSeleccionada";
-            lblPeliculaSeleccionada.Size = new Size(0, 15);
+            lblPeliculaSeleccionada.Size = new Size(120, 15);
             lblPeliculaSeleccionada.TabIndex = 15;
+            lblPeliculaSeleccionada.Text = "Pelicula Seleccionada";
             // 
             // lblClienteSeleccionado
             // 
             lblClienteSeleccionado.AutoSize = true;
-            lblClienteSeleccionado.Location = new Point(496, 55);
+            lblClienteSeleccionado.Location = new Point(498, 75);
             lblClienteSeleccionado.Name = "lblClienteSeleccionado";
-            lblClienteSeleccionado.Size = new Size(0, 15);
+            lblClienteSeleccionado.Size = new Size(117, 15);
             lblClienteSeleccionado.TabIndex = 14;
+            lblClienteSeleccionado.Text = "Cliente Seleccionado";
             // 
             // txtBuscarCliente
             // 
-            txtBuscarCliente.Location = new Point(18, 52);
+            txtBuscarCliente.Location = new Point(11, 72);
             txtBuscarCliente.Name = "txtBuscarCliente";
             txtBuscarCliente.Size = new Size(338, 23);
             txtBuscarCliente.TabIndex = 13;
-            // 
-            // txtBuscarPelicula
-            // 
-            txtBuscarPelicula.Location = new Point(18, 90);
-            txtBuscarPelicula.Name = "txtBuscarPelicula";
-            txtBuscarPelicula.Size = new Size(338, 23);
-            txtBuscarPelicula.TabIndex = 12;
             // 
             // BtnBuscarPelicula
             // 
             BtnBuscarPelicula.BackColor = Color.Maroon;
             BtnBuscarPelicula.FlatStyle = FlatStyle.Flat;
             BtnBuscarPelicula.ForeColor = Color.White;
-            BtnBuscarPelicula.Location = new Point(373, 90);
+            BtnBuscarPelicula.Location = new Point(226, 118);
             BtnBuscarPelicula.Margin = new Padding(3, 2, 3, 2);
             BtnBuscarPelicula.Name = "BtnBuscarPelicula";
             BtnBuscarPelicula.Size = new Size(102, 23);
@@ -173,7 +172,7 @@
             BtnBuscarCliente.BackColor = Color.Maroon;
             BtnBuscarCliente.FlatStyle = FlatStyle.Flat;
             BtnBuscarCliente.ForeColor = Color.White;
-            BtnBuscarCliente.Location = new Point(373, 52);
+            BtnBuscarCliente.Location = new Point(377, 71);
             BtnBuscarCliente.Margin = new Padding(3, 2, 3, 2);
             BtnBuscarCliente.Name = "BtnBuscarCliente";
             BtnBuscarCliente.Size = new Size(102, 23);
@@ -187,7 +186,7 @@
             BtnGuardarFactura.BackColor = Color.Maroon;
             BtnGuardarFactura.FlatStyle = FlatStyle.Flat;
             BtnGuardarFactura.ForeColor = Color.White;
-            BtnGuardarFactura.Location = new Point(581, 155);
+            BtnGuardarFactura.Location = new Point(581, 355);
             BtnGuardarFactura.Margin = new Padding(3, 2, 3, 2);
             BtnGuardarFactura.Name = "BtnGuardarFactura";
             BtnGuardarFactura.Size = new Size(84, 30);
@@ -199,9 +198,9 @@
             // dgvDetalle
             // 
             dgvDetalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalle.Location = new Point(18, 190);
+            dgvDetalle.Location = new Point(18, 163);
             dgvDetalle.Name = "dgvDetalle";
-            dgvDetalle.Size = new Size(647, 134);
+            dgvDetalle.Size = new Size(647, 178);
             dgvDetalle.TabIndex = 8;
             // 
             // lblTitulo1
@@ -217,7 +216,7 @@
             // 
             // numCantidad
             // 
-            numCantidad.Location = new Point(18, 128);
+            numCantidad.Location = new Point(99, 120);
             numCantidad.Margin = new Padding(3, 2, 3, 2);
             numCantidad.Name = "numCantidad";
             numCantidad.Size = new Size(88, 23);
@@ -229,7 +228,7 @@
             BtnAgregar.BackColor = Color.Maroon;
             BtnAgregar.FlatStyle = FlatStyle.Flat;
             BtnAgregar.ForeColor = Color.White;
-            BtnAgregar.Location = new Point(373, 155);
+            BtnAgregar.Location = new Point(542, 120);
             BtnAgregar.Margin = new Padding(3, 2, 3, 2);
             BtnAgregar.Name = "BtnAgregar";
             BtnAgregar.Size = new Size(119, 30);
@@ -266,12 +265,12 @@
         private Button BtnBuscarPelicula;
         private Button BtnBuscarCliente;
         private TextBox txtBuscarCliente;
-        private TextBox txtBuscarPelicula;
         private Label lblClienteSeleccionado;
         private Label lblPeliculaSeleccionada;
         private Label lblTotal;
         private Button BtnEnviarCorreo;
-        private Button BtnExportarCSV;
         private Button BtnMisFacturas;
+        private Label label1;
+        private Label label2;
     }
 }

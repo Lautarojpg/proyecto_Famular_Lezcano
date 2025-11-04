@@ -126,7 +126,7 @@ namespace proyecto_Famular_Lezcano
             // Ventas mensuales (para proyección)
             var ventasMensuales = _context.VentaCabeceras
                 .Where(v => v.FechaCompra.HasValue)
-                .AsEnumerable() // 👈 fuerza la evaluación en memoria
+                .AsEnumerable()
                 .GroupBy(v => new { v.FechaCompra.Value.Year, v.FechaCompra.Value.Month })
                 .Select(g => new
                 {
