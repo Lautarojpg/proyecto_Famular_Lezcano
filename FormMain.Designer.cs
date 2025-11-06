@@ -182,7 +182,7 @@ namespace proyecto_Famular_Lezcano
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -194,7 +194,7 @@ namespace proyecto_Famular_Lezcano
             MinimumSize = new Size(1358, 726);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🎥 Cine Vintage - Menú Principal";
+            Text = "🎥 Rebobinar - Menú Principal";
             Load += FormMain_Load;
             PanelMenu.ResumeLayout(false);
             ResumeLayout(false);

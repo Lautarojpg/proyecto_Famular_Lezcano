@@ -136,7 +136,7 @@
             Controls.Add(PanelContent);
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cine Vintage - Iniciar Sesión";
+            Text = "Rebobinar-  Login";
             Load += FormLogin_Load;
             PanelContent.ResumeLayout(false);
             PanelContent.PerformLayout();

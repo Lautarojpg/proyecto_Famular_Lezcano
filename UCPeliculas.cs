@@ -194,6 +194,8 @@ namespace proyecto_Famular_Lezcano
 
                 if (confirm == DialogResult.Yes)
                 {
+                    var detalles = _context.VentaDetalles.Where(v => v.IdPelicula == idPelicula).ToList();
+                    _context.VentaDetalles.RemoveRange(detalles);
                     _context.Peliculas.Remove(pelicula);
                     _context.SaveChanges();
                     MessageBox.Show("Película eliminada correctamente.");

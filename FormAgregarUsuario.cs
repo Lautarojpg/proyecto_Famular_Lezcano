@@ -17,6 +17,8 @@ namespace proyecto_Famular_Lezcano
         public FormAgregarUsuario()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             CargarRoles();
         }
 

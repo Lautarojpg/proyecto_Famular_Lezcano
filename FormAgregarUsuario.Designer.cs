@@ -37,28 +37,28 @@
             // 
             // TNombre
             // 
-            TNombre.Location = new Point(126, 20);
+            TNombre.Location = new Point(199, 16);
             TNombre.Name = "TNombre";
             TNombre.Size = new Size(250, 27);
             TNombre.TabIndex = 0;
             // 
             // TApellido
             // 
-            TApellido.Location = new Point(126, 56);
+            TApellido.Location = new Point(199, 52);
             TApellido.Name = "TApellido";
             TApellido.Size = new Size(250, 27);
             TApellido.TabIndex = 1;
             // 
             // TNomUsuario
             // 
-            TNomUsuario.Location = new Point(126, 132);
+            TNomUsuario.Location = new Point(199, 128);
             TNomUsuario.Name = "TNomUsuario";
             TNomUsuario.Size = new Size(250, 27);
             TNomUsuario.TabIndex = 2;
             // 
             // TEmail
             // 
-            TEmail.Location = new Point(126, 166);
+            TEmail.Location = new Point(199, 162);
             TEmail.Name = "TEmail";
             TEmail.Size = new Size(250, 27);
             TEmail.TabIndex = 3;
@@ -137,7 +137,7 @@
             // 
             // TContraseña
             // 
-            TContraseña.Location = new Point(126, 98);
+            TContraseña.Location = new Point(199, 94);
             TContraseña.Name = "TContraseña";
             TContraseña.Size = new Size(250, 27);
             TContraseña.TabIndex = 10;
@@ -158,10 +158,10 @@
             panel1.Controls.Add(LContraseña);
             panel1.Controls.Add(LNombreUsuario);
             panel1.Controls.Add(LEmail);
-            panel1.Location = new Point(30, 70);
+            panel1.Location = new Point(7, 70);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(440, 260);
+            panel1.Size = new Size(463, 260);
             panel1.TabIndex = 15;
             // 
             // label2
@@ -178,7 +178,7 @@
             CbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             CbRol.FormattingEnabled = true;
             CbRol.Items.AddRange(new object[] { "Administrador", "Cliente", "Vendedor" });
-            CbRol.Location = new Point(126, 209);
+            CbRol.Location = new Point(199, 205);
             CbRol.Name = "CbRol";
             CbRol.Size = new Size(150, 28);
             CbRol.TabIndex = 14;

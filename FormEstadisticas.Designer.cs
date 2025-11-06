@@ -24,6 +24,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new();
+
             lblTitulo = new Label();
             lblHasta = new Label();
             lblDesde = new Label();
@@ -50,6 +51,9 @@
             ClientSize = new Size(1200, 700);
             Text = "Estadísticas de Ventas";
             StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedDialog; // No maximizable
+            MaximizeBox = false;
+            MinimizeBox = false;
 
             // 
             // lblTitulo
@@ -60,7 +64,7 @@
             lblTitulo.AutoSize = false;
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             lblTitulo.Dock = DockStyle.Top;
-            lblTitulo.Height = 60;
+            lblTitulo.Height = 70;
 
             // 
             // lblDesde
@@ -68,13 +72,13 @@
             lblDesde.AutoSize = true;
             lblDesde.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDesde.ForeColor = Color.SaddleBrown;
-            lblDesde.Location = new Point(60, 80);
+            lblDesde.Location = new Point(40, 90);
             lblDesde.Text = "Desde:";
 
             // 
             // DtpDesde
             // 
-            DtpDesde.Location = new Point(120, 80);
+            DtpDesde.Location = new Point(100, 88);
             DtpDesde.Size = new Size(200, 23);
 
             // 
@@ -83,13 +87,13 @@
             lblHasta.AutoSize = true;
             lblHasta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblHasta.ForeColor = Color.SaddleBrown;
-            lblHasta.Location = new Point(350, 80);
+            lblHasta.Location = new Point(330, 90);
             lblHasta.Text = "Hasta:";
 
             // 
             // DtpHasta
             // 
-            DtpHasta.Location = new Point(410, 80);
+            DtpHasta.Location = new Point(390, 88);
             DtpHasta.Size = new Size(200, 23);
 
             // 
@@ -102,8 +106,7 @@
             BtnActualizar.ForeColor = Color.White;
             BtnActualizar.Size = new Size(110, 35);
             BtnActualizar.Text = "Filtrar";
-            BtnActualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnActualizar.Location = new Point(ClientSize.Width - 260, 75);
+            BtnActualizar.Location = new Point(640, 83);
             BtnActualizar.Click += BtnActualizar_Click;
 
             // 
@@ -116,8 +119,7 @@
             BtnCerrar.ForeColor = Color.White;
             BtnCerrar.Size = new Size(110, 35);
             BtnCerrar.Text = "Cerrar";
-            BtnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnCerrar.Location = new Point(ClientSize.Width - 130, 75);
+            BtnCerrar.Location = new Point(770, 83);
             BtnCerrar.Click += BtnCerrar_Click;
 
             // 

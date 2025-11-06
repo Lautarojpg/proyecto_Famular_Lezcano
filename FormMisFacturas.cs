@@ -14,6 +14,8 @@ namespace proyecto_Famular_Lezcano
         {
             InitializeComponent();
             _context = new ProyectoFamularLezcanoContext();
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             CargarFacturas();
         }
 

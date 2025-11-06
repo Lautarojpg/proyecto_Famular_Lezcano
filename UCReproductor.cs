@@ -1,8 +1,7 @@
-﻿using AxWMPLib;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.Web.WebView2.WinForms;
 using proyecto_Famular_Lezcano.Models;
 
 namespace proyecto_Famular_Lezcano
@@ -10,30 +9,23 @@ namespace proyecto_Famular_Lezcano
     public partial class UCReproductor : UserControl
     {
         private readonly ProyectoFamularLezcanoContext _context;
+        private WebView2 webView;
 
         public UCReproductor()
         {
             InitializeComponent();
             _context = new ProyectoFamularLezcanoContext();
+            InicializarWebView();
         }
 
-        private void UCReproductor_Load(object sender, EventArgs e)
+        private async void InicializarWebView()
         {
-            InicializarReproductor();
-        }
-
-        private void InicializarReproductor()
-        {
-            try
+            webView = new WebView2
             {
-                // Configuración básica del reproductor
-                axWindowsMediaPlayer1.uiMode = "full";
-                axWindowsMediaPlayer1.settings.autoStart = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al inicializar el reproductor: " + ex.Message);
-            }
+                Dock = DockStyle.Fill
+            };
+            this.Controls.Add(webView);
+            await webView.EnsureCoreWebView2Async(null);
         }
 
         private void btnReproducir_Click(object sender, EventArgs e)
@@ -62,11 +54,8 @@ namespace proyecto_Famular_Lezcano
                     return;
                 }
 
-                // ✅ Reproducir el link del ticket
-                axWindowsMediaPlayer1.URL = ticket.Link;
-                axWindowsMediaPlayer1.Ctlcontrols.play();
-
-                MessageBox.Show("🎬 Reproduciendo: " + ticket.Link, "Reproductor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Cargar el enlace del ticket directamente
+                webView.Source = new Uri(ticket.Link);
             }
             catch (Exception ex)
             {

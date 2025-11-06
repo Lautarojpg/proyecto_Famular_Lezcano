@@ -99,7 +99,7 @@ namespace proyecto_Famular_Lezcano
             dgvFacturas.DataSource = resultados;
         }
 
-        // 🔍 Buscar por vendedor (nombre o apellido)
+        // Buscar por vendedor (nombre o apellido)
         private void BtnBuscarVendedor_Click(object sender, EventArgs e)
         {
             string textoVendedor = TxtBuscarVendedor.Text.Trim().ToLower();
@@ -136,7 +136,7 @@ namespace proyecto_Famular_Lezcano
             dgvFacturas.DataSource = resultados;
         }
 
-        // 📅 Filtrar por rango de fechas
+        // Filtrar por rango de fechas
         private void BtnFiltrarFecha_Click(object sender, EventArgs e)
         {
             DateTime desde = DtpDesde.Value.Date;

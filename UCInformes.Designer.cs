@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             LHeader = new Label();
             dgvFacturas = new DataGridView();
             DtpDesde = new DateTimePicker();
@@ -30,6 +30,7 @@
             BtnBucarCliente = new Button();
             TxtBuscarCliente = new TextBox();
             btnEstadisticas = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvFacturas).BeginInit();
             SuspendLayout();
             // 
@@ -38,10 +39,10 @@
             LHeader.AutoSize = true;
             LHeader.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             LHeader.ForeColor = Color.FromArgb(128, 64, 0);
-            LHeader.Location = new Point(14, 13);
+            LHeader.Location = new Point(16, 17);
             LHeader.Margin = new Padding(2, 0, 2, 0);
             LHeader.Name = "LHeader";
-            LHeader.Size = new Size(378, 30);
+            LHeader.Size = new Size(471, 37);
             LHeader.TabIndex = 0;
             LHeader.Text = "📊 DASHBOARD ADMINISTRATIVO";
             // 
@@ -54,38 +55,38 @@
             dgvFacturas.BackgroundColor = Color.White;
             dgvFacturas.ColumnHeadersHeight = 35;
             dgvFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvFacturas.DefaultCellStyle = dataGridViewCellStyle1;
-            dgvFacturas.Location = new Point(14, 219);
-            dgvFacturas.Margin = new Padding(2);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvFacturas.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvFacturas.Location = new Point(16, 292);
+            dgvFacturas.Margin = new Padding(2, 3, 2, 3);
             dgvFacturas.Name = "dgvFacturas";
             dgvFacturas.RowHeadersWidth = 51;
             dgvFacturas.RowTemplate.Height = 30;
-            dgvFacturas.Size = new Size(518, 144);
+            dgvFacturas.Size = new Size(904, 192);
             dgvFacturas.TabIndex = 1;
             // 
             // DtpDesde
             // 
             DtpDesde.Font = new Font("Segoe UI", 10F);
-            DtpDesde.Location = new Point(14, 69);
-            DtpDesde.Margin = new Padding(2);
+            DtpDesde.Location = new Point(16, 92);
+            DtpDesde.Margin = new Padding(2, 3, 2, 3);
             DtpDesde.Name = "DtpDesde";
-            DtpDesde.Size = new Size(176, 25);
+            DtpDesde.Size = new Size(201, 30);
             DtpDesde.TabIndex = 2;
             // 
             // DtpHasta
             // 
             DtpHasta.Font = new Font("Segoe UI", 10F);
-            DtpHasta.Location = new Point(217, 69);
-            DtpHasta.Margin = new Padding(2);
+            DtpHasta.Location = new Point(248, 92);
+            DtpHasta.Margin = new Padding(2, 3, 2, 3);
             DtpHasta.Name = "DtpHasta";
-            DtpHasta.Size = new Size(176, 25);
+            DtpHasta.Size = new Size(201, 30);
             DtpHasta.TabIndex = 3;
             // 
             // BtnLimpiar
@@ -94,10 +95,10 @@
             BtnLimpiar.BackColor = Color.FromArgb(128, 64, 0);
             BtnLimpiar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnLimpiar.ForeColor = Color.White;
-            BtnLimpiar.Location = new Point(420, 150);
-            BtnLimpiar.Margin = new Padding(2);
+            BtnLimpiar.Location = new Point(784, 245);
+            BtnLimpiar.Margin = new Padding(2, 3, 2, 3);
             BtnLimpiar.Name = "BtnLimpiar";
-            BtnLimpiar.Size = new Size(112, 31);
+            BtnLimpiar.Size = new Size(128, 41);
             BtnLimpiar.TabIndex = 5;
             BtnLimpiar.Text = "\U0001f9f9 Limpiar";
             BtnLimpiar.UseVisualStyleBackColor = false;
@@ -109,10 +110,10 @@
             BtnFiltrar.BackColor = Color.FromArgb(128, 64, 0);
             BtnFiltrar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnFiltrar.ForeColor = Color.White;
-            BtnFiltrar.Location = new Point(420, 112);
-            BtnFiltrar.Margin = new Padding(2);
+            BtnFiltrar.Location = new Point(506, 87);
+            BtnFiltrar.Margin = new Padding(2, 3, 2, 3);
             BtnFiltrar.Name = "BtnFiltrar";
-            BtnFiltrar.Size = new Size(112, 34);
+            BtnFiltrar.Size = new Size(128, 45);
             BtnFiltrar.TabIndex = 4;
             BtnFiltrar.Text = "🔍 Filtrar";
             BtnFiltrar.UseVisualStyleBackColor = false;
@@ -123,10 +124,10 @@
             LUsuario.AutoSize = true;
             LUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             LUsuario.ForeColor = Color.SaddleBrown;
-            LUsuario.Location = new Point(14, 53);
+            LUsuario.Location = new Point(16, 71);
             LUsuario.Margin = new Padding(2, 0, 2, 0);
             LUsuario.Name = "LUsuario";
-            LUsuario.Size = new Size(50, 19);
+            LUsuario.Size = new Size(59, 23);
             LUsuario.TabIndex = 4;
             LUsuario.Text = "Desde";
             // 
@@ -135,10 +136,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(217, 53);
+            label1.Location = new Point(248, 71);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(47, 19);
+            label1.Size = new Size(55, 23);
             label1.TabIndex = 5;
             label1.Text = "Hasta";
             // 
@@ -147,21 +148,21 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(14, 100);
+            label2.Location = new Point(16, 129);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(133, 19);
+            label2.Size = new Size(206, 23);
             label2.TabIndex = 6;
-            label2.Text = "Vendedor/Gerente";
+            label2.Text = "Vendedor/Gerente    (id)";
             // 
             // TxtBuscarVendedor
             // 
             TxtBuscarVendedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtBuscarVendedor.Font = new Font("Segoe UI", 10F);
-            TxtBuscarVendedor.Location = new Point(14, 116);
-            TxtBuscarVendedor.Margin = new Padding(2);
+            TxtBuscarVendedor.Location = new Point(16, 155);
+            TxtBuscarVendedor.Margin = new Padding(2, 3, 2, 3);
             TxtBuscarVendedor.Name = "TxtBuscarVendedor";
-            TxtBuscarVendedor.Size = new Size(253, 25);
+            TxtBuscarVendedor.Size = new Size(601, 30);
             TxtBuscarVendedor.TabIndex = 6;
             // 
             // BtnBuscarVendedor
@@ -170,10 +171,10 @@
             BtnBuscarVendedor.BackColor = Color.FromArgb(128, 64, 0);
             BtnBuscarVendedor.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnBuscarVendedor.ForeColor = Color.White;
-            BtnBuscarVendedor.Location = new Point(280, 109);
-            BtnBuscarVendedor.Margin = new Padding(2);
+            BtnBuscarVendedor.Location = new Point(632, 148);
+            BtnBuscarVendedor.Margin = new Padding(2, 3, 2, 3);
             BtnBuscarVendedor.Name = "BtnBuscarVendedor";
-            BtnBuscarVendedor.Size = new Size(126, 32);
+            BtnBuscarVendedor.Size = new Size(144, 43);
             BtnBuscarVendedor.TabIndex = 7;
             BtnBuscarVendedor.Text = "👤 Buscar Vend.";
             BtnBuscarVendedor.UseVisualStyleBackColor = false;
@@ -185,10 +186,10 @@
             BtnBucarCliente.BackColor = Color.FromArgb(128, 64, 0);
             BtnBucarCliente.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnBucarCliente.ForeColor = Color.White;
-            BtnBucarCliente.Location = new Point(280, 150);
-            BtnBucarCliente.Margin = new Padding(2);
+            BtnBucarCliente.Location = new Point(632, 200);
+            BtnBucarCliente.Margin = new Padding(2, 3, 2, 3);
             BtnBucarCliente.Name = "BtnBucarCliente";
-            BtnBucarCliente.Size = new Size(126, 31);
+            BtnBucarCliente.Size = new Size(144, 41);
             BtnBucarCliente.TabIndex = 9;
             BtnBucarCliente.Text = "\U0001f9fe Buscar Cliente";
             BtnBucarCliente.UseVisualStyleBackColor = false;
@@ -198,10 +199,10 @@
             // 
             TxtBuscarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtBuscarCliente.Font = new Font("Segoe UI", 10F);
-            TxtBuscarCliente.Location = new Point(14, 156);
-            TxtBuscarCliente.Margin = new Padding(2);
+            TxtBuscarCliente.Location = new Point(16, 208);
+            TxtBuscarCliente.Margin = new Padding(2, 3, 2, 3);
             TxtBuscarCliente.Name = "TxtBuscarCliente";
-            TxtBuscarCliente.Size = new Size(253, 25);
+            TxtBuscarCliente.Size = new Size(601, 30);
             TxtBuscarCliente.TabIndex = 8;
             // 
             // btnEstadisticas
@@ -210,20 +211,33 @@
             btnEstadisticas.BackColor = Color.FromArgb(128, 64, 0);
             btnEstadisticas.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             btnEstadisticas.ForeColor = Color.White;
-            btnEstadisticas.Location = new Point(413, 5);
-            btnEstadisticas.Margin = new Padding(2);
+            btnEstadisticas.Location = new Point(784, 7);
+            btnEstadisticas.Margin = new Padding(2, 3, 2, 3);
             btnEstadisticas.Name = "btnEstadisticas";
-            btnEstadisticas.Size = new Size(132, 53);
+            btnEstadisticas.Size = new Size(151, 71);
             btnEstadisticas.TabIndex = 10;
             btnEstadisticas.Text = "📈 Ver Estadísticas";
             btnEstadisticas.UseVisualStyleBackColor = false;
             btnEstadisticas.Click += btnEstadisticas_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label3.ForeColor = Color.SaddleBrown;
+            label3.Location = new Point(16, 182);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(200, 23);
+            label3.TabIndex = 11;
+            label3.Text = "Cliente (nombre, email)";
+            // 
             // UCInformes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
+            Controls.Add(label3);
             Controls.Add(LHeader);
             Controls.Add(DtpDesde);
             Controls.Add(DtpHasta);
@@ -238,9 +252,9 @@
             Controls.Add(BtnLimpiar);
             Controls.Add(btnEstadisticas);
             Controls.Add(dgvFacturas);
-            Margin = new Padding(2);
+            Margin = new Padding(2, 3, 2, 3);
             Name = "UCInformes";
-            Size = new Size(547, 375);
+            Size = new Size(937, 500);
             ((System.ComponentModel.ISupportInitialize)dgvFacturas).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -262,5 +276,6 @@
         public TextBox TxtBuscarCliente;
         private Button btnEstadisticas;
         private Button BtnBucarCliente;
+        private Label label3;
     }
 }

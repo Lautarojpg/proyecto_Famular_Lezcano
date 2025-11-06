@@ -15,6 +15,8 @@ namespace proyecto_Famular_Lezcano
         {
             InitializeComponent();
             _context = new ProyectoFamularLezcanoContext();
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void BLogin_Click(object sender, EventArgs e)
@@ -94,8 +96,7 @@ namespace proyecto_Famular_Lezcano
             {
                 MessageBox.Show($"Error al intentar iniciar sesión:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
+        } 
         private void FormLogin_Load(object sender, EventArgs e)
         {
             TUsuario.Focus();
