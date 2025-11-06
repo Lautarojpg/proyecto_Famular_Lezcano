@@ -2,275 +2,293 @@
 {
     partial class UCVentas
     {
-        /// <summary> 
-        /// Variable del diseñador necesaria.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Limpiar los recursos que se estén usando.
-        /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de componentes
+        #region Código generado por el Diseñador
 
-        /// <summary> 
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
-        /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             pnlNuevaFactura = new Panel();
-            label2 = new Label();
-            label1 = new Label();
-            BtnMisFacturas = new Button();
-            BtnEnviarCorreo = new Button();
-            lblTotal = new Label();
-            lblPeliculaSeleccionada = new Label();
-            lblClienteSeleccionado = new Label();
-            txtBuscarCliente = new TextBox();
-            BtnBuscarPelicula = new Button();
-            BtnBuscarCliente = new Button();
-            BtnGuardarFactura = new Button();
-            dgvDetalle = new DataGridView();
             lblTitulo1 = new Label();
+            label1 = new Label();
+            txtBuscarCliente = new TextBox();
+            BtnBuscarCliente = new Button();
+            lblClienteSeleccionado = new Label();
+            label2 = new Label();
             numCantidad = new NumericUpDown();
+            BtnBuscarPelicula = new Button();
+            lblPeliculaSeleccionada = new Label();
             BtnAgregar = new Button();
+            dgvDetalle = new DataGridView();
+            lblTotal = new Label();
+            BtnEnviarCorreo = new Button();
+            BtnGuardarFactura = new Button();
+            BtnMisFacturas = new Button();
             pnlNuevaFactura.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalle).BeginInit();
             SuspendLayout();
             // 
             // pnlNuevaFactura
             // 
-            pnlNuevaFactura.BackColor = Color.AntiqueWhite;
-            pnlNuevaFactura.BorderStyle = BorderStyle.FixedSingle;
-            pnlNuevaFactura.Controls.Add(label2);
-            pnlNuevaFactura.Controls.Add(label1);
-            pnlNuevaFactura.Controls.Add(BtnMisFacturas);
-            pnlNuevaFactura.Controls.Add(BtnEnviarCorreo);
-            pnlNuevaFactura.Controls.Add(lblTotal);
-            pnlNuevaFactura.Controls.Add(lblPeliculaSeleccionada);
-            pnlNuevaFactura.Controls.Add(lblClienteSeleccionado);
-            pnlNuevaFactura.Controls.Add(txtBuscarCliente);
-            pnlNuevaFactura.Controls.Add(BtnBuscarPelicula);
-            pnlNuevaFactura.Controls.Add(BtnBuscarCliente);
-            pnlNuevaFactura.Controls.Add(BtnGuardarFactura);
-            pnlNuevaFactura.Controls.Add(dgvDetalle);
+            pnlNuevaFactura.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlNuevaFactura.BackColor = Color.FromArgb(255, 224, 192);
             pnlNuevaFactura.Controls.Add(lblTitulo1);
+            pnlNuevaFactura.Controls.Add(label1);
+            pnlNuevaFactura.Controls.Add(txtBuscarCliente);
+            pnlNuevaFactura.Controls.Add(BtnBuscarCliente);
+            pnlNuevaFactura.Controls.Add(lblClienteSeleccionado);
+            pnlNuevaFactura.Controls.Add(label2);
             pnlNuevaFactura.Controls.Add(numCantidad);
+            pnlNuevaFactura.Controls.Add(BtnBuscarPelicula);
+            pnlNuevaFactura.Controls.Add(lblPeliculaSeleccionada);
             pnlNuevaFactura.Controls.Add(BtnAgregar);
-            pnlNuevaFactura.Location = new Point(3, 15);
-            pnlNuevaFactura.Margin = new Padding(3, 2, 3, 2);
+            pnlNuevaFactura.Controls.Add(dgvDetalle);
+            pnlNuevaFactura.Controls.Add(lblTotal);
+            pnlNuevaFactura.Controls.Add(BtnEnviarCorreo);
+            pnlNuevaFactura.Controls.Add(BtnGuardarFactura);
+            pnlNuevaFactura.Controls.Add(BtnMisFacturas);
+            pnlNuevaFactura.Location = new Point(2, 11);
+            pnlNuevaFactura.Margin = new Padding(2);
             pnlNuevaFactura.Name = "pnlNuevaFactura";
-            pnlNuevaFactura.Size = new Size(685, 422);
+            pnlNuevaFactura.Size = new Size(776, 578);
             pnlNuevaFactura.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(11, 122);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 21;
-            label2.Text = "Cantidad:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(11, 54);
-            label1.Name = "label1";
-            label1.Size = new Size(209, 15);
-            label1.TabIndex = 20;
-            label1.Text = "Buscar cliente por email o por nombre";
-            // 
-            // BtnMisFacturas
-            // 
-            BtnMisFacturas.BackColor = Color.Maroon;
-            BtnMisFacturas.FlatStyle = FlatStyle.Flat;
-            BtnMisFacturas.ForeColor = Color.White;
-            BtnMisFacturas.Location = new Point(546, 8);
-            BtnMisFacturas.Margin = new Padding(3, 2, 3, 2);
-            BtnMisFacturas.Name = "BtnMisFacturas";
-            BtnMisFacturas.Size = new Size(119, 38);
-            BtnMisFacturas.TabIndex = 19;
-            BtnMisFacturas.Text = "Mis facturas";
-            BtnMisFacturas.UseVisualStyleBackColor = false;
-            BtnMisFacturas.Click += BtnMisFacturas_Click;
-            // 
-            // BtnEnviarCorreo
-            // 
-            BtnEnviarCorreo.BackColor = Color.Maroon;
-            BtnEnviarCorreo.FlatStyle = FlatStyle.Flat;
-            BtnEnviarCorreo.ForeColor = Color.White;
-            BtnEnviarCorreo.Location = new Point(18, 355);
-            BtnEnviarCorreo.Margin = new Padding(3, 2, 3, 2);
-            BtnEnviarCorreo.Name = "BtnEnviarCorreo";
-            BtnEnviarCorreo.Size = new Size(169, 30);
-            BtnEnviarCorreo.TabIndex = 18;
-            BtnEnviarCorreo.Text = "Mandar CSV";
-            BtnEnviarCorreo.UseVisualStyleBackColor = false;
-            BtnEnviarCorreo.Click += BtnEnviarCorreo_Click;
-            // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(18, 163);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(0, 15);
-            lblTotal.TabIndex = 16;
-            // 
-            // lblPeliculaSeleccionada
-            // 
-            lblPeliculaSeleccionada.AutoSize = true;
-            lblPeliculaSeleccionada.Location = new Point(359, 128);
-            lblPeliculaSeleccionada.Name = "lblPeliculaSeleccionada";
-            lblPeliculaSeleccionada.Size = new Size(120, 15);
-            lblPeliculaSeleccionada.TabIndex = 15;
-            lblPeliculaSeleccionada.Text = "Pelicula Seleccionada";
-            // 
-            // lblClienteSeleccionado
-            // 
-            lblClienteSeleccionado.AutoSize = true;
-            lblClienteSeleccionado.Location = new Point(498, 75);
-            lblClienteSeleccionado.Name = "lblClienteSeleccionado";
-            lblClienteSeleccionado.Size = new Size(117, 15);
-            lblClienteSeleccionado.TabIndex = 14;
-            lblClienteSeleccionado.Text = "Cliente Seleccionado";
-            // 
-            // txtBuscarCliente
-            // 
-            txtBuscarCliente.Location = new Point(11, 72);
-            txtBuscarCliente.Name = "txtBuscarCliente";
-            txtBuscarCliente.Size = new Size(338, 23);
-            txtBuscarCliente.TabIndex = 13;
-            // 
-            // BtnBuscarPelicula
-            // 
-            BtnBuscarPelicula.BackColor = Color.Maroon;
-            BtnBuscarPelicula.FlatStyle = FlatStyle.Flat;
-            BtnBuscarPelicula.ForeColor = Color.White;
-            BtnBuscarPelicula.Location = new Point(226, 118);
-            BtnBuscarPelicula.Margin = new Padding(3, 2, 3, 2);
-            BtnBuscarPelicula.Name = "BtnBuscarPelicula";
-            BtnBuscarPelicula.Size = new Size(102, 23);
-            BtnBuscarPelicula.TabIndex = 11;
-            BtnBuscarPelicula.Text = "Buscar Pelicula";
-            BtnBuscarPelicula.UseVisualStyleBackColor = false;
-            BtnBuscarPelicula.Click += BtnBuscarPelicula_Click;
-            // 
-            // BtnBuscarCliente
-            // 
-            BtnBuscarCliente.BackColor = Color.Maroon;
-            BtnBuscarCliente.FlatStyle = FlatStyle.Flat;
-            BtnBuscarCliente.ForeColor = Color.White;
-            BtnBuscarCliente.Location = new Point(377, 71);
-            BtnBuscarCliente.Margin = new Padding(3, 2, 3, 2);
-            BtnBuscarCliente.Name = "BtnBuscarCliente";
-            BtnBuscarCliente.Size = new Size(102, 23);
-            BtnBuscarCliente.TabIndex = 10;
-            BtnBuscarCliente.Text = "Buscar Cliente";
-            BtnBuscarCliente.UseVisualStyleBackColor = false;
-            BtnBuscarCliente.Click += BtnBuscarCliente_Click;
-            // 
-            // BtnGuardarFactura
-            // 
-            BtnGuardarFactura.BackColor = Color.Maroon;
-            BtnGuardarFactura.FlatStyle = FlatStyle.Flat;
-            BtnGuardarFactura.ForeColor = Color.White;
-            BtnGuardarFactura.Location = new Point(581, 355);
-            BtnGuardarFactura.Margin = new Padding(3, 2, 3, 2);
-            BtnGuardarFactura.Name = "BtnGuardarFactura";
-            BtnGuardarFactura.Size = new Size(84, 30);
-            BtnGuardarFactura.TabIndex = 9;
-            BtnGuardarFactura.Text = "Guardar";
-            BtnGuardarFactura.UseVisualStyleBackColor = false;
-            BtnGuardarFactura.Click += BtnGuardarFactura_Click;
-            // 
-            // dgvDetalle
-            // 
-            dgvDetalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalle.Location = new Point(18, 163);
-            dgvDetalle.Name = "dgvDetalle";
-            dgvDetalle.Size = new Size(647, 178);
-            dgvDetalle.TabIndex = 8;
             // 
             // lblTitulo1
             // 
             lblTitulo1.AutoSize = true;
-            lblTitulo1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTitulo1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo1.ForeColor = Color.Maroon;
-            lblTitulo1.Location = new Point(18, 15);
+            lblTitulo1.Location = new Point(9, 10);
+            lblTitulo1.Margin = new Padding(2, 0, 2, 0);
             lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(144, 21);
+            lblTitulo1.Size = new Size(243, 37);
             lblTitulo1.TabIndex = 0;
-            lblTitulo1.Text = "📄 Nueva Factura";
+            lblTitulo1.Text = "GESTIÓN VENTAS";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label1.Location = new Point(9, 63);
+            label1.Name = "label1";
+            label1.Size = new Size(319, 23);
+            label1.TabIndex = 1;
+            label1.Text = "Buscar cliente por email o por nombre:";
+            // 
+            // txtBuscarCliente
+            // 
+            txtBuscarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtBuscarCliente.Location = new Point(9, 91);
+            txtBuscarCliente.Margin = new Padding(2);
+            txtBuscarCliente.Name = "txtBuscarCliente";
+            txtBuscarCliente.Size = new Size(621, 27);
+            txtBuscarCliente.TabIndex = 2;
+            // 
+            // BtnBuscarCliente
+            // 
+            BtnBuscarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnBuscarCliente.BackColor = Color.FromArgb(128, 64, 0);
+            BtnBuscarCliente.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
+            BtnBuscarCliente.ForeColor = Color.White;
+            BtnBuscarCliente.Location = new Point(642, 88);
+            BtnBuscarCliente.Margin = new Padding(2);
+            BtnBuscarCliente.Name = "BtnBuscarCliente";
+            BtnBuscarCliente.Size = new Size(122, 33);
+            BtnBuscarCliente.TabIndex = 3;
+            BtnBuscarCliente.Text = "🔍 Cliente";
+            BtnBuscarCliente.UseVisualStyleBackColor = false;
+            BtnBuscarCliente.Click += BtnBuscarCliente_Click;
+            // 
+            // lblClienteSeleccionado
+            // 
+            lblClienteSeleccionado.AutoSize = true;
+            lblClienteSeleccionado.Font = new Font("Segoe UI", 10F);
+            lblClienteSeleccionado.Location = new Point(9, 126);
+            lblClienteSeleccionado.Name = "lblClienteSeleccionado";
+            lblClienteSeleccionado.Size = new Size(174, 23);
+            lblClienteSeleccionado.TabIndex = 4;
+            lblClienteSeleccionado.Text = "Cliente seleccionado:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(9, 163);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Cantidad:";
             // 
             // numCantidad
             // 
-            numCantidad.Location = new Point(99, 120);
-            numCantidad.Margin = new Padding(3, 2, 3, 2);
+            numCantidad.Location = new Point(90, 161);
+            numCantidad.Margin = new Padding(2);
+            numCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numCantidad.Name = "numCantidad";
-            numCantidad.Size = new Size(88, 23);
-            numCantidad.TabIndex = 3;
+            numCantidad.Size = new Size(120, 27);
+            numCantidad.TabIndex = 6;
             numCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // BtnBuscarPelicula
+            // 
+            BtnBuscarPelicula.BackColor = Color.FromArgb(128, 64, 0);
+            BtnBuscarPelicula.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
+            BtnBuscarPelicula.ForeColor = Color.White;
+            BtnBuscarPelicula.Location = new Point(230, 157);
+            BtnBuscarPelicula.Margin = new Padding(2);
+            BtnBuscarPelicula.Name = "BtnBuscarPelicula";
+            BtnBuscarPelicula.Size = new Size(150, 33);
+            BtnBuscarPelicula.TabIndex = 7;
+            BtnBuscarPelicula.Text = "🎬 Buscar Película";
+            BtnBuscarPelicula.UseVisualStyleBackColor = false;
+            BtnBuscarPelicula.Click += BtnBuscarPelicula_Click;
+            // 
+            // lblPeliculaSeleccionada
+            // 
+            lblPeliculaSeleccionada.AutoSize = true;
+            lblPeliculaSeleccionada.Font = new Font("Segoe UI", 10F);
+            lblPeliculaSeleccionada.Location = new Point(9, 195);
+            lblPeliculaSeleccionada.Name = "lblPeliculaSeleccionada";
+            lblPeliculaSeleccionada.Size = new Size(172, 23);
+            lblPeliculaSeleccionada.TabIndex = 8;
+            lblPeliculaSeleccionada.Text = "Película seleccionada:";
             // 
             // BtnAgregar
             // 
-            BtnAgregar.BackColor = Color.Maroon;
-            BtnAgregar.FlatStyle = FlatStyle.Flat;
+            BtnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnAgregar.BackColor = Color.FromArgb(128, 64, 0);
+            BtnAgregar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnAgregar.ForeColor = Color.White;
-            BtnAgregar.Location = new Point(542, 120);
-            BtnAgregar.Margin = new Padding(3, 2, 3, 2);
+            BtnAgregar.Location = new Point(642, 160);
+            BtnAgregar.Margin = new Padding(2);
             BtnAgregar.Name = "BtnAgregar";
-            BtnAgregar.Size = new Size(119, 30);
-            BtnAgregar.TabIndex = 7;
-            BtnAgregar.Text = "\U0001f9fe Facturar";
+            BtnAgregar.Size = new Size(122, 33);
+            BtnAgregar.TabIndex = 9;
+            BtnAgregar.Text = "🧾 Facturar";
             BtnAgregar.UseVisualStyleBackColor = false;
             BtnAgregar.Click += BtnAgregar_Click;
             // 
+            // dgvDetalle
+            // 
+            dgvDetalle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDetalle.BackgroundColor = Color.White;
+            dgvDetalle.ColumnHeadersHeight = 35;
+            dgvDetalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvDetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvDetalle.Location = new Point(9, 233);
+            dgvDetalle.Margin = new Padding(2);
+            dgvDetalle.Name = "dgvDetalle";
+            dgvDetalle.RowHeadersWidth = 51;
+            dgvDetalle.RowTemplate.Height = 32;
+            dgvDetalle.Size = new Size(755, 280);
+            dgvDetalle.TabIndex = 10;
+            // 
+            // lblTotal
+            // 
+            lblTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTotal.Location = new Point(9, 518);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(64, 28);
+            lblTotal.TabIndex = 11;
+            lblTotal.Text = "Total:";
+            // 
+            // BtnEnviarCorreo
+            // 
+            BtnEnviarCorreo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnEnviarCorreo.BackColor = Color.FromArgb(128, 64, 0);
+            BtnEnviarCorreo.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
+            BtnEnviarCorreo.ForeColor = Color.White;
+            BtnEnviarCorreo.Location = new Point(200, 512);
+            BtnEnviarCorreo.Margin = new Padding(2);
+            BtnEnviarCorreo.Name = "BtnEnviarCorreo";
+            BtnEnviarCorreo.Size = new Size(150, 33);
+            BtnEnviarCorreo.TabIndex = 12;
+            BtnEnviarCorreo.Text = "📧 Mandar CSV";
+            BtnEnviarCorreo.UseVisualStyleBackColor = false;
+            BtnEnviarCorreo.Click += BtnEnviarCorreo_Click;
+            // 
+            // BtnGuardarFactura
+            // 
+            BtnGuardarFactura.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnGuardarFactura.BackColor = Color.FromArgb(128, 64, 0);
+            BtnGuardarFactura.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
+            BtnGuardarFactura.ForeColor = Color.White;
+            BtnGuardarFactura.Location = new Point(642, 512);
+            BtnGuardarFactura.Margin = new Padding(2);
+            BtnGuardarFactura.Name = "BtnGuardarFactura";
+            BtnGuardarFactura.Size = new Size(122, 33);
+            BtnGuardarFactura.TabIndex = 13;
+            BtnGuardarFactura.Text = "💾 Guardar";
+            BtnGuardarFactura.UseVisualStyleBackColor = false;
+            BtnGuardarFactura.Click += BtnGuardarFactura_Click;
+            // 
+            // BtnMisFacturas
+            // 
+            BtnMisFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnMisFacturas.BackColor = Color.FromArgb(128, 64, 0);
+            BtnMisFacturas.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
+            BtnMisFacturas.ForeColor = Color.White;
+            BtnMisFacturas.Location = new Point(642, 10);
+            BtnMisFacturas.Margin = new Padding(2);
+            BtnMisFacturas.Name = "BtnMisFacturas";
+            BtnMisFacturas.Size = new Size(122, 33);
+            BtnMisFacturas.TabIndex = 14;
+            BtnMisFacturas.Text = "📜 Facturas";
+            BtnMisFacturas.UseVisualStyleBackColor = false;
+            BtnMisFacturas.Click += BtnMisFacturas_Click;
+            // 
             // UCVentas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Bisque;
+            BackColor = Color.FromArgb(255, 224, 192);
             Controls.Add(pnlNuevaFactura);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(2);
             Name = "UCVentas";
-            Size = new Size(691, 450);
+            Size = new Size(781, 600);
             pnlNuevaFactura.ResumeLayout(false);
             pnlNuevaFactura.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalle).EndInit();
             ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalle).EndInit();
             ResumeLayout(false);
         }
-
 
         #endregion
 
         private Panel pnlNuevaFactura;
         private Label lblTitulo1;
-        private NumericUpDown numCantidad;
-        private Button BtnAgregar;
-        private Button BtnGuardarFactura;
-        private DataGridView dgvDetalle;
-        private Button BtnBuscarPelicula;
-        private Button BtnBuscarCliente;
+        private Label label1;
         private TextBox txtBuscarCliente;
+        private Button BtnBuscarCliente;
         private Label lblClienteSeleccionado;
+        private Label label2;
+        private NumericUpDown numCantidad;
+        private Button BtnBuscarPelicula;
         private Label lblPeliculaSeleccionada;
+        private Button BtnAgregar;
+        private DataGridView dgvDetalle;
         private Label lblTotal;
         private Button BtnEnviarCorreo;
+        private Button BtnGuardarFactura;
         private Button BtnMisFacturas;
-        private Label label1;
-        private Label label2;
     }
 }

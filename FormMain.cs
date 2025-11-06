@@ -150,5 +150,9 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
+        private void PanelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

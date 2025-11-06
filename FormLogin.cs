@@ -54,9 +54,9 @@ namespace proyecto_Famular_Lezcano
 
                     MessageBox.Show($"Bienvenido, {usuario.Nombre} ({nombreRol})", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    
-                     FormMain formMain = new FormMain(nombreRol);
-                     formMain.Show();
+
+                    FormMain formMain = new FormMain(nombreRol);
+                    formMain.Show();
 
                     this.Hide();
                 }

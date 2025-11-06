@@ -217,5 +217,10 @@ namespace proyecto_Famular_Lezcano
                 e.FormattingApplied = true;
             }
         }
+
+        private void UCVendedores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -2,165 +2,159 @@
 {
     partial class UCVendedores
     {
-        /// <summary> 
-        /// Variable del diseñador necesaria.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Limpiar los recursos que se estén usando.
-        /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de componentes
+        #region Código generado por el Diseñador de Windows Forms
 
-        /// <summary> 
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
-        /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             dgvVendedores = new DataGridView();
-            nombre_vendedor = new DataGridViewTextBoxColumn();
-            apellido_vendedor = new DataGridViewTextBoxColumn();
-            acronimo_vendedor = new DataGridViewTextBoxColumn();
-            email_vendedor = new DataGridViewTextBoxColumn();
-            estado_vendedor = new DataGridViewTextBoxColumn();
-            acciones = new DataGridViewTextBoxColumn();
-            BtnBuscar = new Button();
-            BAgregar = new Button();
-            panel1 = new Panel();
-            LTitulo = new Label();
+            colNombre = new DataGridViewTextBoxColumn();
+            colApellido = new DataGridViewTextBoxColumn();
+            colDni = new DataGridViewTextBoxColumn();
+            colTelefono = new DataGridViewTextBoxColumn();
             txtBuscar = new TextBox();
+            LTitulo = new Label();
+            panel1 = new Panel();
+            BAgregar = new Button();
+            BtnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvVendedores
             // 
-            dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVendedores.Columns.AddRange(new DataGridViewColumn[] { nombre_vendedor, apellido_vendedor, acronimo_vendedor, email_vendedor, estado_vendedor, acciones });
-            dgvVendedores.Location = new Point(3, 195);
+            dgvVendedores.AllowUserToAddRows = false;
+            dgvVendedores.AllowUserToDeleteRows = false;
+            dgvVendedores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvVendedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVendedores.BackgroundColor = Color.White;
+            dgvVendedores.ColumnHeadersHeight = 35;
+            dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVendedores.Columns.AddRange(new DataGridViewColumn[] { colNombre, colApellido, colDni, colTelefono });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvVendedores.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvVendedores.Location = new Point(9, 126);
+            dgvVendedores.Margin = new Padding(2);
             dgvVendedores.Name = "dgvVendedores";
             dgvVendedores.RowHeadersWidth = 51;
-            dgvVendedores.Size = new Size(654, 202);
-            dgvVendedores.TabIndex = 2;
+            dgvVendedores.RowTemplate.Height = 32;
+            dgvVendedores.Size = new Size(762, 450);
+            dgvVendedores.TabIndex = 1;
             // 
-            // nombre_vendedor
+            // colNombre
             // 
-            nombre_vendedor.HeaderText = "Nombre";
-            nombre_vendedor.MinimumWidth = 6;
-            nombre_vendedor.Name = "nombre_vendedor";
-            nombre_vendedor.Width = 125;
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 6;
+            colNombre.Name = "colNombre";
             // 
-            // apellido_vendedor
+            // colApellido
             // 
-            apellido_vendedor.HeaderText = "Apellido";
-            apellido_vendedor.MinimumWidth = 6;
-            apellido_vendedor.Name = "apellido_vendedor";
-            apellido_vendedor.Width = 125;
+            colApellido.HeaderText = "Apellido";
+            colApellido.MinimumWidth = 6;
+            colApellido.Name = "colApellido";
             // 
-            // acronimo_vendedor
+            // colDni
             // 
-            acronimo_vendedor.HeaderText = "Acronimo";
-            acronimo_vendedor.MinimumWidth = 6;
-            acronimo_vendedor.Name = "acronimo_vendedor";
-            acronimo_vendedor.Width = 125;
+            colDni.HeaderText = "DNI";
+            colDni.MinimumWidth = 6;
+            colDni.Name = "colDni";
             // 
-            // email_vendedor
+            // colTelefono
             // 
-            email_vendedor.HeaderText = "Email";
-            email_vendedor.MinimumWidth = 6;
-            email_vendedor.Name = "email_vendedor";
-            email_vendedor.Width = 125;
+            colTelefono.HeaderText = "Teléfono";
+            colTelefono.MinimumWidth = 6;
+            colTelefono.Name = "colTelefono";
             // 
-            // estado_vendedor
+            // txtBuscar
             // 
-            estado_vendedor.HeaderText = "Estado";
-            estado_vendedor.MinimumWidth = 6;
-            estado_vendedor.Name = "estado_vendedor";
-            estado_vendedor.Width = 125;
-            // 
-            // acciones
-            // 
-            acciones.HeaderText = "Acciones";
-            acciones.MinimumWidth = 6;
-            acciones.Name = "acciones";
-            acciones.Width = 125;
-            // 
-            // BtnBuscar
-            // 
-            BtnBuscar.BackColor = Color.FromArgb(128, 64, 0);
-            BtnBuscar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            BtnBuscar.ForeColor = Color.White;
-            BtnBuscar.Location = new Point(488, 52);
-            BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(152, 40);
-            BtnBuscar.TabIndex = 3;
-            BtnBuscar.Text = "Buscar Usuario";
-            BtnBuscar.UseVisualStyleBackColor = false;
-            BtnBuscar.Click += BtnBuscar_Click;
-            // 
-            // BAgregar
-            // 
-            BAgregar.BackColor = Color.FromArgb(128, 64, 0);
-            BAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            BAgregar.ForeColor = Color.White;
-            BAgregar.Location = new Point(491, 6);
-            BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(152, 40);
-            BAgregar.TabIndex = 1;
-            BAgregar.Text = "Agregar Usuarios";
-            BAgregar.UseVisualStyleBackColor = false;
-            BAgregar.Click += BAgregar_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(255, 192, 128);
-            panel1.Controls.Add(BAgregar);
-            panel1.Controls.Add(BtnBuscar);
-            panel1.Location = new Point(3, 46);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(654, 100);
-            panel1.TabIndex = 5;
+            txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtBuscar.Location = new Point(9, 63);
+            txtBuscar.Margin = new Padding(2);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(621, 27);
+            txtBuscar.TabIndex = 7;
             // 
             // LTitulo
             // 
             LTitulo.AutoSize = true;
-            LTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            LTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             LTitulo.ForeColor = Color.Maroon;
-            LTitulo.Location = new Point(14, 52);
+            LTitulo.Location = new Point(9, 17);
+            LTitulo.Margin = new Padding(2, 0, 2, 0);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(222, 25);
-            LTitulo.TabIndex = 0;
-            LTitulo.Text = "GESTION DE USUARIOS";
+            LTitulo.Size = new Size(361, 37);
+            LTitulo.TabIndex = 6;
+            LTitulo.Text = "GESTIÓN DE VENDEDORES";
             // 
-            // txtBuscar
+            // panel1
             // 
-            txtBuscar.Location = new Point(14, 106);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(307, 23);
-            txtBuscar.TabIndex = 4;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.FromArgb(255, 192, 128);
+            panel1.Controls.Add(BAgregar);
+            panel1.Controls.Add(BtnBuscar);
+            panel1.Location = new Point(2, 11);
+            panel1.Margin = new Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(776, 100);
+            panel1.TabIndex = 8;
+            // 
+            // BAgregar
+            // 
+            BAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BAgregar.BackColor = Color.FromArgb(128, 64, 0);
+            BAgregar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
+            BAgregar.ForeColor = Color.White;
+            BAgregar.Location = new Point(642, 6);
+            BAgregar.Margin = new Padding(2);
+            BAgregar.Name = "BAgregar";
+            BAgregar.Size = new Size(122, 33);
+            BAgregar.TabIndex = 1;
+            BAgregar.Text = "➕ Agregar";
+            BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
+            // 
+            // BtnBuscar
+            // 
+            BtnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnBuscar.BackColor = Color.FromArgb(128, 64, 0);
+            BtnBuscar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
+            BtnBuscar.ForeColor = Color.White;
+            BtnBuscar.Location = new Point(642, 52);
+            BtnBuscar.Margin = new Padding(2);
+            BtnBuscar.Name = "BtnBuscar";
+            BtnBuscar.Size = new Size(122, 33);
+            BtnBuscar.TabIndex = 3;
+            BtnBuscar.Text = "🔍 Buscar";
+            BtnBuscar.UseVisualStyleBackColor = false;
+            BtnBuscar.Click += BtnBuscar_Click;
             // 
             // UCVendedores
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             Controls.Add(txtBuscar);
-            Controls.Add(dgvVendedores);
             Controls.Add(LTitulo);
             Controls.Add(panel1);
+            Controls.Add(dgvVendedores);
+            Margin = new Padding(2);
             Name = "UCVendedores";
-            Size = new Size(660, 490);
+            Size = new Size(781, 600);
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -168,17 +162,16 @@
         }
 
         #endregion
+
         private DataGridView dgvVendedores;
-        private DataGridViewTextBoxColumn nombre_vendedor;
-        private DataGridViewTextBoxColumn apellido_vendedor;
-        private DataGridViewTextBoxColumn acronimo_vendedor;
-        private DataGridViewTextBoxColumn email_vendedor;
-        private DataGridViewTextBoxColumn estado_vendedor;
-        private DataGridViewTextBoxColumn acciones;
-        private Button BtnBuscar;
-        private Button BAgregar;
-        private Panel panel1;
-        private Label LTitulo;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colApellido;
+        private DataGridViewTextBoxColumn colDni;
+        private DataGridViewTextBoxColumn colTelefono;
         private TextBox txtBuscar;
+        private Label LTitulo;
+        private Panel panel1;
+        private Button BAgregar;
+        private Button BtnBuscar;
     }
 }
