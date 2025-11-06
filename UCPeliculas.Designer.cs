@@ -49,7 +49,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvPeliculas.DefaultCellStyle = dataGridViewCellStyle1;
             dgvPeliculas.Location = new Point(9, 126);
-            dgvPeliculas.Margin = new Padding(2, 2, 2, 2);
+            dgvPeliculas.Margin = new Padding(2);
             dgvPeliculas.Name = "dgvPeliculas";
             dgvPeliculas.RowHeadersWidth = 51;
             dgvPeliculas.RowTemplate.Height = 32;
@@ -84,7 +84,7 @@
             // 
             txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscar.Location = new Point(9, 63);
-            txtBuscar.Margin = new Padding(2, 2, 2, 2);
+            txtBuscar.Margin = new Padding(2);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(621, 27);
             txtBuscar.TabIndex = 7;
@@ -93,7 +93,7 @@
             // 
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            LTitulo.ForeColor = Color.Maroon;
+            LTitulo.ForeColor = Color.FromArgb(128, 64, 0);
             LTitulo.Location = new Point(9, 17);
             LTitulo.Margin = new Padding(2, 0, 2, 0);
             LTitulo.Name = "LTitulo";
@@ -108,7 +108,7 @@
             panel1.Controls.Add(BAgregar);
             panel1.Controls.Add(BtnBuscar);
             panel1.Location = new Point(2, 11);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(776, 100);
             panel1.TabIndex = 8;
@@ -120,7 +120,7 @@
             BAgregar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BAgregar.ForeColor = Color.White;
             BAgregar.Location = new Point(642, 6);
-            BAgregar.Margin = new Padding(2, 2, 2, 2);
+            BAgregar.Margin = new Padding(2);
             BAgregar.Name = "BAgregar";
             BAgregar.Size = new Size(122, 33);
             BAgregar.TabIndex = 1;
@@ -135,7 +135,7 @@
             BtnBuscar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnBuscar.ForeColor = Color.White;
             BtnBuscar.Location = new Point(642, 52);
-            BtnBuscar.Margin = new Padding(2, 2, 2, 2);
+            BtnBuscar.Margin = new Padding(2);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(122, 33);
             BtnBuscar.TabIndex = 3;
@@ -152,7 +152,7 @@
             Controls.Add(LTitulo);
             Controls.Add(panel1);
             Controls.Add(dgvPeliculas);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "UCPeliculas";
             Size = new Size(781, 600);
             ((System.ComponentModel.ISupportInitialize)dgvPeliculas).EndInit();

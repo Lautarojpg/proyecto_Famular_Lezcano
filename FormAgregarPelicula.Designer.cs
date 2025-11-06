@@ -50,12 +50,13 @@
             // 
             // BGuardar
             // 
-            BGuardar.BackColor = Color.Maroon;
+            BGuardar.BackColor = Color.FromArgb(128, 64, 0);
             BGuardar.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BGuardar.ForeColor = Color.Bisque;
-            BGuardar.Location = new Point(158, 313);
+            BGuardar.Location = new Point(181, 417);
+            BGuardar.Margin = new Padding(3, 4, 3, 4);
             BGuardar.Name = "BGuardar";
-            BGuardar.Size = new Size(103, 36);
+            BGuardar.Size = new Size(118, 48);
             BGuardar.TabIndex = 17;
             BGuardar.Text = "Agregar";
             BGuardar.UseVisualStyleBackColor = false;
@@ -64,12 +65,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Maroon;
+            label1.BackColor = Color.FromArgb(128, 64, 0);
             label1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Bisque;
-            label1.Location = new Point(138, 9);
+            label1.Location = new Point(158, 12);
             label1.Name = "label1";
-            label1.Size = new Size(123, 21);
+            label1.Size = new Size(154, 28);
             label1.TabIndex = 16;
             label1.Text = "Agregar Pelicula";
             // 
@@ -88,26 +89,29 @@
             panel1.Controls.Add(TSinopsis);
             panel1.Controls.Add(LStock);
             panel1.Controls.Add(LSinopsis);
-            panel1.Location = new Point(12, 41);
+            panel1.Location = new Point(14, 55);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(388, 266);
+            panel1.Size = new Size(443, 355);
             panel1.TabIndex = 18;
             // 
             // TxtImagen
             // 
-            TxtImagen.Location = new Point(126, 229);
+            TxtImagen.Location = new Point(144, 305);
+            TxtImagen.Margin = new Padding(3, 4, 3, 4);
             TxtImagen.Name = "TxtImagen";
-            TxtImagen.Size = new Size(250, 23);
+            TxtImagen.Size = new Size(285, 27);
             TxtImagen.TabIndex = 22;
             // 
             // BtnImagen
             // 
-            BtnImagen.BackColor = Color.Maroon;
+            BtnImagen.BackColor = Color.FromArgb(128, 64, 0);
             BtnImagen.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnImagen.ForeColor = Color.Bisque;
-            BtnImagen.Location = new Point(11, 221);
+            BtnImagen.Location = new Point(13, 295);
+            BtnImagen.Margin = new Padding(3, 4, 3, 4);
             BtnImagen.Name = "BtnImagen";
-            BtnImagen.Size = new Size(92, 32);
+            BtnImagen.Size = new Size(105, 43);
             BtnImagen.TabIndex = 21;
             BtnImagen.Text = "Imagen";
             BtnImagen.UseVisualStyleBackColor = false;
@@ -116,83 +120,88 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(11, 189);
+            label2.Location = new Point(13, 252);
             label2.Name = "label2";
-            label2.Size = new Size(61, 15);
+            label2.Size = new Size(77, 20);
             label2.TabIndex = 20;
             label2.Text = "Categoria:";
             // 
             // CbCategoria
             // 
             CbCategoria.FormattingEnabled = true;
-            CbCategoria.Location = new Point(126, 181);
+            CbCategoria.Location = new Point(144, 241);
+            CbCategoria.Margin = new Padding(3, 4, 3, 4);
             CbCategoria.Name = "CbCategoria";
-            CbCategoria.Size = new Size(121, 23);
+            CbCategoria.Size = new Size(138, 28);
             CbCategoria.TabIndex = 19;
             // 
             // TStock
             // 
-            TStock.Location = new Point(126, 70);
+            TStock.Location = new Point(144, 93);
+            TStock.Margin = new Padding(3, 4, 3, 4);
             TStock.Name = "TStock";
-            TStock.Size = new Size(123, 23);
+            TStock.Size = new Size(140, 27);
             TStock.TabIndex = 10;
             // 
             // LNombre
             // 
             LNombre.AutoSize = true;
-            LNombre.Location = new Point(11, 15);
+            LNombre.Location = new Point(13, 20);
             LNombre.Name = "LNombre";
-            LNombre.Size = new Size(54, 15);
+            LNombre.Size = new Size(67, 20);
             LNombre.TabIndex = 4;
             LNombre.Text = "Nombre:";
             // 
             // TNombre
             // 
-            TNombre.Location = new Point(126, 12);
+            TNombre.Location = new Point(144, 16);
+            TNombre.Margin = new Padding(3, 4, 3, 4);
             TNombre.Name = "TNombre";
-            TNombre.Size = new Size(250, 23);
+            TNombre.Size = new Size(285, 27);
             TNombre.TabIndex = 0;
             // 
             // TPrecio
             // 
-            TPrecio.Location = new Point(126, 41);
+            TPrecio.Location = new Point(144, 55);
+            TPrecio.Margin = new Padding(3, 4, 3, 4);
             TPrecio.Name = "TPrecio";
-            TPrecio.Size = new Size(123, 23);
+            TPrecio.Size = new Size(140, 27);
             TPrecio.TabIndex = 1;
             // 
             // LPrecio
             // 
             LPrecio.AutoSize = true;
-            LPrecio.Location = new Point(11, 49);
+            LPrecio.Location = new Point(13, 65);
             LPrecio.Name = "LPrecio";
-            LPrecio.Size = new Size(43, 15);
+            LPrecio.Size = new Size(53, 20);
             LPrecio.TabIndex = 5;
             LPrecio.Text = "Precio:";
             // 
             // TSinopsis
             // 
-            TSinopsis.Location = new Point(126, 99);
+            TSinopsis.Location = new Point(144, 132);
+            TSinopsis.Margin = new Padding(3, 4, 3, 4);
             TSinopsis.Multiline = true;
             TSinopsis.Name = "TSinopsis";
             TSinopsis.ScrollBars = ScrollBars.Both;
-            TSinopsis.Size = new Size(250, 76);
+            TSinopsis.Size = new Size(285, 100);
             TSinopsis.TabIndex = 2;
             // 
             // LStock
             // 
             LStock.AutoSize = true;
-            LStock.Location = new Point(10, 78);
+            LStock.Location = new Point(11, 104);
             LStock.Name = "LStock";
-            LStock.Size = new Size(39, 15);
+            LStock.Size = new Size(48, 20);
             LStock.TabIndex = 11;
             LStock.Text = "Stock:";
             // 
             // LSinopsis
             // 
             LSinopsis.AutoSize = true;
-            LSinopsis.Location = new Point(10, 135);
+            LSinopsis.Location = new Point(11, 180);
             LSinopsis.Name = "LSinopsis";
-            LSinopsis.Size = new Size(53, 15);
+            LSinopsis.Size = new Size(66, 20);
             LSinopsis.TabIndex = 6;
             LSinopsis.Text = "Sinopsis:";
             // 
@@ -200,23 +209,25 @@
             // 
             pictureBox1.Image = Properties.Resources.logo;
             pictureBox1.InitialImage = Properties.Resources.logo;
-            pictureBox1.Location = new Point(406, 53);
+            pictureBox1.Location = new Point(464, 71);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(232, 222);
+            pictureBox1.Size = new Size(265, 296);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
             // 
             // FormAgregarPelicula
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 192, 128);
-            ClientSize = new Size(645, 350);
+            ClientSize = new Size(737, 467);
             Controls.Add(pictureBox1);
             Controls.Add(BGuardar);
             Controls.Add(label1);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormAgregarPelicula";
             Text = "FormAgregarPelicula";
             panel1.ResumeLayout(false);

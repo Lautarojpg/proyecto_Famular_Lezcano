@@ -66,7 +66,7 @@ namespace proyecto_Famular_Lezcano
             BtnBackUp.UseVisualStyleBackColor = false;
             BtnBackUp.Click += BtnBackUp_Click;
             // 
-            // BtnSalir
+            // BtnSalir 
             // 
             BtnSalir.BackColor = Color.FromArgb(128, 64, 0);
             BtnSalir.Dock = DockStyle.Bottom;

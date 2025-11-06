@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             pnlNuevaFactura = new Panel();
             lblTitulo1 = new Label();
             label1 = new Label();
@@ -66,11 +66,11 @@
             // 
             lblTitulo1.AutoSize = true;
             lblTitulo1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            lblTitulo1.ForeColor = Color.Maroon;
+            lblTitulo1.ForeColor = Color.FromArgb(128, 64, 0);
             lblTitulo1.Location = new Point(9, 10);
             lblTitulo1.Margin = new Padding(2, 0, 2, 0);
             lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(243, 37);
+            lblTitulo1.Size = new Size(239, 37);
             lblTitulo1.TabIndex = 0;
             lblTitulo1.Text = "GESTIÓN VENTAS";
             // 
@@ -81,7 +81,7 @@
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label1.Location = new Point(9, 63);
             label1.Name = "label1";
-            label1.Size = new Size(319, 23);
+            label1.Size = new Size(323, 23);
             label1.TabIndex = 1;
             label1.Text = "Buscar cliente por email o por nombre:";
             // 
@@ -115,7 +115,7 @@
             lblClienteSeleccionado.Font = new Font("Segoe UI", 10F);
             lblClienteSeleccionado.Location = new Point(9, 126);
             lblClienteSeleccionado.Name = "lblClienteSeleccionado";
-            lblClienteSeleccionado.Size = new Size(174, 23);
+            lblClienteSeleccionado.Size = new Size(170, 23);
             lblClienteSeleccionado.TabIndex = 4;
             lblClienteSeleccionado.Text = "Cliente seleccionado:";
             // 
@@ -158,7 +158,7 @@
             lblPeliculaSeleccionada.Font = new Font("Segoe UI", 10F);
             lblPeliculaSeleccionada.Location = new Point(9, 195);
             lblPeliculaSeleccionada.Name = "lblPeliculaSeleccionada";
-            lblPeliculaSeleccionada.Size = new Size(172, 23);
+            lblPeliculaSeleccionada.Size = new Size(173, 23);
             lblPeliculaSeleccionada.TabIndex = 8;
             lblPeliculaSeleccionada.Text = "Película seleccionada:";
             // 
@@ -173,7 +173,7 @@
             BtnAgregar.Name = "BtnAgregar";
             BtnAgregar.Size = new Size(122, 33);
             BtnAgregar.TabIndex = 9;
-            BtnAgregar.Text = "🧾 Facturar";
+            BtnAgregar.Text = "\U0001f9fe Facturar";
             BtnAgregar.UseVisualStyleBackColor = false;
             BtnAgregar.Click += BtnAgregar_Click;
             // 

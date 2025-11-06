@@ -34,12 +34,118 @@
             CbRol = new ComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
-
+            // 
+            // TNombre
+            // 
+            TNombre.Location = new Point(126, 20);
+            TNombre.Name = "TNombre";
+            TNombre.Size = new Size(250, 27);
+            TNombre.TabIndex = 0;
+            // 
+            // TApellido
+            // 
+            TApellido.Location = new Point(126, 56);
+            TApellido.Name = "TApellido";
+            TApellido.Size = new Size(250, 27);
+            TApellido.TabIndex = 1;
+            // 
+            // TNomUsuario
+            // 
+            TNomUsuario.Location = new Point(126, 132);
+            TNomUsuario.Name = "TNomUsuario";
+            TNomUsuario.Size = new Size(250, 27);
+            TNomUsuario.TabIndex = 2;
+            // 
+            // TEmail
+            // 
+            TEmail.Location = new Point(126, 166);
+            TEmail.Name = "TEmail";
+            TEmail.Size = new Size(250, 27);
+            TEmail.TabIndex = 3;
+            // 
+            // LNombre
+            // 
+            LNombre.AutoSize = true;
+            LNombre.Location = new Point(10, 23);
+            LNombre.Name = "LNombre";
+            LNombre.Size = new Size(67, 20);
+            LNombre.TabIndex = 4;
+            LNombre.Text = "Nombre:";
+            // 
+            // LApellido
+            // 
+            LApellido.AutoSize = true;
+            LApellido.Location = new Point(10, 64);
+            LApellido.Name = "LApellido";
+            LApellido.Size = new Size(69, 20);
+            LApellido.TabIndex = 5;
+            LApellido.Text = "Apellido:";
+            // 
+            // LNombreUsuario
+            // 
+            LNombreUsuario.AutoSize = true;
+            LNombreUsuario.Location = new Point(10, 135);
+            LNombreUsuario.Name = "LNombreUsuario";
+            LNombreUsuario.Size = new Size(142, 20);
+            LNombreUsuario.TabIndex = 6;
+            LNombreUsuario.Text = "Nombre de Usuario:";
+            // 
+            // LEmail
+            // 
+            LEmail.AutoSize = true;
+            LEmail.Location = new Point(10, 169);
+            LEmail.Name = "LEmail";
+            LEmail.Size = new Size(49, 20);
+            LEmail.TabIndex = 7;
+            LEmail.Text = "Email:";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(128, 64, 0);
+            label1.Font = new Font("Yu Gothic UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Bisque;
+            label1.Location = new Point(160, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(214, 32);
+            label1.TabIndex = 8;
+            label1.Text = "Agregar Vendedor";
+            // 
+            // BAgregar
+            // 
+            BAgregar.Anchor = AnchorStyles.Bottom;
+            BAgregar.BackColor = Color.FromArgb(128, 64, 0);
+            BAgregar.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BAgregar.ForeColor = Color.Bisque;
+            BAgregar.Location = new Point(190, 350);
+            BAgregar.Name = "BAgregar";
+            BAgregar.Size = new Size(130, 40);
+            BAgregar.TabIndex = 9;
+            BAgregar.Text = "Agregar";
+            BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
+            // 
+            // LContraseña
+            // 
+            LContraseña.AutoSize = true;
+            LContraseña.Location = new Point(10, 106);
+            LContraseña.Name = "LContraseña";
+            LContraseña.Size = new Size(86, 20);
+            LContraseña.TabIndex = 11;
+            LContraseña.Text = "Contraseña:";
+            // 
+            // TContraseña
+            // 
+            TContraseña.Location = new Point(126, 98);
+            TContraseña.Name = "TContraseña";
+            TContraseña.Size = new Size(250, 27);
+            TContraseña.TabIndex = 10;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Bisque;
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.Bisque;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(CbRol);
             panel1.Controls.Add(TContraseña);
@@ -57,121 +163,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(440, 260);
             panel1.TabIndex = 15;
-
             // 
-            // label1 (Título)
-            // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Maroon;
-            label1.Font = new Font("Yu Gothic UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Bisque;
-            label1.Location = new Point(160, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(185, 25);
-            label1.TabIndex = 8;
-            label1.Text = "Agregar Vendedor";
-
-            // 
-            // TNombre
-            // 
-            TNombre.Location = new Point(126, 20);
-            TNombre.Name = "TNombre";
-            TNombre.Size = new Size(250, 23);
-            TNombre.TabIndex = 0;
-
-            // 
-            // TApellido
-            // 
-            TApellido.Location = new Point(126, 56);
-            TApellido.Name = "TApellido";
-            TApellido.Size = new Size(250, 23);
-            TApellido.TabIndex = 1;
-
-            // 
-            // TNomUsuario
-            // 
-            TNomUsuario.Location = new Point(126, 132);
-            TNomUsuario.Name = "TNomUsuario";
-            TNomUsuario.Size = new Size(250, 23);
-            TNomUsuario.TabIndex = 2;
-
-            // 
-            // TEmail
-            // 
-            TEmail.Location = new Point(126, 166);
-            TEmail.Name = "TEmail";
-            TEmail.Size = new Size(250, 23);
-            TEmail.TabIndex = 3;
-
-            // 
-            // TContraseña
-            // 
-            TContraseña.Location = new Point(126, 98);
-            TContraseña.Name = "TContraseña";
-            TContraseña.Size = new Size(250, 23);
-            TContraseña.TabIndex = 10;
-
-            // 
-            // LNombre
-            // 
-            LNombre.AutoSize = true;
-            LNombre.Location = new Point(10, 23);
-            LNombre.Name = "LNombre";
-            LNombre.Size = new Size(54, 15);
-            LNombre.TabIndex = 4;
-            LNombre.Text = "Nombre:";
-
-            // 
-            // LApellido
-            // 
-            LApellido.AutoSize = true;
-            LApellido.Location = new Point(10, 64);
-            LApellido.Name = "LApellido";
-            LApellido.Size = new Size(54, 15);
-            LApellido.TabIndex = 5;
-            LApellido.Text = "Apellido:";
-
-            // 
-            // LContraseña
-            // 
-            LContraseña.AutoSize = true;
-            LContraseña.Location = new Point(10, 106);
-            LContraseña.Name = "LContraseña";
-            LContraseña.Size = new Size(70, 15);
-            LContraseña.TabIndex = 11;
-            LContraseña.Text = "Contraseña:";
-
-            // 
-            // LNombreUsuario
-            // 
-            LNombreUsuario.AutoSize = true;
-            LNombreUsuario.Location = new Point(10, 135);
-            LNombreUsuario.Name = "LNombreUsuario";
-            LNombreUsuario.Size = new Size(113, 15);
-            LNombreUsuario.TabIndex = 6;
-            LNombreUsuario.Text = "Nombre de Usuario:";
-
-            // 
-            // LEmail
-            // 
-            LEmail.AutoSize = true;
-            LEmail.Location = new Point(10, 169);
-            LEmail.Name = "LEmail";
-            LEmail.Size = new Size(39, 15);
-            LEmail.TabIndex = 7;
-            LEmail.Text = "Email:";
-
-            // 
-            // label2 (Rol)
+            // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(10, 212);
             label2.Name = "label2";
-            label2.Size = new Size(27, 15);
+            label2.Size = new Size(34, 20);
             label2.TabIndex = 15;
             label2.Text = "Rol:";
-
             // 
             // CbRol
             // 
@@ -180,24 +180,8 @@
             CbRol.Items.AddRange(new object[] { "Administrador", "Cliente", "Vendedor" });
             CbRol.Location = new Point(126, 209);
             CbRol.Name = "CbRol";
-            CbRol.Size = new Size(150, 23);
+            CbRol.Size = new Size(150, 28);
             CbRol.TabIndex = 14;
-
-            // 
-            // BAgregar
-            // 
-            BAgregar.Anchor = AnchorStyles.Bottom;
-            BAgregar.BackColor = Color.Maroon;
-            BAgregar.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BAgregar.ForeColor = Color.Bisque;
-            BAgregar.Location = new Point(190, 350);
-            BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(130, 40);
-            BAgregar.TabIndex = 9;
-            BAgregar.Text = "Agregar";
-            BAgregar.UseVisualStyleBackColor = false;
-            BAgregar.Click += BAgregar_Click;
-
             // 
             // FormAgregarUsuario
             // 
@@ -212,7 +196,6 @@
             Name = "FormAgregarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Usuario";
-            WindowState = FormWindowState.Normal;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

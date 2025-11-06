@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dgvVendedores = new DataGridView();
             colNombre = new DataGridViewTextBoxColumn();
             colApellido = new DataGridViewTextBoxColumn();
@@ -93,11 +93,11 @@
             // 
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            LTitulo.ForeColor = Color.Maroon;
+            LTitulo.ForeColor = Color.FromArgb(128, 64, 0);
             LTitulo.Location = new Point(9, 17);
             LTitulo.Margin = new Padding(2, 0, 2, 0);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(361, 37);
+            LTitulo.Size = new Size(353, 37);
             LTitulo.TabIndex = 6;
             LTitulo.Text = "GESTIÓN DE VENDEDORES";
             // 

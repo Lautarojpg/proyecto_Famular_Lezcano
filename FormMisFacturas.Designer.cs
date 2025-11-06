@@ -38,9 +38,11 @@
             // dgvFacturas
             // 
             dgvFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFacturas.Location = new Point(12, 47);
+            dgvFacturas.Location = new Point(14, 63);
+            dgvFacturas.Margin = new Padding(3, 4, 3, 4);
             dgvFacturas.Name = "dgvFacturas";
-            dgvFacturas.Size = new Size(776, 180);
+            dgvFacturas.RowHeadersWidth = 51;
+            dgvFacturas.Size = new Size(887, 240);
             dgvFacturas.TabIndex = 0;
             dgvFacturas.CellContentClick += dgvFacturas_CellContentClick;
             // 
@@ -48,30 +50,33 @@
             // 
             lblTitulo1.AutoSize = true;
             lblTitulo1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTitulo1.ForeColor = Color.Maroon;
-            lblTitulo1.Location = new Point(12, 9);
+            lblTitulo1.ForeColor = Color.FromArgb(128, 64, 0);
+            lblTitulo1.Location = new Point(14, 12);
             lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(128, 21);
+            lblTitulo1.Size = new Size(164, 28);
             lblTitulo1.TabIndex = 1;
             lblTitulo1.Text = "📄 Mis Facturas";
             // 
             // dgvDetalles
             // 
             dgvDetalles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalles.Location = new Point(12, 245);
+            dgvDetalles.Location = new Point(14, 327);
+            dgvDetalles.Margin = new Padding(3, 4, 3, 4);
             dgvDetalles.Name = "dgvDetalles";
-            dgvDetalles.Size = new Size(776, 180);
+            dgvDetalles.RowHeadersWidth = 51;
+            dgvDetalles.Size = new Size(887, 240);
             dgvDetalles.TabIndex = 2;
             // 
             // FormMisFacturas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(dgvDetalles);
             Controls.Add(lblTitulo1);
             Controls.Add(dgvFacturas);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormMisFacturas";
             Text = "FormMisFacturas";
             ((System.ComponentModel.ISupportInitialize)dgvFacturas).EndInit();
