@@ -82,10 +82,20 @@ namespace proyecto_Famular_Lezcano
                 int stock = int.Parse(TStock.Text);
                 int idCategoria = (int)CbCategoria.SelectedValue;
                 string rutaImagen = TxtImagen.Text?.Trim();
+                string linkPelicula = TxtLink.Text?.Trim();
+
+                if (string.IsNullOrEmpty(linkPelicula))
+                {
+                    MessageBox.Show("Debe ingresar el link de la película (por ejemplo, de Internet Archive).");
+                    return;
+                }
 
                 if (_esEdicion)
                 {
-                    var pelicula = _context.Peliculas.FirstOrDefault(p => p.IdPelicula == _idPelicula);
+                    var pelicula = _context.Peliculas
+                        .Include(p => p.IdTicketNavigation)
+                        .FirstOrDefault(p => p.IdPelicula == _idPelicula);
+
                     if (pelicula != null)
                     {
                         pelicula.NombrePelicula = TNombre.Text.Trim();
@@ -93,9 +103,16 @@ namespace proyecto_Famular_Lezcano
                         pelicula.Stock = stock;
                         pelicula.Sinopsis = TSinopsis.Text.Trim();
                         pelicula.IdCategoria = idCategoria;
-
                         if (!string.IsNullOrEmpty(rutaImagen))
                             pelicula.Imagen = rutaImagen;
+
+                        // Actualizamos el ticket asociado
+                        var ticket = _context.Tickets.FirstOrDefault(t => t.IdTicket == pelicula.IdTicket);
+                        if (ticket != null)
+                        {
+                            ticket.Link = linkPelicula;
+                            ticket.CodVisualizacion = new Random().Next(100000, 999999).ToString();
+                        }
 
                         _context.SaveChanges();
                         MessageBox.Show("Película actualizada correctamente.", "Éxito",
@@ -104,6 +121,17 @@ namespace proyecto_Famular_Lezcano
                 }
                 else
                 {
+                    // Crear un nuevo ticket asociado
+                    var nuevoTicket = new Ticket
+                    {
+                        CodVisualizacion = new Random().Next(100000, 999999).ToString(),
+                        Link = linkPelicula
+                    };
+
+                    _context.Tickets.Add(nuevoTicket);
+                    _context.SaveChanges();
+
+                    // Crear la película vinculada al ticket
                     var nueva = new Pelicula
                     {
                         NombrePelicula = TNombre.Text.Trim(),
@@ -111,12 +139,13 @@ namespace proyecto_Famular_Lezcano
                         Stock = stock,
                         Sinopsis = TSinopsis.Text.Trim(),
                         IdCategoria = idCategoria,
-                        Imagen = string.IsNullOrEmpty(rutaImagen) ? null : rutaImagen
+                        Imagen = string.IsNullOrEmpty(rutaImagen) ? null : rutaImagen,
+                        IdTicket = nuevoTicket.IdTicket // 👈 relación
                     };
 
                     _context.Peliculas.Add(nueva);
                     _context.SaveChanges();
-                    MessageBox.Show("Película agregada correctamente.", "Éxito",
+                    MessageBox.Show("Película agregada correctamente junto con su ticket.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -132,7 +161,6 @@ namespace proyecto_Famular_Lezcano
                 MessageBox.Show($"Error al guardar la película: {mensajeError}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private bool ValidarCampos()

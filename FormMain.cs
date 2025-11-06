@@ -46,6 +46,12 @@ namespace proyecto_Famular_Lezcano
             AbrirUserControl(new UCInformes());
         }
 
+        // 🔹 Nuevo botón para ver las películas compradas
+        private void BtnVer_Click(object sender, EventArgs e)
+        {
+            AbrirUserControl(new UCReproductor());
+        }
+
         private void FormMain_Load(object sender, EventArgs e)
         {
             // Deshabilitamos todos los botones al inicio
@@ -56,7 +62,7 @@ namespace proyecto_Famular_Lezcano
             DeshabilitarBoton(BInformes);
             DeshabilitarBoton(BtnBackUp);
 
-            // Habilitamos según el rol obtenido de la base de datos
+            // Habilitar según el rol obtenido de la base de datos
             switch (nombreRol)
             {
                 case "Administrador":
@@ -83,6 +89,7 @@ namespace proyecto_Famular_Lezcano
                     MessageBox.Show($"Rol desconocido: {nombreRol}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
+
             this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
@@ -109,7 +116,6 @@ namespace proyecto_Famular_Lezcano
         {
             try
             {
-                // Abrir diálogo para elegir dónde guardar el backup
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "Archivo de Backup (*.bak)|*.bak";
@@ -119,20 +125,17 @@ namespace proyecto_Famular_Lezcano
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         string backupPath = saveFileDialog.FileName;
-
-                        // Conexión directa a SQL Server (ajustala según tu conexión real)
                         string connectionString = "Server=.\\SQLEXPRESS;Database=proyecto_Famular_Lezcano;Trusted_Connection=True;TrustServerCertificate=True;";
 
                         using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
                         {
                             connection.Open();
-
                             string backupQuery = $@"
-                        BACKUP DATABASE [proyecto_Famular_Lezcano]
-                        TO DISK = '{backupPath}'
-                        WITH FORMAT, INIT,
-                        NAME = 'Backup_{DateTime.Now:yyyyMMdd_HHmmss}',
-                        SKIP, NOREWIND, NOUNLOAD, STATS = 10;";
+                                BACKUP DATABASE [proyecto_Famular_Lezcano]
+                                TO DISK = '{backupPath}'
+                                WITH FORMAT, INIT,
+                                NAME = 'Backup_{DateTime.Now:yyyyMMdd_HHmmss}',
+                                SKIP, NOREWIND, NOUNLOAD, STATS = 10;";
 
                             using (var command = new Microsoft.Data.SqlClient.SqlCommand(backupQuery, connection))
                             {
@@ -140,13 +143,15 @@ namespace proyecto_Famular_Lezcano
                             }
                         }
 
-                        MessageBox.Show("✅ Backup realizado correctamente en:\n" + backupPath, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("✅ Backup realizado correctamente en:\n" + backupPath,
+                            "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Error al realizar el backup:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("❌ Error al realizar el backup:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

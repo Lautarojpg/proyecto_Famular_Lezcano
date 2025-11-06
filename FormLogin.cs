@@ -30,34 +30,59 @@ namespace proyecto_Famular_Lezcano
 
             try
             {
-                // Incluye el rol para mostrar o usar luego
+                // ============================
+                // 1️⃣ Buscar en tabla Usuarios
+                // ============================
                 var usuario = _context.Usuarios
                     .Include(u => u.IdRolNavigation)
                     .FirstOrDefault(u => u.NombreUsuario == usuarioIngresado);
 
-                if (usuario == null)
+                if (usuario != null)
                 {
-                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!(usuario.Estado ?? false))
+                    {
+                        MessageBox.Show("Este usuario está deshabilitado.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (BCrypt.Net.BCrypt.Verify(passIngresado, usuario.Contrasena))
+                    {
+                        string nombreRol = usuario.IdRolNavigation?.NombreRol ?? "Sin Rol";
+                        SesionActual.Usuario = usuario;
+
+                        MessageBox.Show($"Bienvenido, {usuario.Nombre} ({nombreRol})", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        FormMain formMain = new FormMain(nombreRol);
+                        formMain.Show();
+                        this.Hide();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                // ===================================
+                // 2️⃣ Si no se encontró, buscar Cliente
+                // ===================================
+                var cliente = _context.Clientes.FirstOrDefault(c => c.Email == usuarioIngresado);
+
+                if (cliente == null)
+                {
+                    MessageBox.Show("Usuario o cliente no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (usuario.Estado == false)
+                if (BCrypt.Net.BCrypt.Verify(passIngresado, cliente.ContrasenaCliente))
                 {
-                    MessageBox.Show("Este usuario está deshabilitado.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    SesionActual.Cliente = cliente;
 
-                if (BCrypt.Net.BCrypt.Verify(passIngresado, usuario.Contrasena))
-                {
-                    string nombreRol = usuario.IdRolNavigation?.NombreRol ?? "Sin Rol";
-                    SesionActual.Usuario = usuario;
+                    MessageBox.Show($"Bienvenido, {cliente.NombreCliente} (Cliente)", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MessageBox.Show($"Bienvenido, {usuario.Nombre} ({nombreRol})", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                    FormMain formMain = new FormMain(nombreRol);
+                    FormMain formMain = new FormMain("Cliente");
                     formMain.Show();
-
                     this.Hide();
                 }
                 else

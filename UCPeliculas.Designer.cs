@@ -48,12 +48,12 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvPeliculas.DefaultCellStyle = dataGridViewCellStyle1;
-            dgvPeliculas.Location = new Point(9, 126);
+            dgvPeliculas.Location = new Point(8, 94);
             dgvPeliculas.Margin = new Padding(2);
             dgvPeliculas.Name = "dgvPeliculas";
             dgvPeliculas.RowHeadersWidth = 51;
             dgvPeliculas.RowTemplate.Height = 32;
-            dgvPeliculas.Size = new Size(762, 450);
+            dgvPeliculas.Size = new Size(667, 338);
             dgvPeliculas.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -83,10 +83,10 @@
             // txtBuscar
             // 
             txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtBuscar.Location = new Point(9, 63);
+            txtBuscar.Location = new Point(8, 47);
             txtBuscar.Margin = new Padding(2);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(621, 27);
+            txtBuscar.Size = new Size(544, 23);
             txtBuscar.TabIndex = 7;
             // 
             // LTitulo
@@ -94,10 +94,10 @@
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             LTitulo.ForeColor = Color.FromArgb(128, 64, 0);
-            LTitulo.Location = new Point(9, 17);
+            LTitulo.Location = new Point(8, 13);
             LTitulo.Margin = new Padding(2, 0, 2, 0);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(319, 37);
+            LTitulo.Size = new Size(259, 30);
             LTitulo.TabIndex = 6;
             LTitulo.Text = "GESTIÓN DE PELÍCULAS";
             // 
@@ -107,10 +107,10 @@
             panel1.BackColor = Color.FromArgb(255, 192, 128);
             panel1.Controls.Add(BAgregar);
             panel1.Controls.Add(BtnBuscar);
-            panel1.Location = new Point(2, 11);
+            panel1.Location = new Point(2, 8);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(776, 100);
+            panel1.Size = new Size(679, 75);
             panel1.TabIndex = 8;
             // 
             // BAgregar
@@ -119,12 +119,12 @@
             BAgregar.BackColor = Color.FromArgb(128, 64, 0);
             BAgregar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BAgregar.ForeColor = Color.White;
-            BAgregar.Location = new Point(642, 6);
+            BAgregar.Location = new Point(287, 5);
             BAgregar.Margin = new Padding(2);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(122, 33);
+            BAgregar.Size = new Size(209, 31);
             BAgregar.TabIndex = 1;
-            BAgregar.Text = "➕ Agregar";
+            BAgregar.Text = "➕ Agregar Pelicula";
             BAgregar.UseVisualStyleBackColor = false;
             BAgregar.Click += BAgregar_Click;
             // 
@@ -134,10 +134,10 @@
             BtnBuscar.BackColor = Color.FromArgb(128, 64, 0);
             BtnBuscar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnBuscar.ForeColor = Color.White;
-            BtnBuscar.Location = new Point(642, 52);
+            BtnBuscar.Location = new Point(554, 32);
             BtnBuscar.Margin = new Padding(2);
             BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(122, 33);
+            BtnBuscar.Size = new Size(107, 41);
             BtnBuscar.TabIndex = 3;
             BtnBuscar.Text = "🔍 Buscar";
             BtnBuscar.UseVisualStyleBackColor = false;
@@ -145,7 +145,7 @@
             // 
             // UCPeliculas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             Controls.Add(txtBuscar);
@@ -154,7 +154,7 @@
             Controls.Add(dgvPeliculas);
             Margin = new Padding(2);
             Name = "UCPeliculas";
-            Size = new Size(781, 600);
+            Size = new Size(683, 450);
             ((System.ComponentModel.ISupportInitialize)dgvPeliculas).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);

@@ -107,10 +107,10 @@ namespace proyecto_Famular_Lezcano
             // Ventas por vendedor
             var ventasPorVendedor = _context.VentaDetalles
                 .Where(v => v.IdVentaNavigation.FechaCompra >= desde && v.IdVentaNavigation.FechaCompra <= hasta)
-                .GroupBy(v => v.IdUsuarioNavigation.Nombre + " " + v.IdUsuarioNavigation.Apellido)
+                .GroupBy(v => v.IdUsuario)
                 .Select(g => new
                 {
-                    Vendedor = g.Key,
+                    VendedorId = g.Key,
                     Total = g.Sum(x => x.Cantidad * x.IdPeliculaNavigation.Precio)
                 })
                 .OrderByDescending(x => x.Total)
@@ -120,7 +120,14 @@ namespace proyecto_Famular_Lezcano
             serieBarras.Points.Clear();
             foreach (var item in ventasPorVendedor)
             {
-                serieBarras.Points.AddXY(item.Vendedor, item.Total);
+                string nombreVendedor = "Desconocido";
+                if (item.VendedorId.HasValue)
+                {
+                    var usuario = _context.Usuarios.Find(item.VendedorId.Value);
+                    if (usuario != null)
+                        nombreVendedor = usuario.Nombre + " " + usuario.Apellido;
+                }
+                serieBarras.Points.AddXY(nombreVendedor, item.Total);
             }
 
             // Ventas mensuales (para proyección)

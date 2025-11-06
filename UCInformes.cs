@@ -58,7 +58,9 @@ namespace proyecto_Famular_Lezcano
                     v.FechaCompra,
                     v.TotalVenta,
                     Cliente = v.IdClienteNavigation.NombreCliente + " " + v.IdClienteNavigation.ApellidoCliente,
-                    Vendedor = v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Nombre + " " + v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Apellido
+                    Vendedor = v.VentaDetalles.Any() && v.VentaDetalles.FirstOrDefault().IdUsuario != null
+                        ? v.VentaDetalles.FirstOrDefault().IdUsuario.ToString()
+                        : "Sin vendedor"
                 })
                 .OrderByDescending(v => v.FechaCompra)
                 .ToList();
@@ -87,7 +89,9 @@ namespace proyecto_Famular_Lezcano
                     v.FechaCompra,
                     v.TotalVenta,
                     Cliente = v.IdClienteNavigation.NombreCliente + " " + v.IdClienteNavigation.ApellidoCliente,
-                    Vendedor = v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Nombre + " " + v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.Apellido
+                    Vendedor = v.VentaDetalles.Any() && v.VentaDetalles.FirstOrDefault().IdUsuario != null
+                        ? v.VentaDetalles.FirstOrDefault().IdUsuario.ToString()
+                        : "Sin vendedor"
                 })
                 .OrderByDescending(v => v.FechaCompra)
                 .ToList();
@@ -106,17 +110,25 @@ namespace proyecto_Famular_Lezcano
                 return;
             }
 
+            // No se puede buscar por nombre/apellido de vendedor si no existe la navegación.
+            // Solo se puede buscar por IdUsuario.
+            if (!int.TryParse(textoVendedor, out int idUsuarioBuscado))
+            {
+                MessageBox.Show("Ingrese el ID numérico del vendedor para buscar.");
+                return;
+            }
+
             var resultados = _context.VentaCabeceras
-                .Where(v => v.VentaDetalles.Any(d =>
-                    d.IdUsuarioNavigation.Nombre.ToLower().Contains(textoVendedor) ||
-                    d.IdUsuarioNavigation.Apellido.ToLower().Contains(textoVendedor)))
+                .Where(v => v.VentaDetalles.Any(d => d.IdUsuario == idUsuarioBuscado))
                 .Select(v => new
                 {
                     v.IdVenta,
                     v.FechaCompra,
                     v.TotalVenta,
                     Cliente = v.IdClienteNavigation.NombreCliente + " " + v.IdClienteNavigation.ApellidoCliente,
-                    Vendedor = v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.NombreUsuario
+                    Vendedor = v.VentaDetalles.Any() && v.VentaDetalles.FirstOrDefault().IdUsuario != null
+                        ? v.VentaDetalles.FirstOrDefault().IdUsuario.ToString()
+                        : "Sin vendedor"
                 })
                 .OrderByDescending(v => v.FechaCompra)
                 .ToList();
@@ -138,7 +150,9 @@ namespace proyecto_Famular_Lezcano
                     v.FechaCompra,
                     v.TotalVenta,
                     Cliente = v.IdClienteNavigation.NombreCliente + " " + v.IdClienteNavigation.ApellidoCliente,
-                    Vendedor = v.VentaDetalles.FirstOrDefault().IdUsuarioNavigation.NombreUsuario
+                    Vendedor = v.VentaDetalles.Any() && v.VentaDetalles.FirstOrDefault().IdUsuario != null
+                        ? v.VentaDetalles.FirstOrDefault().IdUsuario.ToString()
+                        : "Sin vendedor"
                 })
                 .OrderByDescending(v => v.FechaCompra)
                 .ToList();

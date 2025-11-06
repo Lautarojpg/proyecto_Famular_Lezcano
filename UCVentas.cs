@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-
 namespace proyecto_Famular_Lezcano
 {
     public partial class UCVentas : UserControl
@@ -21,7 +20,7 @@ namespace proyecto_Famular_Lezcano
         private List<DetalleTemp> _detallesTemp = new List<DetalleTemp>();
         private Cliente ClienteSeleccionado;
         private Pelicula PeliculaSeleccionada;
-        private VentaCabecera UltimaFactura; // guardamos la última generada
+        private VentaCabecera UltimaFactura;
 
         public UCVentas()
         {
@@ -31,11 +30,9 @@ namespace proyecto_Famular_Lezcano
         }
 
         // ------------------------ CLIENTES ------------------------
-
         private void BtnBuscarCliente_Click(object sender, EventArgs e)
         {
             string texto = txtBuscarCliente.Text.Trim();
-
             if (string.IsNullOrWhiteSpace(texto))
             {
                 MessageBox.Show("Ingrese nombre o apellido del cliente para buscar.");
@@ -44,10 +41,9 @@ namespace proyecto_Famular_Lezcano
 
             var cliente = _context.Clientes
                 .AsEnumerable()
-                .FirstOrDefault(c =>
-                    c.NombreCliente.Contains(texto, StringComparison.OrdinalIgnoreCase) ||
-                    c.ApellidoCliente.Contains(texto, StringComparison.OrdinalIgnoreCase) ||
-                    c.Email.Contains(texto, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefault(c => c.NombreCliente.Contains(texto, StringComparison.OrdinalIgnoreCase)
+                    || c.ApellidoCliente.Contains(texto, StringComparison.OrdinalIgnoreCase)
+                    || c.Email.Contains(texto, StringComparison.OrdinalIgnoreCase));
 
             if (cliente == null)
             {
@@ -60,7 +56,6 @@ namespace proyecto_Famular_Lezcano
         }
 
         // ------------------------ PELÍCULAS ------------------------
-
         private void BtnBuscarPelicula_Click(object sender, EventArgs e)
         {
             using (var formSeleccion = new FormSeleccionarPelicula())
@@ -68,7 +63,6 @@ namespace proyecto_Famular_Lezcano
                 if (formSeleccion.ShowDialog() == DialogResult.OK)
                 {
                     var pelicula = formSeleccion.PeliculaSeleccionada;
-
                     if (pelicula != null)
                     {
                         lblPeliculaSeleccionada.Text = pelicula.NombrePelicula;
@@ -78,9 +72,7 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
-
         // ------------------------ DETALLE ------------------------
-
         private void ConfigurarGrillaDetalle()
         {
             dgvDetalle.AutoGenerateColumns = false;
@@ -105,7 +97,7 @@ namespace proyecto_Famular_Lezcano
                 return;
             }
 
-            // 🔹 Validar stock
+            // Validar stock
             var peliculaActualizada = _context.Peliculas.Find(PeliculaSeleccionada.IdPelicula);
             if (peliculaActualizada.Stock < cantidad)
             {
@@ -134,12 +126,10 @@ namespace proyecto_Famular_Lezcano
             {
                 dgvDetalle.Rows.Add(d.NombrePelicula, d.Precio, d.Cantidad, d.Subtotal);
             }
-
             lblTotal.Text = $"Total: ${_detallesTemp.Sum(x => x.Subtotal):0.00}";
         }
 
         // ------------------------ GUARDAR FACTURA ------------------------
-
         private void BtnGuardarFactura_Click(object sender, EventArgs e)
         {
             if (ClienteSeleccionado == null)
@@ -162,7 +152,7 @@ namespace proyecto_Famular_Lezcano
 
             try
             {
-                // 🔹 Verificar stock disponible antes de continuar
+                // Verificar stock
                 foreach (var d in _detallesTemp)
                 {
                     var pelicula = _context.Peliculas.Find(d.IdPelicula);
@@ -173,7 +163,7 @@ namespace proyecto_Famular_Lezcano
                     }
                 }
 
-                // 🔹 Crear cabecera
+                // Cabecera
                 var nuevaCabecera = new VentaCabecera
                 {
                     FechaCompra = DateTime.Now,
@@ -184,11 +174,10 @@ namespace proyecto_Famular_Lezcano
                 _context.VentaCabeceras.Add(nuevaCabecera);
                 _context.SaveChanges();
 
-                // 🔹 Crear detalles y actualizar stock
+                // Detalles
                 foreach (var d in _detallesTemp)
                 {
                     var pelicula = _context.Peliculas.Find(d.IdPelicula);
-
                     pelicula.Stock -= d.Cantidad;
                     _context.Peliculas.Update(pelicula);
 
@@ -203,7 +192,6 @@ namespace proyecto_Famular_Lezcano
                 }
 
                 _context.SaveChanges();
-
                 UltimaFactura = nuevaCabecera;
 
                 MessageBox.Show("Factura registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -213,7 +201,6 @@ namespace proyecto_Famular_Lezcano
                 {
                     MessageBox.Show($"Factura PDF generada correctamente en:\n{pdfPath}", "PDF Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
 
                 _detallesTemp.Clear();
                 RefrescarGrilla();
@@ -226,12 +213,6 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
-        private void BtnMisFacturas_Click(object sender, EventArgs e)
-        {
-            FormMisFacturas frm = new FormMisFacturas();
-            frm.ShowDialog();
-        }
-
         // ------------------------ EXPORTAR PDF ------------------------
         private string GenerarFacturaPDF(VentaCabecera factura, Cliente cliente)
         {
@@ -239,12 +220,12 @@ namespace proyecto_Famular_Lezcano
             {
                 var detalles = _context.VentaDetalles
                     .Include(v => v.IdPeliculaNavigation)
+                    .ThenInclude(p => p.IdTicketNavigation)
                     .Where(v => v.IdVenta == factura.IdVenta)
                     .ToList();
 
                 string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "FacturasPDF");
-                if (!Directory.Exists(folderPath))
-                    Directory.CreateDirectory(folderPath);
+                if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
 
                 string filePath = Path.Combine(folderPath, $"Factura_{factura.IdVenta}.pdf");
 
@@ -254,24 +235,22 @@ namespace proyecto_Famular_Lezcano
                     PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
 
-                    // Título
-                    var titulo = new Paragraph("FACTURA DE VENTA\n\n", iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 20, iTextSharp.text.Font.BOLD));
+                    var titulo = new Paragraph("FACTURA DE VENTA\n\n", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20));
                     titulo.Alignment = Element.ALIGN_CENTER;
                     pdfDoc.Add(titulo);
 
-                    // Datos generales
                     pdfDoc.Add(new Paragraph($"Factura N°: {factura.IdVenta}"));
                     pdfDoc.Add(new Paragraph($"Fecha: {factura.FechaCompra:dd/MM/yyyy}"));
                     pdfDoc.Add(new Paragraph($"Cliente: {cliente.NombreCliente} {cliente.ApellidoCliente}"));
                     pdfDoc.Add(new Paragraph($"Total: ${factura.TotalVenta:0.00}\n\n"));
 
-                    // Tabla de detalle
-                    PdfPTable table = new PdfPTable(4);
+                    PdfPTable table = new PdfPTable(5);
                     table.WidthPercentage = 100;
                     table.AddCell("Película");
                     table.AddCell("Precio");
                     table.AddCell("Cantidad");
                     table.AddCell("Subtotal");
+                    table.AddCell("Código de Visualización");
 
                     foreach (var d in detalles)
                     {
@@ -279,12 +258,12 @@ namespace proyecto_Famular_Lezcano
                         table.AddCell($"${d.IdPeliculaNavigation.Precio:0.00}");
                         table.AddCell(d.Cantidad.ToString());
                         table.AddCell($"${d.IdPeliculaNavigation.Precio * d.Cantidad:0.00}");
+                        table.AddCell(d.IdPeliculaNavigation.IdTicketNavigation?.CodVisualizacion ?? "-");
                     }
 
                     pdfDoc.Add(table);
                     pdfDoc.Close();
                 }
-
                 return filePath;
             }
             catch (Exception ex)
@@ -294,8 +273,7 @@ namespace proyecto_Famular_Lezcano
             }
         }
 
-
-        // ------------------------ ENVIAR CSV POR CORREO ------------------------
+        // ------------------------ ENVIAR CORREO ------------------------
         private void BtnEnviarCorreo_Click(object sender, EventArgs e)
         {
             if (UltimaFactura == null)
@@ -303,95 +281,70 @@ namespace proyecto_Famular_Lezcano
                 MessageBox.Show("No hay ninguna factura reciente para enviar.");
                 return;
             }
-
             if (string.IsNullOrEmpty(ClienteSeleccionado?.Email))
             {
                 MessageBox.Show("El cliente no tiene un correo electrónico registrado.");
                 return;
             }
 
-            // 🔹 Generar PDF temporal de la factura
-            string pdfPath = Path.Combine(Path.GetTempPath(), $"Factura_{UltimaFactura.IdVenta}.pdf");
+            string pdfPath = GenerarFacturaPDF(UltimaFactura, ClienteSeleccionado);
+            if (pdfPath == null) return;
 
             try
             {
                 var detalles = _context.VentaDetalles
                     .Include(v => v.IdPeliculaNavigation)
+                    .ThenInclude(p => p.IdTicketNavigation)
                     .Where(v => v.IdVenta == UltimaFactura.IdVenta)
                     .ToList();
 
-                // Crear documento PDF
-                using (var fs = new FileStream(pdfPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                StringBuilder cuerpo = new StringBuilder();
+                cuerpo.AppendLine($"Estimado/a {ClienteSeleccionado.NombreCliente},");
+                cuerpo.AppendLine();
+                cuerpo.AppendLine("Gracias por su compra. Adjuntamos su factura en formato PDF.");
+                cuerpo.AppendLine();
+                cuerpo.AppendLine("A continuación, encontrará los códigos de visualización de sus películas:");
+                cuerpo.AppendLine();
+
+                foreach (var d in detalles)
                 {
-                    Document doc = new Document(PageSize.A4, 40, 40, 40, 40);
-                    PdfWriter.GetInstance(doc, fs);
-                    doc.Open();
-
-                    // Encabezado
-                    var fontTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16);
-                    var fontNormal = FontFactory.GetFont(FontFactory.HELVETICA, 12);
-
-                    doc.Add(new Paragraph($"Factura N° {UltimaFactura.IdVenta}", fontTitulo));
-                    doc.Add(new Paragraph($"Fecha: {UltimaFactura.FechaCompra:dd/MM/yyyy}", fontNormal));
-                    doc.Add(new Paragraph($"Cliente: {ClienteSeleccionado.NombreCliente} {ClienteSeleccionado.ApellidoCliente}", fontNormal));
-                    doc.Add(new Paragraph($"Email: {ClienteSeleccionado.Email}", fontNormal));
-                    doc.Add(new Paragraph(" "));
-                    doc.Add(new Paragraph("Detalle de la compra:", fontNormal));
-                    doc.Add(new Paragraph(" "));
-
-                    // Tabla de detalle
-                    PdfPTable tabla = new PdfPTable(4);
-                    tabla.WidthPercentage = 100;
-                    tabla.SetWidths(new float[] { 40, 20, 20, 20 });
-
-                    tabla.AddCell("Película");
-                    tabla.AddCell("Precio");
-                    tabla.AddCell("Cantidad");
-                    tabla.AddCell("Subtotal");
-
-                    foreach (var d in detalles)
+                    var ticket = d.IdPeliculaNavigation.IdTicketNavigation;
+                    if (ticket != null)
                     {
-                        tabla.AddCell(d.IdPeliculaNavigation.NombrePelicula);
-                        tabla.AddCell($"${d.IdPeliculaNavigation.Precio:0.00}");
-                        tabla.AddCell(d.Cantidad.ToString());
-                        tabla.AddCell($"${d.IdPeliculaNavigation.Precio * d.Cantidad:0.00}");
+                        cuerpo.AppendLine($"🎬 {d.IdPeliculaNavigation.NombrePelicula}");
+                        cuerpo.AppendLine($"Código: {ticket.CodVisualizacion}");
+                        cuerpo.AppendLine($"Link: {ticket.Link}");
+                        cuerpo.AppendLine();
                     }
-
-                    doc.Add(tabla);
-                    doc.Add(new Paragraph(" "));
-                    doc.Add(new Paragraph($"Total: ${UltimaFactura.TotalVenta:0.00}", fontTitulo));
-                    doc.Close();
                 }
 
-                // 🔹 Enviar correo con el PDF adjunto
+                cuerpo.AppendLine("¡Disfrute su película!");
+                cuerpo.AppendLine("Atentamente, el equipo de Rebobinar.");
+
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("lautarofranciscolezcano@gmail.com");
+                mail.From = new MailAddress("rebobinar92@gmail.com");
                 mail.To.Add(ClienteSeleccionado.Email);
-                mail.Subject = $"Factura #{UltimaFactura.IdVenta}";
-                mail.Body = $"Estimado/a {ClienteSeleccionado.NombreCliente},\n\nAdjuntamos su factura #{UltimaFactura.IdVenta} en formato PDF.\n\nGracias por su compra.\n\nSaludos cordiales.";
+                mail.Subject = $"Factura #{UltimaFactura.IdVenta} - Códigos de Visualización";
+                mail.Body = cuerpo.ToString();
                 mail.Attachments.Add(new Attachment(pdfPath));
 
-                // Configuración SMTP
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("lautarofranciscolezcano@gmail.com", "Lau46381127");
+                smtp.Credentials = new NetworkCredential("rebobinar92@gmail.com", "xvps zlyx qmdn bnaz");
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
 
-                MessageBox.Show("Factura en PDF enviada correctamente al correo del cliente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Correo enviado correctamente con los códigos de visualización.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al generar o enviar la factura PDF: {ex.Message}");
-            }
-            finally
-            {
-                // Eliminar PDF temporal
-                if (File.Exists(pdfPath))
-                {
-                    try { File.Delete(pdfPath); } catch { }
-                }
+                MessageBox.Show($"Error al enviar el correo: {ex.Message}");
             }
         }
 
+        private void BtnMisFacturas_Click(object sender, EventArgs e)
+        {
+            FormMisFacturas frm = new FormMisFacturas();
+            frm.ShowDialog();
+        }
     }
 }

@@ -17,5 +17,7 @@ public partial class Cliente
 
     public string? Direccion { get; set; }
 
+    public string ContrasenaCliente { get; set; } = null!;
+
     public virtual ICollection<VentaCabecera> VentaCabeceras { get; set; } = new List<VentaCabecera>();
 }

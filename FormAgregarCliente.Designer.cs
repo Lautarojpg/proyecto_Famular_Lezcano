@@ -41,6 +41,8 @@
             TTelefono = new TextBox();
             LNombreUsuario = new Label();
             LEmail = new Label();
+            label3 = new Label();
+            TContraseña = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             BGuardar.BackColor = Color.Maroon;
             BGuardar.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BGuardar.ForeColor = Color.Bisque;
-            BGuardar.Location = new Point(153, 253);
+            BGuardar.Location = new Point(153, 288);
             BGuardar.Name = "BGuardar";
             BGuardar.Size = new Size(103, 36);
             BGuardar.TabIndex = 17;
@@ -72,6 +74,8 @@
             // panel1
             // 
             panel1.BackColor = Color.NavajoWhite;
+            panel1.Controls.Add(TContraseña);
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(TDireccion);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(TEmail);
@@ -84,7 +88,7 @@
             panel1.Controls.Add(LEmail);
             panel1.Location = new Point(12, 35);
             panel1.Name = "panel1";
-            panel1.Size = new Size(388, 212);
+            panel1.Size = new Size(388, 247);
             panel1.TabIndex = 18;
             // 
             // TDireccion
@@ -167,12 +171,28 @@
             LEmail.TabIndex = 7;
             LEmail.Text = "Email:";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(10, 213);
+            label3.Name = "label3";
+            label3.Size = new Size(67, 15);
+            label3.TabIndex = 17;
+            label3.Text = "Contraseña";
+            // 
+            // TContraseña
+            // 
+            TContraseña.Location = new Point(126, 205);
+            TContraseña.Name = "TContraseña";
+            TContraseña.Size = new Size(250, 23);
+            TContraseña.TabIndex = 18;
+            // 
             // FormAgregarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(411, 296);
+            ClientSize = new Size(411, 336);
             Controls.Add(BGuardar);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -199,5 +219,7 @@
         private Label LNombreUsuario;
         private Label LEmail;
         private TextBox TDireccion;
+        private TextBox TContraseña;
+        public Label label3;
     }
 }

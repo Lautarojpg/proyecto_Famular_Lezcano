@@ -10,5 +10,6 @@ namespace proyecto_Famular_Lezcano.Helpers
     internal class SesionActual
     {
         public static Usuario Usuario { get; set; }
+        public static Cliente Cliente { get; set; }
     }
 }

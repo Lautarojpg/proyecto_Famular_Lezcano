@@ -15,13 +15,14 @@ namespace proyecto_Famular_Lezcano
         {
             PanelContent = new Panel();
             PanelMenu = new Panel();
+            BtnVer = new Button();
             BtnBackUp = new Button();
-            BtnSalir = new Button();
             BVendedores = new Button();
             BProductos = new Button();
             BInformes = new Button();
             BVentas = new Button();
             BClientes = new Button();
+            BtnSalir = new Button();
             PanelMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -31,12 +32,13 @@ namespace proyecto_Famular_Lezcano
             PanelContent.Dock = DockStyle.Fill;
             PanelContent.Location = new Point(200, 0);
             PanelContent.Name = "PanelContent";
-            PanelContent.Size = new Size(1282, 753);
+            PanelContent.Size = new Size(1164, 749);
             PanelContent.TabIndex = 1;
             // 
             // PanelMenu
             // 
             PanelMenu.BackColor = Color.FromArgb(255, 192, 128);
+            PanelMenu.Controls.Add(BtnVer);
             PanelMenu.Controls.Add(BtnBackUp);
             PanelMenu.Controls.Add(BVendedores);
             PanelMenu.Controls.Add(BProductos);
@@ -47,8 +49,24 @@ namespace proyecto_Famular_Lezcano
             PanelMenu.Dock = DockStyle.Left;
             PanelMenu.Location = new Point(0, 0);
             PanelMenu.Name = "PanelMenu";
-            PanelMenu.Size = new Size(200, 753);
+            PanelMenu.Size = new Size(200, 749);
             PanelMenu.TabIndex = 0;
+            // 
+            // BtnVer
+            // 
+            BtnVer.BackColor = Color.FromArgb(128, 64, 0);
+            BtnVer.Dock = DockStyle.Top;
+            BtnVer.FlatAppearance.BorderSize = 0;
+            BtnVer.FlatStyle = FlatStyle.Flat;
+            BtnVer.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
+            BtnVer.ForeColor = Color.White;
+            BtnVer.Location = new Point(0, 540);
+            BtnVer.Name = "BtnVer";
+            BtnVer.Size = new Size(200, 90);
+            BtnVer.TabIndex = 7;
+            BtnVer.Text = "Ver";
+            BtnVer.UseVisualStyleBackColor = false;
+            BtnVer.Click += BtnVer_Click;
             // 
             // BtnBackUp
             // 
@@ -65,22 +83,6 @@ namespace proyecto_Famular_Lezcano
             BtnBackUp.Text = "💾 BackUp";
             BtnBackUp.UseVisualStyleBackColor = false;
             BtnBackUp.Click += BtnBackUp_Click;
-            // 
-            // BtnSalir 
-            // 
-            BtnSalir.BackColor = Color.FromArgb(128, 64, 0);
-            BtnSalir.Dock = DockStyle.Bottom;
-            BtnSalir.FlatAppearance.BorderSize = 0;
-            BtnSalir.FlatStyle = FlatStyle.Flat;
-            BtnSalir.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
-            BtnSalir.ForeColor = Color.White;
-            BtnSalir.Location = new Point(0, 689);
-            BtnSalir.Name = "BtnSalir";
-            BtnSalir.Size = new Size(200, 64);
-            BtnSalir.TabIndex = 1;
-            BtnSalir.Text = "❌ Salir";
-            BtnSalir.UseVisualStyleBackColor = false;
-            BtnSalir.Click += BtnSalir_Click;
             // 
             // BVendedores
             // 
@@ -162,18 +164,34 @@ namespace proyecto_Famular_Lezcano
             BClientes.UseVisualStyleBackColor = false;
             BClientes.Click += BClientes_Click;
             // 
+            // BtnSalir
+            // 
+            BtnSalir.BackColor = Color.FromArgb(128, 64, 0);
+            BtnSalir.Dock = DockStyle.Bottom;
+            BtnSalir.FlatAppearance.BorderSize = 0;
+            BtnSalir.FlatStyle = FlatStyle.Flat;
+            BtnSalir.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
+            BtnSalir.ForeColor = Color.White;
+            BtnSalir.Location = new Point(0, 685);
+            BtnSalir.Name = "BtnSalir";
+            BtnSalir.Size = new Size(200, 64);
+            BtnSalir.TabIndex = 1;
+            BtnSalir.Text = "❌ Salir";
+            BtnSalir.UseVisualStyleBackColor = false;
+            BtnSalir.Click += BtnSalir_Click;
+            // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(1482, 753);
+            ClientSize = new Size(1364, 749);
             Controls.Add(PanelContent);
             Controls.Add(PanelMenu);
             Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
-            MinimumSize = new Size(1500, 800);
+            MinimumSize = new Size(1358, 726);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "🎥 Cine Vintage - Menú Principal";
@@ -191,5 +209,6 @@ namespace proyecto_Famular_Lezcano
         private Button BClientes;
         private Button BtnSalir;
         private Button BtnBackUp;
+        private Button BtnVer;
     }
 }

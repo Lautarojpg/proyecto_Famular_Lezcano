@@ -19,7 +19,11 @@ public partial class Pelicula
 
     public int IdCategoria { get; set; }
 
+    public int IdTicket { get; set; }
+
     public virtual Categorium IdCategoriaNavigation { get; set; } = null!;
+
+    public virtual Ticket IdTicketNavigation { get; set; } = null!;
 
     public virtual ICollection<VentaDetalle> VentaDetalles { get; set; } = new List<VentaDetalle>();
 }

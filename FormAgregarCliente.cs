@@ -15,6 +15,9 @@ namespace proyecto_Famular_Lezcano
         {
             InitializeComponent();
             _context = new ProyectoFamularLezcanoContext();
+
+            // Ocultar caracteres de la contraseña
+            TContraseña.PasswordChar = '*';
         }
 
         public FormAgregarCliente(Cliente cliente) : this()
@@ -27,6 +30,9 @@ namespace proyecto_Famular_Lezcano
             TEmail.Text = cliente.Email;
             TTelefono.Text = cliente.Telefono;
             TDireccion.Text = cliente.Direccion;
+
+            // No mostrar el hash en el campo
+            TContraseña.Text = string.Empty;
         }
 
         private void BGuardar_Click(object sender, EventArgs e)
@@ -36,6 +42,8 @@ namespace proyecto_Famular_Lezcano
 
             try
             {
+                string contrasenaPlano = TContraseña.Text.Trim();
+
                 if (_esEdicion)
                 {
                     var cliente = _context.Clientes.FirstOrDefault(c => c.IdCliente == _idCliente);
@@ -47,6 +55,12 @@ namespace proyecto_Famular_Lezcano
                         cliente.Telefono = TTelefono.Text.Trim();
                         cliente.Direccion = TDireccion.Text.Trim();
 
+                        // Solo hashear si se ingresó una nueva contraseña
+                        if (!string.IsNullOrWhiteSpace(contrasenaPlano))
+                        {
+                            cliente.ContrasenaCliente = BCrypt.Net.BCrypt.HashPassword(contrasenaPlano);
+                        }
+
                         _context.SaveChanges();
                         MessageBox.Show("Cliente actualizado correctamente.", "Éxito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -54,13 +68,17 @@ namespace proyecto_Famular_Lezcano
                 }
                 else
                 {
+                    // Hash de la nueva contraseña antes de guardar
+                    string contrasenaHasheada = BCrypt.Net.BCrypt.HashPassword(contrasenaPlano);
+
                     var nuevo = new Cliente
                     {
                         NombreCliente = TNombre.Text.Trim(),
                         ApellidoCliente = TApellido.Text.Trim(),
                         Email = TEmail.Text.Trim(),
                         Telefono = TTelefono.Text.Trim(),
-                        Direccion = TDireccion.Text.Trim()
+                        Direccion = TDireccion.Text.Trim(),
+                        ContrasenaCliente = contrasenaHasheada
                     };
 
                     _context.Clientes.Add(nuevo);
@@ -96,6 +114,12 @@ namespace proyecto_Famular_Lezcano
             if (!string.IsNullOrWhiteSpace(TEmail.Text) && !TEmail.Text.Contains("@"))
             {
                 MessageBox.Show("Ingrese un email válido.");
+                return false;
+            }
+
+            if (!_esEdicion && string.IsNullOrWhiteSpace(TContraseña.Text))
+            {
+                MessageBox.Show("Debe ingresar una contraseña.");
                 return false;
             }
 

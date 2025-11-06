@@ -56,10 +56,10 @@
             pnlNuevaFactura.Controls.Add(BtnEnviarCorreo);
             pnlNuevaFactura.Controls.Add(BtnGuardarFactura);
             pnlNuevaFactura.Controls.Add(BtnMisFacturas);
-            pnlNuevaFactura.Location = new Point(2, 11);
+            pnlNuevaFactura.Location = new Point(2, 8);
             pnlNuevaFactura.Margin = new Padding(2);
             pnlNuevaFactura.Name = "pnlNuevaFactura";
-            pnlNuevaFactura.Size = new Size(776, 578);
+            pnlNuevaFactura.Size = new Size(679, 440);
             pnlNuevaFactura.TabIndex = 0;
             // 
             // lblTitulo1
@@ -67,10 +67,10 @@
             lblTitulo1.AutoSize = true;
             lblTitulo1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo1.ForeColor = Color.FromArgb(128, 64, 0);
-            lblTitulo1.Location = new Point(9, 10);
+            lblTitulo1.Location = new Point(8, 8);
             lblTitulo1.Margin = new Padding(2, 0, 2, 0);
             lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(239, 37);
+            lblTitulo1.Size = new Size(195, 30);
             lblTitulo1.TabIndex = 0;
             lblTitulo1.Text = "GESTIÓN VENTAS";
             // 
@@ -79,19 +79,19 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label1.Location = new Point(9, 63);
+            label1.Location = new Point(8, 47);
             label1.Name = "label1";
-            label1.Size = new Size(323, 23);
+            label1.Size = new Size(272, 19);
             label1.TabIndex = 1;
             label1.Text = "Buscar cliente por email o por nombre:";
             // 
             // txtBuscarCliente
             // 
             txtBuscarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtBuscarCliente.Location = new Point(9, 91);
+            txtBuscarCliente.Location = new Point(8, 68);
             txtBuscarCliente.Margin = new Padding(2);
             txtBuscarCliente.Name = "txtBuscarCliente";
-            txtBuscarCliente.Size = new Size(621, 27);
+            txtBuscarCliente.Size = new Size(544, 23);
             txtBuscarCliente.TabIndex = 2;
             // 
             // BtnBuscarCliente
@@ -100,10 +100,10 @@
             BtnBuscarCliente.BackColor = Color.FromArgb(128, 64, 0);
             BtnBuscarCliente.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
             BtnBuscarCliente.ForeColor = Color.White;
-            BtnBuscarCliente.Location = new Point(642, 88);
+            BtnBuscarCliente.Location = new Point(562, 54);
             BtnBuscarCliente.Margin = new Padding(2);
             BtnBuscarCliente.Name = "BtnBuscarCliente";
-            BtnBuscarCliente.Size = new Size(122, 33);
+            BtnBuscarCliente.Size = new Size(107, 47);
             BtnBuscarCliente.TabIndex = 3;
             BtnBuscarCliente.Text = "🔍 Cliente";
             BtnBuscarCliente.UseVisualStyleBackColor = false;
@@ -113,28 +113,28 @@
             // 
             lblClienteSeleccionado.AutoSize = true;
             lblClienteSeleccionado.Font = new Font("Segoe UI", 10F);
-            lblClienteSeleccionado.Location = new Point(9, 126);
+            lblClienteSeleccionado.Location = new Point(8, 94);
             lblClienteSeleccionado.Name = "lblClienteSeleccionado";
-            lblClienteSeleccionado.Size = new Size(170, 23);
+            lblClienteSeleccionado.Size = new Size(135, 19);
             lblClienteSeleccionado.TabIndex = 4;
             lblClienteSeleccionado.Text = "Cliente seleccionado:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 163);
+            label2.Location = new Point(8, 122);
             label2.Name = "label2";
-            label2.Size = new Size(72, 20);
+            label2.Size = new Size(58, 15);
             label2.TabIndex = 5;
             label2.Text = "Cantidad:";
             // 
             // numCantidad
             // 
-            numCantidad.Location = new Point(90, 161);
+            numCantidad.Location = new Point(86, 121);
             numCantidad.Margin = new Padding(2);
             numCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numCantidad.Name = "numCantidad";
-            numCantidad.Size = new Size(120, 27);
+            numCantidad.Size = new Size(105, 23);
             numCantidad.TabIndex = 6;
             numCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -143,10 +143,10 @@
             BtnBuscarPelicula.BackColor = Color.FromArgb(128, 64, 0);
             BtnBuscarPelicula.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
             BtnBuscarPelicula.ForeColor = Color.White;
-            BtnBuscarPelicula.Location = new Point(230, 157);
+            BtnBuscarPelicula.Location = new Point(330, 118);
             BtnBuscarPelicula.Margin = new Padding(2);
             BtnBuscarPelicula.Name = "BtnBuscarPelicula";
-            BtnBuscarPelicula.Size = new Size(150, 33);
+            BtnBuscarPelicula.Size = new Size(137, 47);
             BtnBuscarPelicula.TabIndex = 7;
             BtnBuscarPelicula.Text = "🎬 Buscar Película";
             BtnBuscarPelicula.UseVisualStyleBackColor = false;
@@ -156,9 +156,9 @@
             // 
             lblPeliculaSeleccionada.AutoSize = true;
             lblPeliculaSeleccionada.Font = new Font("Segoe UI", 10F);
-            lblPeliculaSeleccionada.Location = new Point(9, 195);
+            lblPeliculaSeleccionada.Location = new Point(8, 146);
             lblPeliculaSeleccionada.Name = "lblPeliculaSeleccionada";
-            lblPeliculaSeleccionada.Size = new Size(173, 23);
+            lblPeliculaSeleccionada.Size = new Size(136, 19);
             lblPeliculaSeleccionada.TabIndex = 8;
             lblPeliculaSeleccionada.Text = "Película seleccionada:";
             // 
@@ -168,10 +168,10 @@
             BtnAgregar.BackColor = Color.FromArgb(128, 64, 0);
             BtnAgregar.Font = new Font("Segoe UI Emoji", 11F, FontStyle.Bold);
             BtnAgregar.ForeColor = Color.White;
-            BtnAgregar.Location = new Point(642, 160);
+            BtnAgregar.Location = new Point(562, 132);
             BtnAgregar.Margin = new Padding(2);
             BtnAgregar.Name = "BtnAgregar";
-            BtnAgregar.Size = new Size(122, 33);
+            BtnAgregar.Size = new Size(107, 44);
             BtnAgregar.TabIndex = 9;
             BtnAgregar.Text = "\U0001f9fe Facturar";
             BtnAgregar.UseVisualStyleBackColor = false;
@@ -192,12 +192,12 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvDetalle.DefaultCellStyle = dataGridViewCellStyle1;
-            dgvDetalle.Location = new Point(9, 233);
+            dgvDetalle.Location = new Point(8, 175);
             dgvDetalle.Margin = new Padding(2);
             dgvDetalle.Name = "dgvDetalle";
             dgvDetalle.RowHeadersWidth = 51;
             dgvDetalle.RowTemplate.Height = 32;
-            dgvDetalle.Size = new Size(755, 280);
+            dgvDetalle.Size = new Size(661, 216);
             dgvDetalle.TabIndex = 10;
             // 
             // lblTotal
@@ -205,9 +205,9 @@
             lblTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTotal.Location = new Point(9, 518);
+            lblTotal.Location = new Point(8, 394);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(64, 28);
+            lblTotal.Size = new Size(52, 21);
             lblTotal.TabIndex = 11;
             lblTotal.Text = "Total:";
             // 
@@ -217,12 +217,12 @@
             BtnEnviarCorreo.BackColor = Color.FromArgb(128, 64, 0);
             BtnEnviarCorreo.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
             BtnEnviarCorreo.ForeColor = Color.White;
-            BtnEnviarCorreo.Location = new Point(200, 512);
+            BtnEnviarCorreo.Location = new Point(310, 392);
             BtnEnviarCorreo.Margin = new Padding(2);
             BtnEnviarCorreo.Name = "BtnEnviarCorreo";
-            BtnEnviarCorreo.Size = new Size(150, 33);
+            BtnEnviarCorreo.Size = new Size(157, 48);
             BtnEnviarCorreo.TabIndex = 12;
-            BtnEnviarCorreo.Text = "📧 Mandar CSV";
+            BtnEnviarCorreo.Text = "📧 Mandar Correo";
             BtnEnviarCorreo.UseVisualStyleBackColor = false;
             BtnEnviarCorreo.Click += BtnEnviarCorreo_Click;
             // 
@@ -232,10 +232,10 @@
             BtnGuardarFactura.BackColor = Color.FromArgb(128, 64, 0);
             BtnGuardarFactura.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
             BtnGuardarFactura.ForeColor = Color.White;
-            BtnGuardarFactura.Location = new Point(642, 512);
+            BtnGuardarFactura.Location = new Point(562, 390);
             BtnGuardarFactura.Margin = new Padding(2);
             BtnGuardarFactura.Name = "BtnGuardarFactura";
-            BtnGuardarFactura.Size = new Size(122, 33);
+            BtnGuardarFactura.Size = new Size(107, 48);
             BtnGuardarFactura.TabIndex = 13;
             BtnGuardarFactura.Text = "💾 Guardar";
             BtnGuardarFactura.UseVisualStyleBackColor = false;
@@ -247,24 +247,24 @@
             BtnMisFacturas.BackColor = Color.FromArgb(128, 64, 0);
             BtnMisFacturas.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
             BtnMisFacturas.ForeColor = Color.White;
-            BtnMisFacturas.Location = new Point(642, 10);
+            BtnMisFacturas.Location = new Point(353, 8);
             BtnMisFacturas.Margin = new Padding(2);
             BtnMisFacturas.Name = "BtnMisFacturas";
-            BtnMisFacturas.Size = new Size(122, 33);
+            BtnMisFacturas.Size = new Size(137, 48);
             BtnMisFacturas.TabIndex = 14;
-            BtnMisFacturas.Text = "📜 Facturas";
+            BtnMisFacturas.Text = "📜 Ver Facturas";
             BtnMisFacturas.UseVisualStyleBackColor = false;
             BtnMisFacturas.Click += BtnMisFacturas_Click;
             // 
             // UCVentas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             Controls.Add(pnlNuevaFactura);
             Margin = new Padding(2);
             Name = "UCVentas";
-            Size = new Size(781, 600);
+            Size = new Size(683, 450);
             pnlNuevaFactura.ResumeLayout(false);
             pnlNuevaFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();

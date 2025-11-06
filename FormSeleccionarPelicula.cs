@@ -21,10 +21,10 @@ namespace proyecto_Famular_Lezcano
 
         private void ConfigurarGrid()
         {
-            dgvPeliculas.AutoGenerateColumns = false;
-            dgvPeliculas.Columns.Clear();
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns.Clear();
 
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "IdPelicula",              // 🔹 este es el cambio importante
                 HeaderText = "ID",
@@ -32,19 +32,19 @@ namespace proyecto_Famular_Lezcano
                 Width = 60
             });
 
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Título",
                 DataPropertyName = "NombrePelicula",
                 Width = 200
             });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Género",
                 DataPropertyName = "Genero",
                 Width = 150
             });
-            dgvPeliculas.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Precio ($)",
                 DataPropertyName = "PrecioVenta",
@@ -59,9 +59,9 @@ namespace proyecto_Famular_Lezcano
                 UseColumnTextForButtonValue = true,
                 Width = 100
             };
-            dgvPeliculas.Columns.Add(btnSeleccionar);
+            dataGridView1.Columns.Add(btnSeleccionar);
 
-            dgvPeliculas.CellContentClick += DgvPeliculas_CellContentClick;
+            dataGridView1.CellContentClick += DgvPeliculas_CellContentClick;
         }
 
         private void CargarPeliculas(string filtro = "")
@@ -78,10 +78,10 @@ namespace proyecto_Famular_Lezcano
                 })
                 .ToList();
 
-            dgvPeliculas.DataSource = peliculas;
+            dataGridView1.DataSource = peliculas;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscarPelicula_Click(object sender, EventArgs e)
         {
             string texto = txtBuscar.Text.Trim();
             CargarPeliculas(texto);
@@ -89,9 +89,9 @@ namespace proyecto_Famular_Lezcano
 
         private void DgvPeliculas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvPeliculas.Columns.Count - 1 && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridView1.Columns.Count - 1 && e.RowIndex >= 0)
             {
-                int idPelicula = (int)dgvPeliculas.Rows[e.RowIndex].Cells["IdPelicula"].Value;
+                int idPelicula = (int)dataGridView1.Rows[e.RowIndex].Cells["IdPelicula"].Value;
                 var pelicula = _context.Peliculas.FirstOrDefault(p => p.IdPelicula == idPelicula);
                 if (pelicula is not null)
                 {

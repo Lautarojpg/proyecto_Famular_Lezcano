@@ -13,11 +13,11 @@ public partial class VentaDetalle
 
     public int IdVenta { get; set; }
 
-    public int IdUsuario { get; set; }
+    public int? IdUsuario { get; set; }
 
     public virtual Pelicula IdPeliculaNavigation { get; set; } = null!;
 
-    public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
+    public virtual Usuario? IdUsuarioNavigation { get; set; }
 
     public virtual VentaCabecera IdVentaNavigation { get; set; } = null!;
 }
