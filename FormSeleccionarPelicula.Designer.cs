@@ -18,11 +18,11 @@
             panelSuperior = new Panel();
             lblTitulo = new Label();
             panelContenedor = new Panel();
+            dataGridView1 = new DataGridView();
             BtnBuscarPelicula = new Button();
             lblBuscar = new Label();
             txtBuscar = new TextBox();
             btnBuscar = new Button();
-            dataGridView1 = new DataGridView();
             panelSuperior.SuspendLayout();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -34,9 +34,8 @@
             panelSuperior.Controls.Add(lblTitulo);
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
-            panelSuperior.Margin = new Padding(3, 2, 3, 2);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(831, 45);
+            panelSuperior.Size = new Size(950, 60);
             panelSuperior.TabIndex = 1;
             // 
             // lblTitulo
@@ -44,9 +43,9 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Yu Gothic UI", 16F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.Bisque;
-            lblTitulo.Location = new Point(18, 11);
+            lblTitulo.Location = new Point(21, 15);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(209, 30);
+            lblTitulo.Size = new Size(256, 37);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Seleccionar Película";
             // 
@@ -59,12 +58,21 @@
             panelContenedor.Controls.Add(txtBuscar);
             panelContenedor.Controls.Add(btnBuscar);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(0, 45);
-            panelContenedor.Margin = new Padding(3, 2, 3, 2);
+            panelContenedor.Location = new Point(0, 60);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Padding = new Padding(18, 15, 18, 15);
-            panelContenedor.Size = new Size(831, 405);
+            panelContenedor.Padding = new Padding(21, 20, 21, 20);
+            panelContenedor.Size = new Size(950, 540);
             panelContenedor.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(14, 75);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(913, 440);
+            dataGridView1.TabIndex = 5;
             // 
             // BtnBuscarPelicula
             // 
@@ -72,10 +80,10 @@
             BtnBuscarPelicula.BackColor = Color.FromArgb(128, 64, 0);
             BtnBuscarPelicula.Font = new Font("Segoe UI Emoji", 10F, FontStyle.Bold);
             BtnBuscarPelicula.ForeColor = Color.White;
-            BtnBuscarPelicula.Location = new Point(704, 4);
-            BtnBuscarPelicula.Margin = new Padding(2);
+            BtnBuscarPelicula.Location = new Point(805, 5);
+            BtnBuscarPelicula.Margin = new Padding(2, 3, 2, 3);
             BtnBuscarPelicula.Name = "BtnBuscarPelicula";
-            BtnBuscarPelicula.Size = new Size(107, 47);
+            BtnBuscarPelicula.Size = new Size(122, 63);
             BtnBuscarPelicula.TabIndex = 4;
             BtnBuscarPelicula.Text = "🔍 Buscar";
             BtnBuscarPelicula.UseVisualStyleBackColor = false;
@@ -85,9 +93,9 @@
             lblBuscar.AutoSize = true;
             lblBuscar.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold);
             lblBuscar.ForeColor = Color.Maroon;
-            lblBuscar.Location = new Point(18, 15);
+            lblBuscar.Location = new Point(21, 20);
             lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(121, 21);
+            lblBuscar.Size = new Size(151, 28);
             lblBuscar.TabIndex = 0;
             lblBuscar.Text = "Buscar Película:";
             // 
@@ -95,10 +103,9 @@
             // 
             txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscar.Font = new Font("Segoe UI", 11F);
-            txtBuscar.Location = new Point(187, 13);
-            txtBuscar.Margin = new Padding(3, 2, 3, 2);
+            txtBuscar.Location = new Point(214, 17);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(505, 27);
+            txtBuscar.Size = new Size(577, 32);
             txtBuscar.TabIndex = 1;
             // 
             // btnBuscar
@@ -108,31 +115,21 @@
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Yu Gothic UI", 11F, FontStyle.Bold);
             btnBuscar.ForeColor = Color.Bisque;
-            btnBuscar.Location = new Point(1312, 12);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Location = new Point(1499, 16);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(131, 24);
+            btnBuscar.Size = new Size(150, 32);
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 57);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(799, 330);
-            dataGridView1.TabIndex = 5;
-            // 
             // FormSeleccionarPelicula
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(831, 450);
+            ClientSize = new Size(950, 600);
             Controls.Add(panelContenedor);
             Controls.Add(panelSuperior);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormSeleccionarPelicula";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seleccionar Película";
