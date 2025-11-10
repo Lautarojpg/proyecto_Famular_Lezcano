@@ -36,15 +36,12 @@
             ChartVentasTorta = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ChartVentasBarras = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ChartProyeccionFutura = new System.Windows.Forms.DataVisualization.Charting.Chart();
-
-            ((System.ComponentModel.ISupportInitialize)ChartVentasTorta).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ChartVentasBarras).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ChartProyeccionFutura).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(ChartVentasTorta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(ChartVentasBarras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(ChartProyeccionFutura)).BeginInit();
             SuspendLayout();
 
-            // 
-            // Form general
-            // 
+            // Form
             BackColor = Color.FromArgb(255, 224, 192);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -55,9 +52,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
 
-            // 
             // lblTitulo
-            // 
             lblTitulo.Text = "📊 ESTADÍSTICAS DE VENTAS";
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.FromArgb(128, 64, 0);
@@ -66,39 +61,31 @@
             lblTitulo.Dock = DockStyle.Top;
             lblTitulo.Height = 70;
 
-            // 
             // lblDesde
-            // 
             lblDesde.AutoSize = true;
             lblDesde.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDesde.ForeColor = Color.SaddleBrown;
             lblDesde.Location = new Point(40, 90);
             lblDesde.Text = "Desde:";
 
-            // 
             // DtpDesde
             // 
             DtpDesde.Location = new Point(100, 88);
             DtpDesde.Size = new Size(200, 23);
 
-            // 
             // lblHasta
-            // 
             lblHasta.AutoSize = true;
             lblHasta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblHasta.ForeColor = Color.SaddleBrown;
             lblHasta.Location = new Point(330, 90);
             lblHasta.Text = "Hasta:";
 
-            // 
             // DtpHasta
             // 
             DtpHasta.Location = new Point(390, 88);
             DtpHasta.Size = new Size(200, 23);
 
-            // 
             // BtnActualizar
-            // 
             BtnActualizar.BackColor = Color.Maroon;
             BtnActualizar.FlatAppearance.BorderSize = 0;
             BtnActualizar.FlatStyle = FlatStyle.Flat;
@@ -109,9 +96,7 @@
             BtnActualizar.Location = new Point(640, 83);
             BtnActualizar.Click += BtnActualizar_Click;
 
-            // 
             // BtnCerrar
-            // 
             BtnCerrar.BackColor = Color.Maroon;
             BtnCerrar.FlatAppearance.BorderSize = 0;
             BtnCerrar.FlatStyle = FlatStyle.Flat;
@@ -122,9 +107,7 @@
             BtnCerrar.Location = new Point(770, 83);
             BtnCerrar.Click += BtnCerrar_Click;
 
-            // 
-            // TableLayoutPanel
-            // 
+            // tableLayoutPanel1
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -133,9 +116,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33F));
 
-            // 
             // ChartVentasTorta
-            // 
             chartArea1.Name = "ChartArea1";
             ChartVentasTorta.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -146,9 +127,7 @@
             ChartVentasTorta.Series.Add(series1);
             ChartVentasTorta.Dock = DockStyle.Fill;
 
-            // 
             // ChartVentasBarras
-            // 
             chartArea2.Name = "ChartArea1";
             ChartVentasBarras.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -159,9 +138,7 @@
             ChartVentasBarras.Series.Add(series2);
             ChartVentasBarras.Dock = DockStyle.Fill;
 
-            // 
             // ChartProyeccionFutura
-            // 
             chartArea3.Name = "ChartArea1";
             ChartProyeccionFutura.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
@@ -172,16 +149,12 @@
             ChartProyeccionFutura.Series.Add(series3);
             ChartProyeccionFutura.Dock = DockStyle.Fill;
 
-            // 
-            // Añadir los gráficos al layout
-            // 
+            // Añadir gráficos
             tableLayoutPanel1.Controls.Add(ChartVentasTorta, 0, 0);
             tableLayoutPanel1.Controls.Add(ChartVentasBarras, 1, 0);
             tableLayoutPanel1.Controls.Add(ChartProyeccionFutura, 2, 0);
 
-            // 
-            // Añadir controles al formulario
-            // 
+            // Controles al formulario
             Controls.Add(lblTitulo);
             Controls.Add(lblDesde);
             Controls.Add(DtpDesde);
@@ -191,9 +164,9 @@
             Controls.Add(BtnCerrar);
             Controls.Add(tableLayoutPanel1);
 
-            ((System.ComponentModel.ISupportInitialize)ChartVentasTorta).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ChartVentasBarras).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ChartProyeccionFutura).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(ChartVentasTorta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(ChartVentasBarras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(ChartProyeccionFutura)).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
